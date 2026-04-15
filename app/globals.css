@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================
+   IBV DESIGN SYSTEM TOKENS
+   ===================== */
+:root {
+  /* Primary */
+  --color-rainbow-red: #E30A13;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+
+  /* Secondary / Accent */
+  --color-blush-rose: #E54C73;
+  --color-ruby-red: #981727;
+  --color-coral-wine: #680717;
+
+  /* Greyscale */
+  --color-angora-white: #F6F6F8;
+  --color-tin: #E5E5E9;
+  --color-soothing-blue-grey: #D4D4DA;
+  --color-haze: #C3C3C8;
+  --color-cool-grey: #A8A8BC;
+  --color-pale-slate: #B9B9B5;
+  --color-anchor-gray: #555556;
+  --color-graphite: #222234;
+  --color-refresh-black: #111112;
+
+  /* Semantic */
+  --color-simple-green: #16AA4A;
+  --color-strong-amber: #F59B00;
+  --color-tangy-red: #F72222;
+  --color-mirror-blue: #206BEB;
+
+  /* Typography */
+  --font-primary: 'Hanken Grotesk', sans-serif;
+  --font-secondary: 'Instrument Sans', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --font-serif: 'Source Serif 4', serif;
+
+  /* Grid */
+  --grid-gutter: 16px;
+  --container-max: 1344px;
+  --container-padding: 0px;
+}
+
+/* =====================
+   BASE RESETS
+   ===================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-white);
+  color: var(--color-black);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* =====================
+   TYPOGRAPHY SCALE
+   ===================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+/* =====================
+   CONTAINER SYSTEM
+   ===================== */
+.container-ibv {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+@media (max-width: 1440px) {
+  .container-ibv {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+@media (max-width: 720px) {
+  :root {
+    --container-padding: 32px;
+  }
+  .container-ibv {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (max-width: 375px) {
+  :root {
+    --container-padding: 16px;
+  }
+  .container-ibv {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* =====================
+   BUTTON SYSTEM
+   ===================== */
+
+/* Primary - Red filled */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background-color: var(--color-rainbow-red);
+  color: var(--color-white);
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  background-color: #c00910;
+  transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  background-color: var(--color-haze);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Secondary - Outline red */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background-color: transparent;
+  color: var(--color-rainbow-red);
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 100px;
+  border: 1.5px solid var(--color-rainbow-red);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-rainbow-red);
+  color: var(--color-white);
+}
+
+/* Black filled */
+.btn-black {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-black:hover {
+  background-color: var(--color-graphite);
+}
+
+/* Black outline */
+.btn-outline-black {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background-color: transparent;
+  color: var(--color-black);
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 100px;
+  border: 1.5px solid var(--color-black);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-outline-black:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+/* Text / Ghost */
+.btn-text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background-color: transparent;
+  color: var(--color-rainbow-red);
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.btn-text:hover {
+  opacity: 0.75;
+}
+
+/* =====================
+   SCROLL REVEAL UTILITY
+   ===================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =====================
+   SECTION SPACING
+   ===================== */
+.section-padding {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+@media (max-width: 720px) {
+  .section-padding {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}
+
+/* =====================
+   TAG / CHIP
+   ===================== */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 100px;
+  border: 1px solid var(--color-tin);
+  color: var(--color-anchor-gray);
+  background: transparent;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* =====================
+   DIVIDER
+   ===================== */
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-tin);
+}
+
+/* =====================
+   SELECTION
+   ===================== */
+::selection {
+  background-color: var(--color-rainbow-red);
+  color: var(--color-white);
+}
+
+/* =====================
+   SCROLLBAR
+   ===================== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-angora-white);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-rainbow-red);
+  border-radius: 3px;
+}
