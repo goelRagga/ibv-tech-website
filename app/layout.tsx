@@ -13,14 +13,21 @@ export const metadata: Metadata = {
     'IBV Technologies helps businesses build, launch, and grow through strategic thinking, digital execution, and data-driven decisions.',
   keywords: ['business consulting', 'digital solutions', 'strategy', 'IBV Technologies'],
   authors: [{ name: 'IBV Technologies' }],
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://ibvtechnologies.com',
-    siteName: 'IBV Technologies',
-    title: 'IBV Technologies – Build What\'s Next.',
-    description: 'Strategic consulting, digital solutions and data-driven growth.',
-  },
+ openGraph: {
+  type: 'website',
+  locale: 'en_US',
+  url: 'https://ibv-tech-website-22f8.vercel.app',
+  siteName: 'IBV Technologies',
+  title: 'IBV Technologies – Build What\'s Next.',
+  description: 'Strategic consulting, digital solutions and data-driven growth.',
+  images: [
+    {
+      url: 'https://res.cloudinary.com/dm8jtnzdi/image/upload/v1776366515/IBVLOGO_rmkza1.png',
+      width: 1200,
+      height: 630,
+    },
+  ],
+},
   twitter: {
     card: 'summary_large_image',
     title: 'IBV Technologies',
