@@ -200,6 +200,29 @@ h1, h2, h3, h4, h5, h6 {
   background-color: var(--color-graphite);
 }
 
+/* White filled with red text */
+.btn-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background-color: var(--color-white);
+  color: var(--color-rainbow-red);
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-white:hover {
+  background-color: #f0f0f0;
+}
+
 /* Black outline */
 .btn-outline-black {
   display: inline-flex;

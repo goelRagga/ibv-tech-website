@@ -136,23 +136,11 @@ export function AboutSection() {
   return (
     <section
       ref={sectionRef}
-      style={{
-        background: "#E3020A",
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        position: "relative",
-        zIndex: 20,
-        overflow: "hidden",
-      }}
+      className="flex items-center relative z-20 overflow-hidden min-h-screen"
+      style={{ background: "#E3020A" }}
     >
       <div
-        style={{
-          width: "100%",
-          maxWidth: "95vw",
-          margin: "0 auto",
-          padding: "80px 32px",
-        }}
+        className="w-full max-w-[95vw] mx-auto py-10 px-4"
       >
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_520px] gap-12 lg:gap-16 items-start">
 
@@ -160,53 +148,29 @@ export function AboutSection() {
           <div>
             {/* Eyebrow */}
             <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-                marginBottom: "32px",
-              }}
+              className="flex items-center gap-1 mb-4"
             >
-              <span style={{ color: "rgba(255,255,255,0.55)", fontSize: "13px" }}>↳</span>
+              <span className="text-white/[0.55] text-[13px]">↳</span>
               <span
-                style={{
-                  fontSize: "11px",
-                  fontWeight: 500,
-                  letterSpacing: "0.18em",
-                  textTransform: "uppercase" as const,
-                  color: "rgba(255,255,255,0.55)",
-                }}
+                className="text-[11px] font-medium tracking-[0.18em] uppercase text-white/[0.55]"
               >
                 About{" "}
-                <span style={{ color: "white", fontWeight: 700 }}>Us</span>
+                <span className="text-white font-bold">Us</span>
               </span>
             </div>
 
             {/* Headline */}
             <h2
-              style={{
-                fontFamily: "'Source Serif 4', 'Playfair Display', Georgia, serif",
-                fontSize: "clamp(30px, 3.8vw, 56px)",
-                fontWeight: 700,
-                color: "white",
-                lineHeight: 1.1,
-                letterSpacing: "-0.02em",
-                margin: "0 0 48px 0",
-              }}
+              className="font-serif font-bold text-white leading-tight tracking-tight mb-6"
+              style={{ fontSize: "clamp(30px, 3.8vw, 56px)" }}
             >
               Where innovation meets intelligence.
             </h2>
 
             {/* Body paragraphs */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
+            <div className="flex flex-col gap-[18px]">
               <p
-                style={{
-                  fontSize: "14px",
-                  color: "rgba(255,255,255,0.72)",
-                  lineHeight: 1.75,
-                  maxWidth: "500px",
-                  margin: 0,
-                }}
+                className="text-body-sm text-white/[0.72] leading-7 max-w-[500px] m-0"
               >
                 At IBV Technologies, every engagement starts with a deep understanding of
                 your business, your market, and your goals. We focus on bringing clarity to
@@ -214,13 +178,7 @@ export function AboutSection() {
                 application.
               </p>
               <p
-                style={{
-                  fontSize: "14px",
-                  color: "rgba(255,255,255,0.72)",
-                  lineHeight: 1.75,
-                  maxWidth: "500px",
-                  margin: 0,
-                }}
+                className="text-body-sm text-white/[0.72] leading-7 max-w-[500px] m-0"
               >
                 Our work is shaped by insight, execution, and a strong focus on results. By
                 combining expertise across strategy, marketing, and technology, we ensure
@@ -230,12 +188,7 @@ export function AboutSection() {
 
             {/* Progress dots */}
             <div
-              style={{
-                display: "flex",
-                gap: "8px",
-                marginTop: "48px",
-                alignItems: "center",
-              }}
+              className="flex items-center gap-1 mt-6"
             >
               {services.map((_, i) => (
                 <div
@@ -302,12 +255,7 @@ export function AboutSection() {
                     {/* Number — visible on all cards */}
                     <div style={{ padding: "20px 20px 6px 20px" }}>
                       <span
-                        style={{
-                          fontWeight: 700,
-                          fontSize: "16px",
-                          letterSpacing: "-0.01em",
-                          color: "#0a0a0a",
-                        }}
+                        className="font-bold text-[16px] tracking-[-0.01em] text-[#0a0a0a]"
                       >
                         {service.number}
                       </span>
@@ -323,14 +271,7 @@ export function AboutSection() {
                       >
                         <div style={{ padding: "4px 20px 16px 20px" }}>
                           <h3
-                            style={{
-                              fontWeight: 700,
-                              fontSize: "23px",
-                              letterSpacing: "-0.02em",
-                              color: "#0a0a0a",
-                              margin: 0,
-                              lineHeight: 1.2,
-                            }}
+                            className="font-bold text-[23px] tracking-tight text-[#0a0a0a] m-0 leading-tight"
                           >
                             {service.title}
                           </h3>

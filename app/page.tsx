@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
+import { WhyChooseUsSection } from "@/components/sections/WhyChooseUsSection";
 import { BlogSection } from "@/components/sections/BlogSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { FAQSection } from "@/components/sections/FAQSection";
@@ -21,9 +22,10 @@ export default function HomePage() {
       <HeroSection />
 
       {/* These scroll normally after the hero+mission animation completes */}
-      <div style={{zIndex:20}}>
+      <div className="z-20">
         <AboutSection />
         <ServicesSection />
+        <WhyChooseUsSection />
         <GrowthSection />
         <BlogSection />
         <TestimonialsSection />

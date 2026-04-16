@@ -3,7 +3,7 @@ import { PageShell } from '@/components/ui/PageShell';
 import { ContactSection } from '@/components/sections/ContactSection';
 
 export const metadata: Metadata = {
-  title: 'Let's Build Something Together',
+  title: `Let's Build Something Together`,
 };
 
 export default function Page() {

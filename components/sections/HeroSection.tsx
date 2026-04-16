@@ -62,9 +62,9 @@ function FlyingLetter({
 
   return (
     <motion.span
+      className="font-serif"
       style={{
-        fontFamily: "'Playfair Display', 'Georgia', serif",
-        fontSize: "clamp(40px, 12vw, 200px)",
+        fontSize: "clamp(40px, 14vw, 220px)",
         fontWeight: 900,
         color: "white",
         letterSpacing: "-0.025em",
@@ -190,10 +190,9 @@ export function HeroSection() {
               </p>
             </div>
             <p
-              className="text-white font-semibold leading-snug mb-5 max-w-[820px]"
+              className="text-white font-semibold leading-snug mb-5 max-w-[820px] font-serif"
               style={{
                 fontSize: "clamp(22px, 3vw, 44px)",
-                fontFamily: "'Playfair Display', 'Georgia', serif",
               }}
             >
               We are IBV Technologies, a smarter way to build and grow

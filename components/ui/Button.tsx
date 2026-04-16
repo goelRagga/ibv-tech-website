@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ReactNode } from 'react';
 
-type ButtonVariant = 'primary' | 'secondary' | 'black' | 'outline-black' | 'text';
+type ButtonVariant = 'primary' | 'secondary' | 'black' | 'outline-black' | 'text' | 'white';
 type ButtonSize = 'sm' | 'md' | 'lg';
 
 interface ButtonProps {
@@ -22,6 +22,7 @@ const variantClasses: Record<ButtonVariant, string> = {
   black: 'btn-black',
   'outline-black': 'btn-outline-black',
   text: 'btn-text',
+  white: 'btn-white',
 };
 
 const sizeClasses: Record<ButtonSize, string> = {

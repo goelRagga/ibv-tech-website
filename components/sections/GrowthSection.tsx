@@ -50,8 +50,7 @@ export function GrowthSection() {
 
   const wordStyle: React.CSSProperties = {
     fontSize: "clamp(16px, 4vw, 52px)",
-    fontStyle: "italic",
-    fontFamily: "Georgia, 'Times New Roman', serif",
+    fontStyle: "normal",
     letterSpacing: "-0.01em",
     lineHeight: 1,
     whiteSpace: "nowrap",
@@ -89,7 +88,7 @@ export function GrowthSection() {
         }}>
           <div style={{ display: "flex", alignItems: "center" }}>
 
-            <span ref={growthRef} style={{ ...wordStyle, color: "#C8102E", paddingRight: "clamp(6px, 1.5vw, 16px)" }}>
+            <span ref={growthRef} className="font-serif" style={{ ...wordStyle, color: "#C8102E", paddingRight: "clamp(6px, 1.5vw, 16px)" }}>
               Growth
             </span>
 
@@ -100,15 +99,15 @@ export function GrowthSection() {
               alignItems: "center",
               justifyContent: "space-between",
             }}>
-              <span style={{ ...wordStyle, color: "white", textShadow: "0 2px 12px rgba(0,0,0,0.3)" }}>
+              <span className="font-serif" style={{ ...wordStyle, color: "white", textShadow: "0 2px 12px rgba(0,0,0,0.3)" }}>
                 Built
               </span>
-              <span style={{ ...wordStyle, color: "white", textShadow: "0 2px 12px rgba(0,0,0,0.3)" }}>
+              <span className="font-serif" style={{ ...wordStyle, color: "white", textShadow: "0 2px 12px rgba(0,0,0,0.3)" }}>
                 From
               </span>
             </div>
 
-            <span ref={basicsRef} style={{ ...wordStyle, color: "#C8102E", paddingLeft: "clamp(10px, 2.5vw, 32px)" }}>
+            <span ref={basicsRef} className="font-serif" style={{ ...wordStyle, color: "#C8102E", paddingLeft: "clamp(10px, 2.5vw, 32px)" }}>
               Basics
             </span>
 

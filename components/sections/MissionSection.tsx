@@ -94,29 +94,23 @@ function SlotNumber({
 // ── Dropping line + dot ─────────────────────────────────────────────────────
 function DroppingLine({ started, delay }: { started: boolean; delay: number }) {
   return (
-    <div style={{ position: "relative", marginBottom: "0px" }}>
+    <div className="relative mb-0">
       {/* Red dot */}
       <motion.div
         initial={{ scale: 0, opacity: 0 }}
         animate={started ? { scale: 1, opacity: 1 } : {}}
         transition={{ duration: 0.3, delay, ease: "backOut" }}
-        style={{
-          width: 10,
-          height: 10,
-          borderRadius: "50%",
-          background: "#E30A13",
-          marginBottom: 0,
-        }}
+        className="w-[10px] h-[10px] rounded-full bg-rainbow-red mb-0"
       />
       {/* Vertical line that grows downward */}
       <motion.div
         initial={{ scaleY: 0 }}
         animate={started ? { scaleY: 1 } : {}}
         transition={{ duration: 0.55, delay: delay + 0.2, ease: [0.4, 0, 0.2, 1] }}
+        className="bg-black/[0.12]"
         style={{
           width: 1,
           height: 140,
-          background: "rgba(0,0,0,0.12)",
           transformOrigin: "top center",
           marginLeft: 4.5,
         }}
@@ -133,16 +127,9 @@ export function MissionSection() {
   return (
     <section
       ref={sectionRef}
-      style={{
-        background: "white",
-        paddingTop: "56px",
-        paddingBottom: "0",
-        position: "relative",
-        height:"100vh",
-        zIndex: 20,
-      }}
+      className="bg-white pt-7 pb-0 relative h-screen z-20"
     >
-      <div style={{ maxWidth: "95vw", margin: "0 auto", padding: "0 32px" }}>
+      <div className="max-w-[95vw] mx-auto px-4">
 
         {/* ── Top row: eyebrow left, mission text right ── */}
         <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6 md:gap-16 items-start mb-10 md:mb-16">
@@ -151,19 +138,14 @@ export function MissionSection() {
             initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            style={{ display: "flex", alignItems: "center", gap: "8px", paddingTop: "4px" }}
+            className="flex items-center gap-1 pt-[4px]"
           >
-            <span style={{ fontSize: "13px" }}>↳</span>
+            <span className="text-[13px]">↳</span>
             <span
-              style={{
-                fontSize: "12px",
-                fontWeight: 500,
-                textTransform: "uppercase",
-                letterSpacing: "0.15em",
-              }}
+              className="text-caption font-medium uppercase tracking-[0.15em]"
             >
               Our{" "}
-              <span style={{ color: "#E30A13", fontWeight: 600 }}>Mission</span>
+              <span className="text-rainbow-red font-semibold">Mission</span>
             </span>
           </motion.div>
 
@@ -172,12 +154,9 @@ export function MissionSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+            className="font-medium leading-[1.55] text-[#0a0a0a] m-0"
             style={{
               fontSize: "clamp(18px, 2vw, 26px)",
-              fontWeight: 500,
-              lineHeight: 1.55,
-              color: "#0a0a0a",
-              margin: 0,
             }}
           >
             We help businesses build, launch, and grow through a combination of
@@ -210,14 +189,9 @@ export function MissionSection() {
               >
                 {/* Big number — slot machine */}
                 <div
+                  className="font-bold tracking-tight leading-none text-[#0a0a0a] mb-2 min-w-[120px]"
                   style={{
                     fontSize: "clamp(40px, 5vw, 68px)",
-                    fontWeight: 700,
-                    letterSpacing: "-0.02em",
-                    lineHeight: 1,
-                    color: "#0a0a0a",
-                    marginBottom: "16px",
-                    minWidth: "120px",
                   }}
                 >
                   <SlotNumber
@@ -230,11 +204,9 @@ export function MissionSection() {
 
                 {/* Label */}
                 <div
+                  className="font-bold text-[#0a0a0a] mb-[10px]"
                   style={{
                     fontSize: "clamp(14px, 1.2vw, 18px)",
-                    fontWeight: 700,
-                    color: "#0a0a0a",
-                    marginBottom: "10px",
                   }}
                 >
                   {stat.label}
@@ -242,13 +214,7 @@ export function MissionSection() {
 
                 {/* Desc */}
                 <p
-                  style={{
-                    fontSize: "13px",
-                    color: "#666",
-                    lineHeight: 1.65,
-                    margin: 0,
-                    maxWidth: "220px",
-                  }}
+                  className="text-[13px] text-[#666] leading-[1.65] m-0 max-w-[220px]"
                 >
                   {stat.desc}
                 </p>

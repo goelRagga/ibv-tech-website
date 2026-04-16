@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: 'Do you offer customized solutions?',
-    a: 'Absolutely. Every solution we build is tailored to your specific goals, challenges, and market. We don\'t believe in one-size-fits-all approaches.',
+    a: "Absolutely. Every solution we build is tailored to your specific goals, challenges, and market. We don't believe in one-size-fits-all approaches.",
   },
   {
     q: 'How do you measure success?',
@@ -28,32 +28,47 @@ const faqs = [
   },
 ];
 
-function FAQItem({ faq, isOpen, onToggle }: { faq: typeof faqs[0]; isOpen: boolean; onToggle: () => void }) {
+function FAQItem({
+  faq,
+  isOpen,
+  onToggle,
+}: {
+  faq: (typeof faqs)[0];
+  isOpen: boolean;
+  onToggle: () => void;
+}) {
   return (
-    <div className="border-b border-[#E5E5E9]">
+    <div className="bg-[#222224] rounded-[10px] overflow-hidden">
       <button
-        className="w-full flex items-center justify-between py-5 text-left gap-4 group"
+        className="w-full flex items-start justify-between gap-4 px-2 py-[18px] text-left"
         onClick={onToggle}
       >
-        <span className="text-sm font-semibold leading-snug group-hover:text-[#E30A13] transition-colors">
+        <span className="text-[15px] font-semibold text-white leading-snug flex-1">
           {faq.q}
         </span>
-        <div className={`flex-shrink-0 w-7 h-7 rounded-full border flex items-center justify-center transition-all ${
-          isOpen ? 'bg-[#E30A13] border-[#E30A13] text-white' : 'border-[#E5E5E9] text-[#555556]'
-        }`}>
+        <span
+          className={`flex-shrink-0 w-[30px] h-[30px] rounded-full border flex items-center justify-center transition-all duration-200 ${
+            isOpen
+              ? 'bg-[#555566] border-[#C3C3CB] text-white'
+              : 'border-[#444455] text-[#C3C3CB]'
+          }`}
+        >
           {isOpen ? <Minus size={12} /> : <Plus size={12} />}
-        </div>
+        </span>
       </button>
+
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
-            <p className="pb-5 text-sm text-[#555556] leading-relaxed">{faq.a}</p>
+            <p className="px-2 pb-[18px] text-body-sm text-[#C3C3CB] leading-relaxed text-left">
+              {faq.a}
+            </p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -65,37 +80,34 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="section-padding bg-[#F6F6F8]">
-      <div className="container-ibv">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-          {/* Left */}
-          <div className="lg:col-span-4">
-            <AnimateOnScroll>
-              <span className="tag mb-4">FAQs</span>
-            </AnimateOnScroll>
-            <AnimateOnScroll delay={0.1}>
-              <h2 className="text-3xl font-bold leading-tight tracking-tight mt-4">
-                Answering few of your questions
-              </h2>
-            </AnimateOnScroll>
-          </div>
+    <section className="bg-white">
+      <div className="max-w-[60vw] mx-auto px-6  pt-4 text-center">
+        {/* Header */}
+        <AnimateOnScroll>
+          <span className="inline-block text-[12px] font-semibold tracking-[0.08em] uppercase text-rainbow-red mb-2">
+            FAQs
+          </span>
+        </AnimateOnScroll>
 
-          {/* Right */}
-          <div className="lg:col-span-7 lg:col-start-6">
-            <AnimateOnScroll delay={0.15}>
-              <div className="border-t border-[#E5E5E9]">
-                {faqs.map((faq, i) => (
-                  <FAQItem
-                    key={i}
-                    faq={faq}
-                    isOpen={openIndex === i}
-                    onToggle={() => setOpenIndex(openIndex === i ? null : i)}
-                  />
-                ))}
-              </div>
-            </AnimateOnScroll>
+        <AnimateOnScroll delay={0.1}>
+          <h2 className="font-serif text-[clamp(32px,5vw,56px)] font-normal leading-[1.1] text-refresh-black mb-4">
+            Answering few of your questions
+          </h2>
+        </AnimateOnScroll>
+
+        {/* FAQ Card Container */}
+        <AnimateOnScroll delay={0.15}>
+          <div className="bg-[#000] rounded-2xl p-2 flex flex-col gap-[6px] mb-6">
+            {faqs.map((faq, i) => (
+              <FAQItem
+                key={i}
+                faq={faq}
+                isOpen={openIndex === i}
+                onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+              />
+            ))}
           </div>
-        </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );
