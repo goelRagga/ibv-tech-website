@@ -1,21 +1,11 @@
 import type { Metadata } from 'next';
-import { PageShell } from '@/components/ui/PageShell';
-import { ContactSection } from '@/components/sections/ContactSection';
+import { StartupConsultationClient } from './StartupConsultationClient';
 
 export const metadata: Metadata = {
-  title: 'Startup Consultation',
+  title: 'Startup Consultation | IBV Technologies',
+  description: 'We guide founders in turning ideas into scalable businesses through validation, business model development, and go-to-market planning.',
 };
 
 export default function Page() {
-  return (
-    <>
-      <PageShell
-        eyebrow="Consulting & Strategy"
-        title="Startup Consultation"
-        subtitle="We help businesses build, launch, and grow through a combination of strategic thinking, digital execution, and data-driven decisions."
-        dark={false}
-      />
-      <ContactSection />
-    </>
-  );
+  return <StartupConsultationClient />;
 }

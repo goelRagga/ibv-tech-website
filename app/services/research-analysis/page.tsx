@@ -1,21 +1,11 @@
 import type { Metadata } from 'next';
-import { PageShell } from '@/components/ui/PageShell';
-import { ContactSection } from '@/components/sections/ContactSection';
+import { ResearchAnalysisHubClient } from './ResearchAnalysisHubClient';
 
 export const metadata: Metadata = {
-  title: 'Research & Analysis',
+  title: 'Research & Analysis | IBV Technologies',
+  description: 'Structured market research, business research, and data analytics that turn information into actionable intelligence.',
 };
 
 export default function Page() {
-  return (
-    <>
-      <PageShell
-        eyebrow="Services"
-        title="Research & Analysis"
-        subtitle="We help businesses build, launch, and grow through a combination of strategic thinking, digital execution, and data-driven decisions."
-        dark={true}
-      />
-      <ContactSection />
-    </>
-  );
+  return <ResearchAnalysisHubClient />;
 }

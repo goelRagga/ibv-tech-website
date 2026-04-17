@@ -1,21 +1,11 @@
 import type { Metadata } from 'next';
-import { PageShell } from '@/components/ui/PageShell';
-import { ContactSection } from '@/components/sections/ContactSection';
+import { ContentStrategyClient } from './ContentStrategyClient';
 
 export const metadata: Metadata = {
-  title: 'Content Strategy & Marketing',
+  title: 'Content Strategy & Marketing | IBV Technologies',
+  description: 'Content strategies that align your brand with your audience needs — driving organic growth, authority, and measurable business outcomes.',
 };
 
 export default function Page() {
-  return (
-    <>
-      <PageShell
-        eyebrow="Content & Growth"
-        title="Content Strategy & Marketing"
-        subtitle="We help businesses build, launch, and grow through a combination of strategic thinking, digital execution, and data-driven decisions."
-        dark={false}
-      />
-      <ContactSection />
-    </>
-  );
+  return <ContentStrategyClient />;
 }

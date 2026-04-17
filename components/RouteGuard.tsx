@@ -5,9 +5,15 @@ import UnderDevelopmentPage from './UnderDevelopmentPage';
 
 export default function RouteGuard({ children, footer }: { children: React.ReactNode; footer: React.ReactNode }) {
   const pathname = usePathname();
-  const isHome = pathname === '/';
+  const allowedRoutes = [
+    '/',
+    '/services/consulting-strategy',
+    '/services/digital-solutions',
+    '/services/research-analysis',
+    '/services/content-growth',
+  ];
 
-  if (!isHome) {
+  if (!allowedRoutes.includes(pathname)) {
     return <UnderDevelopmentPage />;
   }
 

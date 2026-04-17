@@ -78,19 +78,19 @@ function ServicesDropdown({ onClose }: { onClose: () => void }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -6 }}
       transition={{ duration: 0.16 }}
-      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[840px] bg-[#0f0f10] border border-white/10 rounded-2xl shadow-2xl z-50 overflow-hidden"
+      className="absolute top-full  mt-3 w-[940px] bg-[#0f0f10] border border-white/10 rounded-2xl shadow-2xl z-50 overflow-hidden"
       onMouseLeave={onClose}
     >
-      <div className="grid grid-cols-4 p-8 gap-0">
+      <div className="grid grid-cols-4 p-4 gap-0">
         {servicesMenu.map((group, i) => (
           <div
             key={group.category}
-            className={`pr-6 last:pr-0 ${i > 0 ? "pl-6 border-l border-white/10" : ""}`}
+            className={`pr-4 last:pr-0 ${i > 0 ? "pl-4 border-l border-white/10" : ""}`}
           >
             <Link
               href={group.href}
               onClick={onClose}
-              className="block text-[10px] font-bold text-[#E30A13] uppercase tracking-[0.18em] mb-4 hover:text-red-400 transition-colors"
+              className="block text-[10px] font-bold text-[#E30A13] uppercase tracking-[0.18em] mb-2 hover:text-red-400 transition-colors"
             >
               {group.category}
             </Link>
@@ -121,10 +121,10 @@ function IndustryDropdown({ onClose }: { onClose: () => void }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -6 }}
       transition={{ duration: 0.16 }}
-      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[520px] bg-[#0f0f10] border border-white/10 rounded-2xl shadow-2xl z-50 overflow-hidden"
+      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[420px] bg-[#0f0f10] border border-white/10 rounded-2xl shadow-2xl z-50 overflow-hidden"
       onMouseLeave={onClose}
     >
-      <div className="p-8 grid grid-cols-2 gap-x-10 gap-y-3">
+      <div className="p-4 grid grid-cols-2 gap-x-10 gap-y-3">
         {industryMenu.map((item) => (
           <Link
             key={item.label}

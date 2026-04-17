@@ -1,21 +1,11 @@
 import type { Metadata } from 'next';
-import { PageShell } from '@/components/ui/PageShell';
-import { ContactSection } from '@/components/sections/ContactSection';
+import { ContentGrowthHubClient } from './ContentGrowthHubClient';
 
 export const metadata: Metadata = {
-  title: 'Content & Growth',
+  title: 'Content & Growth | IBV Technologies',
+  description: 'Content strategies and growth frameworks that connect your brand with the right audience and drive measurable results.',
 };
 
 export default function Page() {
-  return (
-    <>
-      <PageShell
-        eyebrow="Services"
-        title="Content & Growth"
-        subtitle="We help businesses build, launch, and grow through a combination of strategic thinking, digital execution, and data-driven decisions."
-        dark={true}
-      />
-      <ContactSection />
-    </>
-  );
+  return <ContentGrowthHubClient />;
 }

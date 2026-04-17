@@ -8,7 +8,24 @@ import {
   staggerItem,
 } from "@/components/ui/AnimateOnScroll";
 
-const blogs = [
+export interface BlogPost {
+  id: number;
+  category: string;
+  date: string;
+  title: string;
+  href: string;
+  image: string;
+}
+
+export interface BlogSectionProps {
+  label?: string;
+  heading?: React.ReactNode;
+  ctaText?: string;
+  ctaHref?: string;
+  blogs?: BlogPost[];
+}
+
+const defaultBlogs: BlogPost[] = [
   {
     id: 1,
     category: "Digital Agency",
@@ -35,15 +52,13 @@ const blogs = [
   },
 ];
 
-function BlogCard({ blog, index }: { blog: (typeof blogs)[0]; index: number }) {
+function BlogCard({ blog }: { blog: BlogPost }) {
   return (
     <motion.div variants={staggerItem}>
       <Link href={blog.href} className="group block">
-     
         <div className="grid grid-cols-[1fr_300px] items-center gap-10 py-4 border-b border-[#D8D8D8]">
           {/* ── LEFT COLUMN ── */}
           <div className="flex flex-col">
-            {/* Category tag + date */}
             <div className="flex items-center gap-3 mb-3">
               <span className="bg-white text-[#E30A13] text-[10px] font-bold tracking-[0.13em] uppercase px-3 py-1 rounded-full">
                 {blog.category}
@@ -53,12 +68,10 @@ function BlogCard({ blog, index }: { blog: (typeof blogs)[0]; index: number }) {
               </span>
             </div>
 
-            {/* Title */}
             <h3 className="font-serif text-[26px] font-semibold leading-[1.3] text-[#111112] mb-7 max-w-[460px] group-hover:text-[#E30A13] transition-colors">
               {blog.title}
             </h3>
 
-            {/* Read Now button */}
             <div>
               <span className="inline-block bg-[#111112] text-white text-[13px] font-semibold px-[26px] py-[10px] rounded-full group-hover:bg-[#E30A13] transition-colors">
                 Read Now
@@ -75,7 +88,6 @@ function BlogCard({ blog, index }: { blog: (typeof blogs)[0]; index: number }) {
                 className="w-full h-full object-cover"
               />
             ) : (
-              /* Placeholder that matches the dark-laptop-on-desk tone of the screenshot */
               <div className="w-full h-full bg-[#B0B0B0]" />
             )}
           </div>
@@ -85,17 +97,29 @@ function BlogCard({ blog, index }: { blog: (typeof blogs)[0]; index: number }) {
   );
 }
 
-export function BlogSection() {
+export function BlogSection({
+  label = "Blogs and Articles",
+  heading = (
+    <>
+      Thoughts, trends, and
+      <br />
+      practical business
+      <br />
+      insights
+    </>
+  ),
+  ctaText = "Read All Blogs",
+  ctaHref = "/insights/blogs",
+  blogs = defaultBlogs,
+}: BlogSectionProps) {
   return (
     <section className="bg-[#F5f5f5] pt-[60px]">
       <div className="px-8">
-     
         <div className="flex justify-between items-start gap-10 ">
           {/* Label */}
           <div className="pt-2">
             <AnimateOnScroll>
               <div className="flex items-center gap-1.5">
-                {/* Arrow icon — matches the ↳ in the image */}
                 <svg
                   className="text-[#E30A13] w-3 h-3 mt-px"
                   viewBox="0 0 12 12"
@@ -118,46 +142,39 @@ export function BlogSection() {
                   />
                 </svg>
                 <span className="text-[10px] font-bold tracking-[0.12em] uppercase text-[#111112]">
-                  Blogs and <span className="text-[#E30A13]">Articles</span>
+                  {label}
                 </span>
               </div>
             </AnimateOnScroll>
           </div>
 
-          
-
           {/* ── BLOG LIST ── */}
-          {/* Top border above the first card */}
           <div className="border-l border-[#D8D8D8] pl-4 mb-4">
             <div className="flex justify-between">
-            {/* Heading */}
-            <div>
-              <AnimateOnScroll delay={0.1}>
-                <h2 className="font-serif text-[44px] font-normal leading-[1.15] tracking-[-0.01em] text-[#111112]">
-                  Thoughts, trends, and
-                  <br />
-                  practical business
-                  <br />
-                  insights
-                </h2>
-              </AnimateOnScroll>
-            </div>
+              {/* Heading */}
+              <div>
+                <AnimateOnScroll delay={0.1}>
+                  <h2 className="font-serif text-[44px] font-normal leading-[1.15] tracking-[-0.01em] text-[#111112]">
+                    {heading}
+                  </h2>
+                </AnimateOnScroll>
+              </div>
 
-            {/* CTA Button */}
-            <div className="pt-1.5">
-              <AnimateOnScroll delay={0.2} direction="right">
-                <Link
-                  href="/insights/blogs"
-                  className="inline-block bg-[#E30A13] text-white text-[13px] font-semibold px-6 py-1 rounded-full hover:bg-[#c50910] transition-colors whitespace-nowrap"
-                >
-                  Read All Blogs
-                </Link>
-              </AnimateOnScroll>
+              {/* CTA Button */}
+              <div className="pt-1.5">
+                <AnimateOnScroll delay={0.2} direction="right">
+                  <Link
+                    href={ctaHref}
+                    className="inline-block bg-[#E30A13] text-white text-[13px] font-semibold px-6 py-1 rounded-full hover:bg-[#c50910] transition-colors whitespace-nowrap"
+                  >
+                    {ctaText}
+                  </Link>
+                </AnimateOnScroll>
+              </div>
             </div>
-          </div>
             <StaggerContainer staggerDelay={0.1}>
-              {blogs.map((blog, i) => (
-                <BlogCard key={blog.id} blog={blog} index={i} />
+              {blogs.map((blog) => (
+                <BlogCard key={blog.id} blog={blog} />
               ))}
             </StaggerContainer>
           </div>

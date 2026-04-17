@@ -5,7 +5,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 import { AnimateOnScroll } from '@/components/ui/AnimateOnScroll';
 
-const faqs = [
+export interface FAQItem {
+  q: string;
+  a: string;
+}
+
+export interface FAQSectionProps {
+  heading?: string;
+  faqs?: FAQItem[];
+}
+
+const defaultFaqs: FAQItem[] = [
   {
     q: 'What services does IBV Technologies offer?',
     a: 'IBV Technologies provides end-to-end solutions across strategy, business consulting, web development, market research, content strategy, content writing, and data analytics to help businesses build and grow.',
@@ -28,12 +38,12 @@ const faqs = [
   },
 ];
 
-function FAQItem({
+function FAQItemRow({
   faq,
   isOpen,
   onToggle,
 }: {
-  faq: (typeof faqs)[0];
+  faq: FAQItem;
   isOpen: boolean;
   onToggle: () => void;
 }) {
@@ -76,12 +86,15 @@ function FAQItem({
   );
 }
 
-export function FAQSection() {
+export function FAQSection({
+  heading = 'Answering few of your questions',
+  faqs = defaultFaqs,
+}: FAQSectionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
     <section className="bg-white">
-      <div className="max-w-[60vw] mx-auto px-6  pt-4 text-center">
+      <div className="max-w-[60vw] mx-auto px-6 pt-4 text-center">
         {/* Header */}
         <AnimateOnScroll>
           <span className="inline-block text-[12px] font-semibold tracking-[0.08em] uppercase text-rainbow-red mb-2">
@@ -91,7 +104,7 @@ export function FAQSection() {
 
         <AnimateOnScroll delay={0.1}>
           <h2 className="font-serif text-[clamp(32px,5vw,56px)] font-normal leading-[1.1] text-refresh-black mb-4">
-            Answering few of your questions
+            {heading}
           </h2>
         </AnimateOnScroll>
 
@@ -99,7 +112,7 @@ export function FAQSection() {
         <AnimateOnScroll delay={0.15}>
           <div className="bg-[#000] rounded-2xl p-2 flex flex-col gap-[6px] mb-6">
             {faqs.map((faq, i) => (
-              <FAQItem
+              <FAQItemRow
                 key={i}
                 faq={faq}
                 isOpen={openIndex === i}

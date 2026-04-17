@@ -1,21 +1,11 @@
 import type { Metadata } from 'next';
-import { PageShell } from '@/components/ui/PageShell';
-import { ContactSection } from '@/components/sections/ContactSection';
+import { SocialMediaClient } from './SocialMediaClient';
 
 export const metadata: Metadata = {
-  title: 'Social Media & Content Marketing',
+  title: 'Social Media & Content Marketing | IBV Technologies',
+  description: 'Platform-native social media management, content creation, community engagement, and paid social campaigns that grow your brand.',
 };
 
 export default function Page() {
-  return (
-    <>
-      <PageShell
-        eyebrow="Content & Growth"
-        title="Social Media & Content Marketing"
-        subtitle="We help businesses build, launch, and grow through a combination of strategic thinking, digital execution, and data-driven decisions."
-        dark={false}
-      />
-      <ContactSection />
-    </>
-  );
+  return <SocialMediaClient />;
 }

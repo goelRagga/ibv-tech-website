@@ -1,21 +1,11 @@
 import type { Metadata } from 'next';
-import { PageShell } from '@/components/ui/PageShell';
-import { ContactSection } from '@/components/sections/ContactSection';
+import { DigitalSolutionsHubClient } from './DigitalSolutionsHubClient';
 
 export const metadata: Metadata = {
-  title: 'Digital Solutions',
+  title: 'Digital Solutions | IBV Technologies',
+  description: 'From websites to mobile apps, IBV Technologies builds digital products that are fast, scalable, and built for growth.',
 };
 
 export default function Page() {
-  return (
-    <>
-      <PageShell
-        eyebrow="Services"
-        title="Digital Solutions"
-        subtitle="We help businesses build, launch, and grow through a combination of strategic thinking, digital execution, and data-driven decisions."
-        dark={true}
-      />
-      <ContactSection />
-    </>
-  );
+  return <DigitalSolutionsHubClient />;
 }

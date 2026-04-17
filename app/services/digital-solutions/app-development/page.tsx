@@ -1,21 +1,11 @@
 import type { Metadata } from 'next';
-import { PageShell } from '@/components/ui/PageShell';
-import { ContactSection } from '@/components/sections/ContactSection';
+import { AppDevelopmentClient } from './AppDevelopmentClient';
 
 export const metadata: Metadata = {
-  title: 'App Development',
+  title: 'App Development | IBV Technologies',
+  description: 'Native and cross-platform mobile applications built for real user behaviour, performance, and long-term reliability.',
 };
 
 export default function Page() {
-  return (
-    <>
-      <PageShell
-        eyebrow="Digital Solutions"
-        title="App Development"
-        subtitle="We help businesses build, launch, and grow through a combination of strategic thinking, digital execution, and data-driven decisions."
-        dark={false}
-      />
-      <ContactSection />
-    </>
-  );
+  return <AppDevelopmentClient />;
 }
