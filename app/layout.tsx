@@ -3,6 +3,7 @@ import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import RouteGuard from '@/components/RouteGuard';
+import { SmoothScrollProvider } from '@/components/providers/SmoothScrollProvider';
 
 export const metadata: Metadata = {
   title: {
@@ -56,9 +57,11 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <RouteGuard footer={<Footer />}>
-          {children}
-        </RouteGuard>
+        <SmoothScrollProvider>
+          <RouteGuard footer={<Footer />}>
+            {children}
+          </RouteGuard>
+        </SmoothScrollProvider>
       </body>
     </html>
   );

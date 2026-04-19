@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useLenis } from "lenis/react";
 
 const services = [
   {
@@ -32,6 +33,9 @@ export function AboutSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const lenis = useLenis();
+  const lenisRef = useRef(lenis);
+  lenisRef.current = lenis;
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
@@ -67,6 +71,7 @@ export function AboutSection() {
             if (!isInView.current) {
               isInView.current = true;
               pinActive.current = true;
+              lenisRef.current?.stop();
 
               // Coming from above (scrolling down into section) → start at 0
               // Coming from below (scrolling up into section) → start at max
@@ -78,6 +83,7 @@ export function AboutSection() {
           } else {
             isInView.current = false;
             pinActive.current = false;
+            lenisRef.current?.start();
           }
         });
       },
@@ -107,6 +113,7 @@ export function AboutSection() {
           scrollCount.current += 1;
         } else {
           // Used up all absorb budget — release downward
+          lenisRef.current?.start();
           pinActive.current = false;
         }
       } else if (goingUp) {
@@ -116,6 +123,7 @@ export function AboutSection() {
           scrollCount.current -= 1;
         } else {
           // Used up all absorb budget upward — release upward
+          lenisRef.current?.start();
           pinActive.current = false;
         }
       }
