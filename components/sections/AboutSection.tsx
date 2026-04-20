@@ -143,6 +143,7 @@ export function AboutSection() {
 
   return (
     <section
+      id="about"
       ref={sectionRef}
       className="flex items-center relative z-20 overflow-hidden min-h-screen"
       style={{ background: "#E3020A" }}

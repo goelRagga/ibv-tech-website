@@ -1,18 +1,16 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import { ServicePageHero }        from '@/components/sections/services/ServicePageHero';
-import { ServiceStatsSection }    from '@/components/sections/services/ServiceStatsSection';
-import { ServiceFullWidthBand }   from '@/components/sections/services/ServiceFullWidthBand';
-import { ServiceCardGrid }        from '@/components/sections/services/ServiceCardGrid';
-import { ServiceApproachSection } from '@/components/sections/services/ServiceApproachSection';
-import { ServiceWhyUsSection }    from '@/components/sections/services/ServiceWhyUsSection';
-import { ServiceFAQSection }      from '@/components/sections/services/ServiceFAQSection';
-import { ServiceContactSection }  from '@/components/sections/services/ServiceContactSection';
-import type { ServiceCardItem }   from '@/components/sections/services/ServiceCardGrid';
-import type { ApproachItem }      from '@/components/sections/services/ServiceApproachSection';
-import type { FAQItem }           from '@/components/sections/services/ServiceFAQSection';
-import type { ServiceStat }       from '@/components/sections/services/ServiceStatsSection';
+import { IndividualPageHeroSection } from '@/components/sections/services/IndividualPageHeroSection';
+import { ServiceStatsSection }       from '@/components/sections/services/ServiceStatsSection';
+import { ServiceCardGrid, ServiceFullWidthBand } from '@/components/sections/services/Servicebandandcardgrid';
+import { ServiceApproachSection }    from '@/components/sections/services/ServiceApproachSection';
+import { ServiceWhyUsSection }       from '@/components/sections/services/ServiceWhyUsSection';
+import { FAQSection }                from '@/components/sections/FAQSection';
+import { ContactSection }            from '@/components/sections/ContactSection';
+import type { ApproachItem }         from '@/components/sections/services/ServiceApproachSection';
+import type { FAQItem }              from '@/components/sections/FAQSection';
+import type { ServiceStat }          from '@/components/sections/services/ServiceStatsSection';
 
 function Icon({ children }: { children: ReactNode }) {
   return (
@@ -23,119 +21,169 @@ function Icon({ children }: { children: ReactNode }) {
 }
 
 const stats: ServiceStat[] = [
-  { value: '150+', label: 'Mobile applications delivered across iOS, Android, and cross-platform environments.' },
-  { value: '4.8★', label: 'Average app store rating across published apps — a direct measure of user satisfaction.' },
+  {
+    value: '10K+',
+    label: 'Applications define how users interact with your business.',
+  },
+  {
+    value: '90%',
+    label: 'Of user engagement today happens through mobile and web applications.',
+  },
 ];
 
-const services: ServiceCardItem[] = [
+const services: any[] = [
   {
-    title: 'iOS Development',
-    description: 'Native iPhone and iPad applications built with Swift — fast, polished, and optimised for Apple\'s design and performance standards.',
-    icon: <Icon><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></Icon>,
+    title: 'Custom Development',
+    description:
+      'We create mobile applications on iOS or Android based on business needs, ensuring usability, performance, and alignment with your goals.',
+    icon: (
+      <Icon>
+        <rect x="5" y="2" width="14" height="20" rx="2" />
+        <line x1="12" y1="18" x2="12.01" y2="18" />
+      </Icon>
+    ),
   },
   {
-    title: 'Android Development',
-    description: 'Native Android applications built with Kotlin — reliable, responsive, and designed for the diversity of Android device landscape.',
-    icon: <Icon><path d="M5 16a7 7 0 0114 0"/><line x1="8" y1="19" x2="8" y2="21"/><line x1="16" y1="19" x2="16" y2="21"/><rect x="3" y="10" width="18" height="8" rx="2"/></Icon>,
+    title: 'Cross-Platform Applications',
+    description:
+      'Development of cross-platform applications for wider accessibility, ensuring consistent user experience across devices.',
+    icon: (
+      <Icon>
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <line x1="8" y1="21" x2="16" y2="21" />
+        <line x1="12" y1="17" x2="12" y2="21" />
+      </Icon>
+    ),
   },
   {
-    title: 'Cross-Platform Apps',
-    description: 'Build once, deploy everywhere — high-quality cross-platform apps using React Native that deliver near-native experience on both iOS and Android.',
-    icon: <Icon><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></Icon>,
+    title: 'Enterprise Applications',
+    description:
+      'Building multifaceted enterprise application solutions designed to support complex workflows, operations, and large-scale business.',
+    icon: (
+      <Icon>
+        <rect x="2" y="7" width="20" height="14" rx="2" />
+        <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
+      </Icon>
+    ),
   },
   {
     title: 'UI/UX Design',
-    description: 'App interfaces designed for real users — intuitive navigation, clear visual hierarchy, and interactions that feel natural on mobile.',
-    icon: <Icon><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></Icon>,
+    description:
+      'Applications designed to deliver excellent user experiences, focusing on intuitive interfaces and interactions.',
+    icon: (
+      <Icon>
+        <circle cx="12" cy="12" r="10" />
+        <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+        <line x1="9" y1="9" x2="9.01" y2="9" />
+        <line x1="15" y1="9" x2="15.01" y2="9" />
+      </Icon>
+    ),
   },
   {
-    title: 'API & Backend Integration',
-    description: 'Connect your app to the data and services it needs — from REST APIs and third-party integrations to custom backend infrastructure.',
-    icon: <Icon><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></Icon>,
+    title: 'End-to-End Development',
+    description:
+      'We collaborate at all stages such as ideation and wireframing, development, testing, deployment, and support.',
+    icon: (
+      <Icon>
+        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+        <polyline points="16 7 22 7 22 13" />
+      </Icon>
+    ),
   },
   {
-    title: 'App Maintenance & Updates',
-    description: 'Ongoing support, bug fixes, OS compatibility updates, and feature releases to keep your app performing as the ecosystem evolves.',
-    icon: <Icon><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></Icon>,
+    title: 'Security and Scalability',
+    description:
+      'Designed for performance, security, and scalability, ensuring stability as your user base grows.',
+    icon: (
+      <Icon>
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </Icon>
+    ),
   },
 ];
 
 const approachItems: ApproachItem[] = [
   {
-    title: 'User-Centred Design',
-    description: 'Mobile users are unforgiving. We invest heavily in understanding how users will actually interact with the app before designing a single screen — using flow mapping, user stories, and prototype testing to validate decisions early.',
+    title: 'Lifecycle Ownership',
+    description:
+      'We work across the entire lifecycle, ensuring consistency from idea to deployment and beyond, which helps maintain alignment, reduce gaps between stages, and ensure the final application is built with clarity and continuity.',
   },
   {
-    title: 'Platform-Native Engineering',
-    description: 'We respect the conventions and patterns of each platform. iOS apps feel like iOS apps. Android apps feel like Android apps. This is not just aesthetics — it is about making users feel at home from the first tap.',
+    title: 'User-Centric Development',
+    description:
+      'Our approach to developing the application is user centric and therefore all interfaces are user friendly, features are functional and interactions are all really needed by the end user, ensuring the application is intuitive, relevant, and easy to adopt.',
   },
   {
-    title: 'Quality Assurance Throughout',
-    description: 'Testing is not a final stage — it runs throughout the entire development process. We catch issues early, test on real devices, and ensure the app meets quality standards before it reaches the app store.',
+    title: 'Impact-Driven Thinking',
+    description:
+      'From Concept to Code. From Code to Impact. Every application is built with a clear purpose and measurable impact, ensuring that what is developed not only functions correctly but also contributes directly to business outcomes and user value.',
   },
 ];
 
 const faqs: FAQItem[] = [
   {
-    q: 'Should I build a native or cross-platform app?',
-    a: 'It depends on your requirements, budget, and timeline. Native apps offer the best performance and platform integration but require separate codebases. Cross-platform apps like React Native deliver strong performance with a shared codebase at lower cost. We help you make the right choice for your specific product.',
+    q: 'What does application development involve?',
+    a: 'It includes designing, building, testing, and deploying applications based on business requirements. This ensures the application is functional, reliable, and aligned with user and business needs.',
   },
   {
-    q: 'Do you handle app store submission?',
-    a: 'Yes. We manage the entire app store submission process for both Apple App Store and Google Play Store, including all required assets, compliance checks, and technical requirements.',
+    q: 'Do you develop both mobile and web applications?',
+    a: 'Yes. We develop mobile, web, and cross-platform applications. This allows flexibility in how your application is accessed and used across different devices.',
   },
   {
-    q: 'Can you build on top of an existing app?',
-    a: 'Yes. We work with existing codebases — whether it is adding new features, fixing performance issues, redesigning the UI, or updating for new OS versions.',
+    q: 'Do you support the full lifecycle?',
+    a: 'Yes. From ideation and wireframing to deployment and support. This ensures continuity, better coordination, and smoother execution across all stages.',
   },
   {
-    q: 'How long does it take to build a mobile app?',
-    a: 'A straightforward app with defined features typically takes 3–5 months from kick-off to app store launch. More complex apps with custom backends, integrations, or advanced features can take 6–9 months.',
+    q: 'Are the applications scalable?',
+    a: 'Yes. Applications are built to be performance-driven, secure, and scalable. This ensures they can handle growth and increasing user demand over time.',
   },
   {
-    q: 'Do you provide post-launch maintenance?',
-    a: 'Yes. We offer ongoing maintenance, OS compatibility updates, performance monitoring, and feature development to ensure your app remains functional and competitive after launch.',
+    q: 'Do you focus on user experience?',
+    a: 'Yes. The approach is user centric to ensure usability and effectiveness. This helps improve adoption and overall interaction with the application.',
   },
 ];
 
 export function AppDevelopmentClient() {
   return (
     <div className="font-hanken bg-white text-[#111112]">
-      <ServicePageHero
-        breadcrumb="IBV Services / Digital Solutions"
-        title="App Development"
-        description="We build native and cross-platform mobile applications that are fast, reliable, and crafted around real user behaviour."
+
+      <IndividualPageHeroSection
+        eyebrow="Digital Solutions"
+        tagline1="Built for Real Problems."
+        tagline2="Designed for Real Users."
+        headlineTitle="App Development"
+        description="We develop applications that are built to solve real problems, deliver strong user experiences, and scale with your growth."
+        backgroundImage="https://res.cloudinary.com/dm8jtnzdi/image/upload/q_auto/f_auto/v1776713879/aPP_D_BG_eazpj9.png"
       />
 
       <ServiceStatsSection
         stats={stats}
-        description="A great mobile app is more than features — it is a seamless experience that users return to. We build applications that balance technical quality, intuitive design, and reliable performance across every device."
+        description="The business of the present day runs on mobile and web applications. We build and create application customisation to address real-world issues, design excellent user experiences, and expand along with your expanding goals."
       />
 
-      <ServiceFullWidthBand />
+      <ServiceFullWidthBand  imageSrc='https://res.cloudinary.com/dm8jtnzdi/image/upload/q_auto/f_auto/v1776713878/APP_D_BANNER_rae8mf.png'/>
 
       <ServiceCardGrid services={services} />
 
       <ServiceApproachSection
-        sectionLabel="How We Build"
-        overview="Mobile development requires a different discipline than web — tighter interaction patterns, stricter performance constraints, and platform-specific conventions that users expect. We bring that depth of understanding to every app we build."
+        sectionLabel="How We Think"
+        overview="Our approach focuses on building applications that work in real-world conditions. Every decision is aligned to usability, performance, and scalability, ensuring the application remains stable, relevant, and effective as your business grows."
         items={approachItems}
       />
 
       <ServiceWhyUsSection
-        heading="We build apps users actually use"
+        heading="We solve real business problems"
         paragraphs={[
-          'The mobile app market is saturated — users have high expectations and low patience. Apps that survive and grow are the ones built around real behaviour, tested with real users, and maintained with genuine care after launch.',
-          'We treat every app as a living product, not a one-time deliverable. Our involvement continues through updates, improvements, and optimisations that keep your app competitive and your users engaged.',
+          "We don't approach application development as a technical exercise alone. Every application directly influences how users interact with and perceive your business. We take the time to understand your goals, workflows, and user needs before recommending any solution.",
+          "This ensures that every decision is grounded in your reality and aligned with your growth stage. It also helps us prioritise what matters most at each phase, avoiding unnecessary complexity and keeping development focused and effective.",
         ]}
+        imageSrc="https://res.cloudinary.com/dm8jtnzdi/image/upload/q_auto/f_auto/v1776713878/aPP-D_whywechoose_jaxcep.png"
       />
 
-      <ServiceFAQSection faqs={faqs} />
+      <FAQSection faqs={faqs} />
 
-      <ServiceContactSection
-        heading={"Let's build your\nmobile app together."}
-        services={['App Development', 'Web Development', 'Business Consultation', 'Research & Analysis', 'Content & Growth']}
-      />
+      <ContactSection />
+
     </div>
   );
 }

@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 export interface ApproachItem {
   title: string;
@@ -8,71 +8,125 @@ export interface ApproachItem {
 }
 
 interface ServiceApproachSectionProps {
-  /** Red label above the overview e.g. "How We Think" */
   sectionLabel?: string;
-  /** Introductory paragraph below the label */
   overview: string;
   items: ApproachItem[];
 }
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 0, y: 24 },
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
   }),
 };
 
 export function ServiceApproachSection({
-  sectionLabel = 'How We Think',
+  sectionLabel = "How We Think",
   overview,
   items,
 }: ServiceApproachSectionProps) {
-  return (
-    <section className="py-20 lg:py-28 bg-white">
-      <div className="max-w-[1344px] mx-auto px-6 lg:px-12">
+  // Split label into regular + red highlight (last word is red)
+  const labelWords = sectionLabel.trim().split(" ");
+  const labelRed = labelWords.pop();
+  const labelPlain = labelWords.join(" ");
 
-        {/* Header */}
+  return (
+    <section
+      className="bg-white"
+      style={{ padding: "clamp(56px, 7vw, 100px) 0" }}
+    >
+      <div className="max-w-[1344px] mx-auto px-6 lg:px-12">
+        {/* ── TOP: label left | large overview right ── */}
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={{ once: true, margin: "-60px" }}
           variants={fadeUp}
-          className="mb-12"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12"
+          style={{ marginBottom: "clamp(40px, 6vw, 72px)" }}
         >
-          <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#E30A13] mb-4">
-            <span className="w-4 h-px bg-[#E30A13]" />
-            {sectionLabel}
-          </span>
-          <p className="text-[15px] text-[#555556] leading-relaxed mt-4 max-w-2xl">
-            {overview}
-          </p>
-        </motion.div>
+          {/* Left: eyebrow label */}
+          <div className="lg:col-span-3 pt-1">
+            <div className="flex items-center gap-2">
+              <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
+                <path
+                  d="M1 7H17M11 1L17 7L11 13"
+                  stroke="#111112"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span
+                className="font-bold uppercase"
+                style={{
+                  fontSize: "11px",
+                  letterSpacing: "0.15em",
+                  color: "#111112",
+                }}
+              >
+                {labelPlain}{" "}
+                <span style={{ color: "#E30A13" }}>{labelRed}</span>
+              </span>
+            </div>
+          </div>
 
-        {/* Row list */}
-        <div className="border-t border-[#E5E5E9]">
-          {items.map((item, i) => (
-            <motion.div
-              key={item.title}
-              custom={i * 0.1}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-40px' }}
-              variants={fadeUp}
+          {/* Right: large bold overview */}
+          <div className=" flex flex-col gap-6 lg:col-span-9">
+            <p
+              className="font-semibold text-[#111112] leading-tight"
+              style={{
+                fontSize: "clamp(22px, 2.8vw, 34px)",
+                letterSpacing: "-0.02em",
+              }}
             >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 py-8 border-b border-[#E5E5E9]">
-                <div className="lg:col-span-3">
-                  <h3 className="text-[14px] font-bold text-[#111112]">{item.title}</h3>
-                </div>
-                <div className="lg:col-span-7 lg:col-start-5">
-                  <p className="text-[14px] text-[#555556] leading-relaxed">{item.description}</p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              {overview}
+            </p>
+            {/* ── ROWS: title left | description right ── */}
+            <div style={{ borderTop: "1px solid #E8E8E8" }}>
+              {items.map((item, i) => (
+                <motion.div
+                  key={item.title}
+                  custom={i * 0.08}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-40px" }}
+                  variants={fadeUp}
+                  className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6"
+                  style={{
+                    padding: "clamp(24px, 3.5vw, 40px) 0",
+                    borderBottom: "1px solid #E8E8E8",
+                  }}
+                >
+                  {/* Title */}
+                  <div className="lg:col-span-4 ">
+                    <h3
+                      className="font-semibold text-[#111112] leading-snug  "
+                      style={{ fontSize: "clamp(14px, 1.4vw, 18px)",  fontFamily: "var(--font-serif)", }}
+                    >
+                      {item.title}
+                    </h3>
+                  </div>
 
+                  {/* Description */}
+                  <div className="lg:col-span-6 lg:col-start-6 ">
+                    <p
+                      className="text-[#76767F]"
+                      style={{
+                        fontSize: "clamp(12px, 1vw, 13px)",
+                        lineHeight: 1.75,
+                      }}
+                    >
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

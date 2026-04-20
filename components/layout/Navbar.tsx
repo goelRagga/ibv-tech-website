@@ -57,7 +57,7 @@ const industryMenu = [
 
 const mainNav = [
   { label: "Insights", href: "/insights" },
-  { label: "About", href: "/about" },
+  { label: "About", href: "/#about" },
   { label: "Careers", href: "/careers" },
 ];
 
@@ -195,7 +195,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
           <Link key={item.label} href={item.href} onClick={onClose} className="block py-4 text-white text-sm font-semibold uppercase tracking-wider border-b border-white/10">{item.label}</Link>
         ))}
         <div className="pt-8">
-          <Link href="/contact" onClick={onClose} className="block w-full text-center bg-[#E30A13] text-white font-bold py-3 rounded-full text-sm uppercase tracking-wider hover:bg-red-700 transition-colors">
+          <Link href="/#contact" onClick={onClose} className="block w-full text-center bg-[#E30A13] text-white font-bold py-3 rounded-full text-sm uppercase tracking-wider hover:bg-red-700 transition-colors">
             Contact Us
           </Link>
         </div>
@@ -263,7 +263,7 @@ export function Navbar() {
           {/* CTA */}
           <div className="hidden md:flex">
             <Link
-              href="/contact"
+              href="/#contact"
               className="bg-[#E30A13] hover:bg-red-700 transition-colors text-white font-bold text-sm px-7 py-2.5 rounded-full uppercase tracking-wide"
             >
               Contact Us

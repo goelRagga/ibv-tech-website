@@ -1,141 +1,222 @@
-'use client';
+"use client";
 
-import type { ReactNode } from 'react';
-import { ServicePageHero }        from '@/components/sections/services/ServicePageHero';
-import { ServiceStatsSection }    from '@/components/sections/services/ServiceStatsSection';
-import { ServiceFullWidthBand }   from '@/components/sections/services/ServiceFullWidthBand';
-import { ServiceCardGrid }        from '@/components/sections/services/ServiceCardGrid';
-import { ServiceApproachSection } from '@/components/sections/services/ServiceApproachSection';
-import { ServiceWhyUsSection }    from '@/components/sections/services/ServiceWhyUsSection';
-import { ServiceFAQSection }      from '@/components/sections/services/ServiceFAQSection';
-import { ServiceContactSection }  from '@/components/sections/services/ServiceContactSection';
-import type { ServiceCardItem }   from '@/components/sections/services/ServiceCardGrid';
-import type { ApproachItem }      from '@/components/sections/services/ServiceApproachSection';
-import type { FAQItem }           from '@/components/sections/services/ServiceFAQSection';
-import type { ServiceStat }       from '@/components/sections/services/ServiceStatsSection';
+import type { ReactNode } from "react";
+import { IndividualPageHeroSection } from "@/components/sections/services/IndividualPageHeroSection";
+import { ServiceStatsSection } from "@/components/sections/services/ServiceStatsSection";
+import {
+  ServiceCardGrid,
+  ServiceFullWidthBand,
+} from "@/components/sections/services/Servicebandandcardgrid";
+import { ServiceApproachSection } from "@/components/sections/services/ServiceApproachSection";
+import { ServiceWhyUsSection } from "@/components/sections/services/ServiceWhyUsSection";
+import { FAQSection } from "@/components/sections/FAQSection";
+import { ContactSection } from "@/components/sections/ContactSection";
+import type { ApproachItem } from "@/components/sections/services/ServiceApproachSection";
+import type { FAQItem } from "@/components/sections/FAQSection";
+import type { ServiceStat } from "@/components/sections/services/ServiceStatsSection";
+import type { WhyUsItem } from "@/components/sections/services/ServiceWhyUsSection";
 
 function Icon({ children }: { children: ReactNode }) {
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+    >
       {children}
     </svg>
   );
 }
 
 const stats: ServiceStat[] = [
-  { value: '1M+', label: 'Data records processed and analysed across client analytics engagements.' },
-  { value: '40%', label: 'Average reduction in decision cycle time for teams using our analytics dashboards.' },
+  {
+    value: "20K+",
+    label:
+      "Data points processed to generate structured insights and performance visibility.",
+  },
+  {
+    value: "85%",
+    label:
+      "Of business decisions improve with data-driven analysis and interpretation.",
+  },
 ];
 
-const services: ServiceCardItem[] = [
+const services: any[] = [
   {
-    title: 'Data Collection & Integration',
-    description: 'Bring together data from multiple sources — CRM, marketing platforms, operations, and financials — into a unified, clean dataset.',
-    icon: <Icon><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></Icon>,
+    title: "Predictive Modeling",
+    description:
+      "Build models to forecast trends, anticipate outcomes, and support proactive decision-making.",
+    icon: (
+      <Icon>
+        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+        <polyline points="16 7 22 7 22 13" />
+      </Icon>
+    ),
   },
   {
-    title: 'Data Cleaning & Preparation',
-    description: 'Transform raw, messy data into analysis-ready datasets — removing duplicates, handling missing values, and standardising formats.',
-    icon: <Icon><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></Icon>,
+    title: "Statistical Analysis",
+    description:
+      "Apply analytical techniques to identify patterns, relationships, and performance insights within data.",
+    icon: (
+      <Icon>
+        <path d="M2 20h20M6 20V10M12 20V4M18 20v-7" />
+      </Icon>
+    ),
   },
   {
-    title: 'Descriptive Analytics',
-    description: 'Understand what has happened in your business through structured analysis of historical data — trends, patterns, anomalies, and performance drivers.',
-    icon: <Icon><path d="M2 20h20M6 20V10M12 20V4M18 20v-7"/></Icon>,
+    title: "Data Collection & Processing",
+    description:
+      "Collect, clean, and structure data from multiple sources to ensure accuracy and usability for analysis.",
+    icon: (
+      <Icon>
+        <ellipse cx="12" cy="5" rx="9" ry="3" />
+        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+      </Icon>
+    ),
   },
   {
-    title: 'Predictive Modelling',
-    description: 'Use historical patterns to forecast future outcomes — customer behaviour, demand trends, revenue projections, and operational scenarios.',
-    icon: <Icon><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></Icon>,
+    title: "Dashboard Development",
+    description:
+      "Create interactive dashboards to visualize data clearly and track performance in real time.",
+    icon: (
+      <Icon>
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <line x1="8" y1="21" x2="16" y2="21" />
+        <line x1="12" y1="17" x2="12" y2="21" />
+      </Icon>
+    ),
   },
   {
-    title: 'Data Visualisation',
-    description: 'Transform complex datasets into clear, compelling visual stories that communicate insight quickly to decision-makers at every level.',
-    icon: <Icon><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></Icon>,
+    title: "Custom Research Analytics",
+    description:
+      "Deliver tailored analytics solutions based on specific business problems, datasets, and objectives.",
+    icon: (
+      <Icon>
+        <rect x="3" y="3" width="7" height="7" rx="1" />
+        <rect x="14" y="3" width="7" height="7" rx="1" />
+        <rect x="3" y="14" width="7" height="7" rx="1" />
+        <rect x="14" y="14" width="7" height="7" rx="1" />
+      </Icon>
+    ),
   },
   {
-    title: 'Dashboards & Reporting',
-    description: 'Build live or scheduled dashboards that give your team ongoing visibility into the metrics that matter most for your business.',
-    icon: <Icon><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></Icon>,
+    title: "Performance Reporting",
+    description:
+      "Develop structured reports to monitor key metrics and evaluate business performance regularly.",
+    icon: (
+      <Icon>
+        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+        <polyline points="14 2 14 8 20 8" />
+        <line x1="16" y1="13" x2="8" y2="13" />
+        <line x1="16" y1="17" x2="8" y2="17" />
+      </Icon>
+    ),
   },
 ];
 
 const approachItems: ApproachItem[] = [
   {
-    title: 'Rigorous Analytical Methodology',
-    description: 'We apply statistical rigour to every data project — choosing appropriate methods, validating assumptions, and communicating confidence levels clearly. Data analysis that cuts corners produces misleading conclusions, and we do not allow that.',
+    title: "Data Clarity",
+    description:
+      "We focus on cleaning, structuring, and organizing data to ensure accuracy before analysis. This reduces errors and ensures that insights are reliable and consistent, creating a strong foundation for meaningful analysis and decision-making.",
   },
   {
-    title: 'Insight-Driven, Not Data-Dumping',
-    description: 'More data is not better data. We focus on surfacing the insights that drive decisions — filtering noise, prioritising signal, and presenting findings in a way that is immediately useful for the people who need to act on them.',
+    title: "Insight Driven",
+    description:
+      "We go beyond raw numbers to identify patterns, trends, and relationships within the data. This ensures that insights are meaningful and aligned with business objectives, helping transform complex datasets into a clear, actionable direction.",
   },
   {
-    title: 'Scalable Data Infrastructure',
-    description: 'Where we set up analytics systems — pipelines, dashboards, or models — we build them to scale with your business. Clean architecture today prevents expensive rebuilds tomorrow.',
+    title: "Decision Focus",
+    description:
+      "Analytics supports decisions, not just reports. We connect insights to business outcomes and performance improvements, ensuring data guides strategy and execution across teams and business functions.",
+  },
+];
+
+const whyUsItems: WhyUsItem[] = [
+  {
+    heading: "We turn data into decisions",
+    body: "Data without interpretation has limited value. We focus on converting data into clear insights that support real business decisions. This ensures that teams can act quickly and confidently using reliable information, bridging the gap between analysis and action.",
+  },
+  {
+    heading: "We ensure clean, structured data",
+    body: "Effective analytics depends on clean and structured data. We ensure that data is processed and organized before analysis. This improves the reliability of insights and reduces the risk of incorrect conclusions, creating consistency across reporting and decision-making.",
+  },
+  {
+    heading: "We make insights easy to use",
+    body: "We present analytics through dashboards, reports, and clear formats that are easy to understand and use across teams without complexity. Clear visualization helps teams quickly interpret data and act without delays — reducing dependency on technical teams.",
+  },
+  {
+    heading: "We support performance visibility",
+    body: "We help businesses track key metrics, monitor trends, and understand performance in real time. Real-time visibility allows teams to identify issues early and take corrective action quickly, enabling continuous improvement through data.",
   },
 ];
 
 const faqs: FAQItem[] = [
   {
-    q: 'What kinds of data can you work with?',
-    a: 'We work with structured and semi-structured data from a wide range of sources — CRM systems, marketing platforms, financial systems, operational databases, e-commerce platforms, and more. We can connect to most major data sources.',
+    q: "What does data analytics and research involve?",
+    a: "It involves collecting, processing, and analyzing data to generate insights that support business decisions. This includes statistical analysis, dashboards, and predictive modeling. It helps businesses understand performance and identify trends clearly.",
   },
   {
-    q: 'Do I need a large data set to benefit from analytics?',
-    a: 'No. Even with relatively small datasets, structured analytics can reveal meaningful patterns and drive better decisions. The value is in the interpretation and structure, not just the volume of data.',
+    q: "How can data analytics help my business?",
+    a: "It helps improve visibility into operations, customer behavior, and performance metrics. This enables faster, more informed decisions. It also helps identify opportunities and optimize business processes.",
   },
   {
-    q: 'What does a data analytics engagement typically deliver?',
-    a: 'Deliverables depend on scope. Common outputs include analytical reports with key findings, interactive dashboards, predictive models, and data infrastructure improvements. We tailor the deliverable to your specific use case.',
+    q: "Do you provide dashboards and reporting?",
+    a: "Yes, we create dashboards and structured reports to help track performance and visualize data. This ensures that insights are easy to understand and accessible across teams.",
   },
   {
-    q: 'Can you build dashboards we can use ongoing?',
-    a: 'Yes. We build dashboards that your team can access and use independently — with appropriate training and documentation. We also offer ongoing dashboard maintenance and development as your reporting needs evolve.',
+    q: "Can you work with existing data systems?",
+    a: "Yes, we can integrate and analyze data from your existing systems and tools. This ensures continuity while improving the way data is used for decision-making.",
   },
   {
-    q: 'How do you handle data privacy and security?',
-    a: 'Data security and privacy are built into every engagement. We follow strict data handling protocols, work within your existing security framework, and ensure all data is processed in compliance with applicable regulations.',
+    q: "What makes your analytics approach different?",
+    a: "We focus on making data usable, not just analyzing it. Our approach ensures insights are clear, actionable, and aligned with business goals. This helps organizations move from data collection to real impact.",
   },
 ];
 
 export function DataAnalyticsClient() {
   return (
     <div className="font-hanken bg-white text-[#111112]">
-      <ServicePageHero
-        breadcrumb="IBV Services / Research & Analysis"
-        title="Data Analytics & Research"
-        description="We collect, clean, analyse, and visualise data to surface the patterns and insights that drive smarter decisions across your business."
+      <IndividualPageHeroSection
+        eyebrow="Research & Analysis"
+        tagline1="From Raw Data."
+        tagline2="To Real Decisions."
+        headlineTitle="Data & Analytics"
+        description="We transform raw data into structured insights through analytics, modeling, and reporting, helping you understand performance, identify trends, and make faster, data-driven decisions."
+        backgroundImage="https://res.cloudinary.com/dm8jtnzdi/image/upload/q_auto/f_auto/v1776714607/DA_BFG_dqpntx.png"
       />
 
       <ServiceStatsSection
         stats={stats}
-        description="Data is only valuable when it tells you something you can act on. We turn raw business data into structured intelligence — through rigorous analysis, clear visualisation, and reporting built around the decisions that matter most."
+        description="Data alone does not create value. What matters is how it is processed, analyzed, and used. IBV Technologies helps convert raw data into meaningful insights that improve visibility, support decisions, and drive measurable outcomes across your business."
       />
 
-      <ServiceFullWidthBand />
+      <ServiceFullWidthBand imageSrc="https://res.cloudinary.com/dm8jtnzdi/image/upload/q_auto/f_auto/v1776714606/DA_BANNER_uwvba5.png" />
 
       <ServiceCardGrid services={services} />
 
       <ServiceApproachSection
-        sectionLabel="How We Analyse"
-        overview="Analytics without structure produces noise. We bring methodological rigour to every data project — defining the right questions, selecting the right methods, and delivering findings in a form that is immediately useful for decision-making."
+        sectionLabel="How We Think"
+        overview="Data becomes valuable only when it is structured, analyzed, and translated into clear, actionable insights. Our approach focuses on accuracy, clarity, and usability to ensure that analytics consistently supports real business decisions, not just reporting, across teams and business functions."
         items={approachItems}
       />
 
       <ServiceWhyUsSection
-        heading="We make data work for your business"
+        heading="We turn data into decisions"
         paragraphs={[
-          'Most businesses have more data than they use effectively. The challenge is not collection — it is structure, analysis, and interpretation. We help organisations close the gap between raw data and real decisions.',
-          'Whether you need a one-off analytical project or an ongoing analytics capability, we build the infrastructure and insights that keep your business running on evidence rather than intuition.',
+          "Data without interpretation has limited value. We focus on converting data into clear insights that support real business decisions.",
+          "This ensures that teams can act quickly and confidently using reliable information. It bridges the gap between analysis and action.",
         ]}
+        imageSrc="https://res.cloudinary.com/dm8jtnzdi/image/upload/q_auto/f_auto/v1776714607/DA_RECT_ewonpa.png"
       />
 
-      <ServiceFAQSection faqs={faqs} />
+      <FAQSection faqs={faqs} />
 
-      <ServiceContactSection
-        heading={"Let's unlock the value\nin your data."}
-        services={['Data Analytics & Research', 'Market Research', 'Business Research', 'Business Consultation', 'Digital Solutions']}
-      />
+      <ContactSection />
     </div>
   );
 }

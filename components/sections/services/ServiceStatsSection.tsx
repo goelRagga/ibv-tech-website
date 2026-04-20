@@ -16,7 +16,7 @@ interface ServiceStatsSectionProps {
 }
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 0, y: 20 },
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
@@ -31,51 +31,101 @@ export function ServiceStatsSection({
   ctaHref = '/contact',
 }: ServiceStatsSectionProps) {
   return (
-    <section className="py-20 lg:py-24 bg-white">
-      <div className="max-w-[1344px] mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+    <section className="bg-white" style={{ borderTop: '1px solid #EBEBEB', borderBottom: '1px solid #EBEBEB' }}>
+      <div className=" mx-auto py-4">
+        <div className="flex flex-col lg:flex-row items-start min-h-[160px] px-3">
 
-          {/* ── Stat cards ── */}
-          <div className="lg:col-span-5">
-            <div className="grid grid-cols-2 gap-5">
-              {stats.map((stat, i) => (
-                <motion.div
-                  key={stat.value}
-                  custom={i * 0.12}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: '-60px' }}
-                  variants={fadeUp}
-                >
-                  <div className="bg-[#F6F6F8] rounded-2xl p-6 h-full">
-                    <p className="text-[44px] font-bold text-[#E30A13] leading-none mb-3 tracking-tight">
-                      {stat.value}
-                    </p>
-                    <p className="text-[12px] text-[#555556] leading-snug">{stat.label}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* ── Description + CTA ── */}
-          <div className="lg:col-span-6 lg:col-start-7 flex flex-col justify-center gap-8">
+          {/* ── Stats: one column per stat, each separated by a divider ── */}
+          {stats.map((stat, i) => (
             <motion.div
-              custom={0.1}
+              key={stat.value}
+              custom={i * 0.1}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: '-60px' }}
               variants={fadeUp}
+              className="flex items-center"
             >
-              <p className="text-[15px] text-[#555556] leading-relaxed mb-8">{description}</p>
-              <Link
-                href={ctaHref}
-                className="inline-flex items-center bg-[#E30A13] hover:bg-[#c8000a] text-white text-sm font-semibold px-7 py-3.5 rounded-full transition-colors duration-200"
+              {/* Divider before each stat (including first — acts as left edge visual) */}
+              {i > 0 && (
+                <div
+                  className="self-stretch flex-shrink-0"
+                  style={{ width: '1px', background: '#DCDCDC', margin: '0' }}
+                />
+              )}
+
+              {/* Stat content */}
+              <div
+                className="flex flex-col justify-center py-8 lg:py-10"
+                style={{ padding: '32px 40px 32px 40px', minWidth: '250px' }}
               >
-                {ctaText}
-              </Link>
+                <p
+                  className="font-bold text-[#111112] leading-none"
+                  style={{ fontSize: 'clamp(48px, 5.5vw, 72px)', letterSpacing: '-0.03em', marginBottom: '14px' }}
+                >
+                  {stat.value}
+                </p>
+                <p
+                  className="text-[#666]"
+                  style={{ fontSize: '13px', lineHeight: '1.6', maxWidth: '250px' }}
+                >
+                  {stat.label}
+                </p>
+              </div>
             </motion.div>
-          </div>
+          ))}
+
+          {/* ── Vertical divider before description ── */}
+          <div
+            className="self-stretch flex-shrink-0 hidden lg:block"
+            style={{ width: '1px', background: '#DCDCDC' }}
+          />
+
+          {/* ── Description ── */}
+          <motion.div
+            custom={0.2}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+            variants={fadeUp}
+            className="flex items-center flex-1 py-8 lg:py-0"
+            style={{ padding: '32px 40px' }}
+          >
+            <p
+              className="text-[#444]"
+              style={{ fontSize: '14px', lineHeight: '1.75', maxWidth: '340px' }}
+            >
+              {description}
+            </p>
+          </motion.div>
+
+     
+          {/* ── CTA ── */}
+          <motion.div
+            custom={0.28}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+            variants={fadeUp}
+            className="flex items-center justify-center flex-shrink-0 py-8 lg:py-0"
+            style={{ padding: '32px 40px' }}
+          >
+            <Link
+              href={ctaHref}
+              className="inline-flex items-center justify-center font-semibold text-white transition-colors duration-200 whitespace-nowrap"
+              style={{
+                background: '#E30A13',
+                fontSize: '14px',
+                padding: '6px 34px',
+                borderRadius: '999px',
+                letterSpacing: '0.01em',
+              }}
+              onMouseEnter={e => (e.currentTarget.style.background = '#c8000a')}
+              onMouseLeave={e => (e.currentTarget.style.background = '#E30A13')}
+            >
+              {ctaText}
+            </Link>
+          </motion.div>
 
         </div>
       </div>

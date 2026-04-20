@@ -1,104 +1,188 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+
+export interface WhyUsItem {
+  heading: string;
+  body: string;
+}
 
 interface ServiceWhyUsSectionProps {
   heading: string;
-  /** Array of paragraph strings displayed under the heading */
-  paragraphs: string[];
-  /** Optional image from /public — shows a dark placeholder when omitted */
+  paragraphs?: string[];
   imageSrc?: string;
   imageAlt?: string;
+  /** Label words — last word becomes red. Default: 'Why Choose Us' */
+  eyebrow?: string;
+  /** When provided, replaces the image with a list of heading/body items */
+  items?: WhyUsItem[];
 }
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 0, y: 24 },
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
   }),
 };
 
 export function ServiceWhyUsSection({
   heading,
-  paragraphs,
+  paragraphs = [],
   imageSrc,
   imageAlt = '',
+  eyebrow = 'Why Choose Us',
+  items,
 }: ServiceWhyUsSectionProps) {
+  // Split eyebrow — last word is red
+  const words = eyebrow.trim().split(' ');
+  const redWord = words.pop();
+  const plainWords = words.join(' ');
+
   return (
-    <section className="py-20 lg:py-28 bg-[#111112] relative overflow-hidden">
-      {/* Red radial glow — right side */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.13]"
-        style={{
-          background:
-            'radial-gradient(ellipse 60% 80% at 92% 50%, #E30A13 0%, transparent 60%)',
-        }}
-      />
+    <section
+      className="bg-[#F6F6F8]"
+      style={{ padding: 'clamp(32px, 4vw, 56px) 0' }}
+    >
+      <div className="max-w-[1344px] mx-auto ">
+        <div
+          className="grid grid-cols-1 lg:grid-cols-2"
+          style={{ gap: '12px', alignItems: 'stretch' }}
+        >
 
-      <div className="max-w-[1344px] mx-auto px-6 lg:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-
-          {/* Text */}
+          {/* ── LEFT: black card ── */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-60px' }}
             variants={fadeUp}
+            style={{
+              background: '#0E0E0F',
+              borderRadius: '16px',
+              padding: 'clamp(28px, 4vw, 48px)',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              minHeight: 'clamp(440px, 52vw, 560px)',
+            }}
           >
-            <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-white/30 mb-5">
-              <span className="w-4 h-px bg-white/20" />
-              Why Choose Us
-            </span>
+            {/* Top: eyebrow + heading */}
+            <div>
+              {/* Eyebrow */}
+              <div className="flex items-center gap-2 mb-6">
+                <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
+                  <path
+                    d="M1 7H17M11 1L17 7L11 13"
+                    stroke="white"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <span
+                  className="font-bold uppercase"
+                  style={{ fontSize: '11px', letterSpacing: '0.15em', color: 'white' }}
+                >
+                  {plainWords}{' '}
+                  <span style={{ color: '#E30A13' }}>{redWord}</span>
+                </span>
+              </div>
 
-            <h2
-              className="text-white font-bold leading-tight mt-2 mb-6 tracking-tight"
-              style={{ fontSize: 'clamp(28px, 3.5vw, 40px)' }}
-            >
-              {heading}
-            </h2>
+              {/* Heading */}
+              <h2
+                className="text-white font-semibold leading-tight"
+                style={{
+                  fontSize: 'clamp(32px, 2vw, 44px)',
+                  letterSpacing: '-0.025em',
+                  maxWidth: '420px',
+                  fontFamily: 'var(--font-serif)',
+                }}
+              >
+                {heading}
+              </h2>
+            </div>
 
-            <div className="space-y-4">
+            {/* Bottom: paragraphs */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
               {paragraphs.map((p, i) => (
-                <p key={i} className="text-white/55 text-[14px] leading-relaxed">
+                <p
+                  key={i}
+                  style={{
+                    fontSize: 'clamp(12px, 1.1vw, 14px)',
+                    color: 'rgba(255,255,255,0.55)',
+                    lineHeight: 1.75,
+                    margin: 0,
+                  }}
+                >
                   {p}
                 </p>
               ))}
             </div>
           </motion.div>
 
-          {/* Image / placeholder */}
+          {/* ── RIGHT: items list or photo ── */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.75, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+            style={{
+              borderRadius: '16px',
+              overflow: 'hidden',
+              minHeight: 'clamp(440px, 52vw, 560px)',
+              background: items ? '#F6F6F8' : '#1a1a1a',
+            }}
           >
-            <div className="aspect-[4/3] rounded-2xl bg-[#1c1c1e] border border-white/10 overflow-hidden relative">
-              {imageSrc ? (
-                <Image src={imageSrc} alt={imageAlt} fill className="object-cover" />
-              ) : (
-                <>
+            {items ? (
+              <div style={{ padding: 'clamp(24px, 3vw, 40px)', display: 'flex', flexDirection: 'column', height: '100%' }}>
+                {items.map((item, i) => (
                   <div
-                    className="absolute inset-0"
+                    key={i}
                     style={{
-                      background:
-                        'linear-gradient(135deg, #1a1208 0%, #2d2010 50%, #1a1a1a 100%)',
+                      padding: 'clamp(16px, 2vw, 24px) 0',
+                      borderBottom: i < items.length - 1 ? '1px solid #E0E0E4' : 'none',
                     }}
-                  />
-                  {/* Subtle warm radial */}
-                  <div
-                    className="absolute inset-0 opacity-25"
-                    style={{
-                      background:
-                        'radial-gradient(ellipse 70% 60% at 40% 45%, rgba(180,120,50,0.55) 0%, transparent 70%)',
-                    }}
-                  />
-                </>
-              )}
-            </div>
+                  >
+                    <h3
+                      style={{
+                        fontSize: 'clamp(13px, 1.2vw, 15px)',
+                        fontWeight: 600,
+                        color: '#111112',
+                        marginBottom: '8px',
+                        fontFamily: 'var(--font-serif)',
+                      }}
+                    >
+                      {item.heading}
+                    </h3>
+                    <p
+                      style={{
+                        fontSize: 'clamp(11px, 0.95vw, 13px)',
+                        color: '#76767F',
+                        lineHeight: 1.75,
+                        margin: 0,
+                      }}
+                    >
+                      {item.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            ) : imageSrc ? (
+              <img
+                src={imageSrc}
+                alt={imageAlt}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+            ) : (
+              <div
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  background: 'linear-gradient(135deg, #1a1208 0%, #2d2010 50%, #1a1a1a 100%)',
+                }}
+              />
+            )}
           </motion.div>
 
         </div>

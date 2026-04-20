@@ -1,18 +1,17 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import { ServicePageHero }       from '@/components/sections/services/ServicePageHero';
+import { IndividualPageHeroSection } from '@/components/sections/services/IndividualPageHeroSection';
 import { ServiceStatsSection }   from '@/components/sections/services/ServiceStatsSection';
-import { ServiceFullWidthBand }  from '@/components/sections/services/ServiceFullWidthBand';
-import { ServiceCardGrid }       from '@/components/sections/services/ServiceCardGrid';
+
 import { ServiceApproachSection }from '@/components/sections/services/ServiceApproachSection';
 import { ServiceWhyUsSection }   from '@/components/sections/services/ServiceWhyUsSection';
-import { ServiceFAQSection }     from '@/components/sections/services/ServiceFAQSection';
-import { ServiceContactSection } from '@/components/sections/services/ServiceContactSection';
-import type { ServiceCardItem }  from '@/components/sections/services/ServiceCardGrid';
+import { FAQSection }            from '@/components/sections/FAQSection';
+import { ContactSection }        from '@/components/sections/ContactSection';
 import type { ApproachItem }     from '@/components/sections/services/ServiceApproachSection';
-import type { FAQItem }          from '@/components/sections/services/ServiceFAQSection';
+import type { FAQItem }          from '@/components/sections/FAQSection';
 import type { ServiceStat }      from '@/components/sections/services/ServiceStatsSection';
+import { ServiceCardGrid, ServiceFullWidthBand } from '@/components/sections/services/Servicebandandcardgrid';
 
 // ─── Icons ────────────────────────────────────────────────────────────────────
 
@@ -37,7 +36,7 @@ const stats: ServiceStat[] = [
   },
 ];
 
-const services: ServiceCardItem[] = [
+const services: any[] = [
   {
     title: 'Operational Analysis',
     description:
@@ -156,10 +155,12 @@ export function BusinessConsultationClient() {
   return (
     <div className="font-hanken bg-white text-[#111112]">
 
-      <ServicePageHero
-        breadcrumb="IBV Services / Consulting & Strategy"
-        title="Business Consultation"
+      <IndividualPageHeroSection
+        eyebrow="Consulting & Strategy"
+        tagline1="OUR SERVICES"
+        headlineTitle="Business Consultation"
         description="We help organisations identify gaps, improve performance, and build practical strategies that drive measurable outcomes and long-term growth."
+        backgroundImage="https://res.cloudinary.com/dm8jtnzdi/image/upload/q_auto/f_auto/v1776710665/BUSINESS_CONSULTING_HERO_xc9tql.png"
       />
 
       <ServiceStatsSection
@@ -167,8 +168,11 @@ export function BusinessConsultationClient() {
         description="Strong business decisions come from clarity, not assumptions. We analyse how your business operates, identify what drives performance, and build clear strategies that focus on the areas that matter most."
       />
 
-      <ServiceFullWidthBand />
-
+      <ServiceFullWidthBand
+        imageSrc="https://res.cloudinary.com/dm8jtnzdi/image/upload/q_auto/f_auto/v1776710665/BC_BANNER_smt17g.png"
+        imageAlt="Business analytics and strategy documents"
+      />
+ 
       <ServiceCardGrid services={services} />
 
       <ServiceApproachSection
@@ -183,20 +187,12 @@ export function BusinessConsultationClient() {
           'No two businesses operate the same way. Each has its own constraints, priorities, and trade-offs across operations, markets, and resources. We take the time to understand how your business actually functions before recommending any strategy, ensuring that every decision is grounded in your reality, not in generic frameworks.',
           'This deep understanding helps us design solutions that fit your structure, capabilities, and market conditions. It ensures that strategies are not only relevant but also practical and sustainable over time.',
         ]}
+        imageSrc='https://res.cloudinary.com/dm8jtnzdi/image/upload/q_auto/f_auto/v1776710664/BC_WHY_CHOOSE_fjwza5.png'
       />
 
-      <ServiceFAQSection faqs={faqs} />
+      <FAQSection faqs={faqs} />
 
-      <ServiceContactSection
-        heading={"Let's start building\nyour next step."}
-        services={[
-          'Business Consultation',
-          'Startup Consultation',
-          'Digital Solutions',
-          'Research & Analysis',
-          'Content & Growth',
-        ]}
-      />
+      <ContactSection />
 
     </div>
   );

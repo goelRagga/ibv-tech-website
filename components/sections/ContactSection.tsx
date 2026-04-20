@@ -30,7 +30,7 @@ export function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <section className="bg-refresh-black py-6 px-6 lg:px-12 relative overflow-hidden h-screen">
+    <section id="contact" className="bg-refresh-black py-6 px-6 lg:px-12 relative overflow-hidden h-screen">
       <div className="relative z-10 max-w-container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
           {/* ── Left Panel ── */}

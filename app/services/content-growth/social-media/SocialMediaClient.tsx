@@ -1,141 +1,206 @@
-'use client';
+"use client";
 
-import type { ReactNode } from 'react';
-import { ServicePageHero }        from '@/components/sections/services/ServicePageHero';
-import { ServiceStatsSection }    from '@/components/sections/services/ServiceStatsSection';
-import { ServiceFullWidthBand }   from '@/components/sections/services/ServiceFullWidthBand';
-import { ServiceCardGrid }        from '@/components/sections/services/ServiceCardGrid';
-import { ServiceApproachSection } from '@/components/sections/services/ServiceApproachSection';
-import { ServiceWhyUsSection }    from '@/components/sections/services/ServiceWhyUsSection';
-import { ServiceFAQSection }      from '@/components/sections/services/ServiceFAQSection';
-import { ServiceContactSection }  from '@/components/sections/services/ServiceContactSection';
-import type { ServiceCardItem }   from '@/components/sections/services/ServiceCardGrid';
-import type { ApproachItem }      from '@/components/sections/services/ServiceApproachSection';
-import type { FAQItem }           from '@/components/sections/services/ServiceFAQSection';
-import type { ServiceStat }       from '@/components/sections/services/ServiceStatsSection';
+import type { ReactNode } from "react";
+import { IndividualPageHeroSection } from "@/components/sections/services/IndividualPageHeroSection";
+import { ServiceStatsSection } from "@/components/sections/services/ServiceStatsSection";
+import {
+  ServiceCardGrid,
+  ServiceFullWidthBand,
+} from "@/components/sections/services/Servicebandandcardgrid";
+import { ServiceApproachSection } from "@/components/sections/services/ServiceApproachSection";
+import { ServiceWhyUsSection } from "@/components/sections/services/ServiceWhyUsSection";
+import { FAQSection } from "@/components/sections/FAQSection";
+import { ContactSection } from "@/components/sections/ContactSection";
+import type { ApproachItem } from "@/components/sections/services/ServiceApproachSection";
+import type { FAQItem } from "@/components/sections/FAQSection";
+import type { ServiceStat } from "@/components/sections/services/ServiceStatsSection";
+import type { WhyUsItem } from "@/components/sections/services/ServiceWhyUsSection";
 
 function Icon({ children }: { children: ReactNode }) {
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+    >
       {children}
     </svg>
   );
 }
 
 const stats: ServiceStat[] = [
-  { value: '50M+', label: 'Combined social media impressions generated for clients across managed accounts.' },
-  { value: '8x', label: 'Average increase in engagement rate within 90 days of taking over account management.' },
+  {
+    value: "20K+",
+    label:
+      "Content pieces distributed across platforms to improve reach and engagement.",
+  },
+  {
+    value: "80%",
+    label:
+      "Of engagement happens through consistent social and content presence.",
+  },
 ];
 
-const services: ServiceCardItem[] = [
+const services: any[] = [
   {
-    title: 'Platform Strategy',
-    description: 'Define which platforms to prioritise, how to position your brand on each, and what content approach fits each platform\'s unique audience and format.',
-    icon: <Icon><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></Icon>,
+    title: "Content Planning",
+    description:
+      "We plan content aligned with your brand, audience, and communication goals.",
+    icon: (
+      <Icon>
+        <rect x="3" y="4" width="18" height="18" rx="2" />
+        <line x1="16" y1="2" x2="16" y2="6" />
+        <line x1="8" y1="2" x2="8" y2="6" />
+        <line x1="3" y1="10" x2="21" y2="10" />
+      </Icon>
+    ),
   },
   {
-    title: 'Content Creation',
-    description: 'Platform-native content built for engagement — written posts, graphics, short-form video concepts, and stories designed to perform in the feed.',
-    icon: <Icon><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></Icon>,
+    title: "Social Media Management",
+    description:
+      "We manage social media platforms to ensure consistent presence and engagement.",
+    icon: (
+      <Icon>
+        <circle cx="12" cy="12" r="10" />
+        <line x1="2" y1="12" x2="22" y2="12" />
+        <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+      </Icon>
+    ),
   },
   {
-    title: 'Community Management',
-    description: 'Active management of comments, messages, and mentions — building genuine relationships and maintaining brand voice across every interaction.',
-    icon: <Icon><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></Icon>,
+    title: "Content Distribution",
+    description:
+      "We distribute content across relevant channels to maximize reach and visibility.",
+    icon: (
+      <Icon>
+        <path d="M22 2L11 13" />
+        <path d="M22 2L15 22l-4-9-9-4 20-7z" />
+      </Icon>
+    ),
   },
   {
-    title: 'Paid Social Advertising',
-    description: 'Strategic paid social campaigns across Instagram, LinkedIn, Facebook, and TikTok — targeting the right audience, optimised for conversions.',
-    icon: <Icon><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></Icon>,
+    title: "Audience Engagement",
+    description:
+      "We create content that encourages interaction and builds meaningful audience connections.",
+    icon: (
+      <Icon>
+        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 00-3-3.87" />
+        <path d="M16 3.13a4 4 0 010 7.75" />
+      </Icon>
+    ),
   },
   {
-    title: 'Influencer Marketing',
-    description: 'Identify, vet, and manage influencer partnerships that align with your brand values and reach your target audience authentically.',
-    icon: <Icon><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></Icon>,
+    title: "Campaign Execution",
+    description:
+      "We execute content-driven campaigns to improve awareness and engagement.",
+    icon: (
+      <Icon>
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+      </Icon>
+    ),
   },
   {
-    title: 'Analytics & Reporting',
-    description: 'Monthly performance reporting across all managed channels — tracking the metrics that matter and translating data into clear strategic recommendations.',
-    icon: <Icon><path d="M2 20h20M6 20V10M12 20V4M18 20v-7"/></Icon>,
+    title: "Performance Tracking",
+    description:
+      "We track content performance to measure impact and improve future outcomes.",
+    icon: (
+      <Icon>
+        <path d="M2 20h20M6 20V10M12 20V4M18 20v-7" />
+      </Icon>
+    ),
   },
 ];
 
 const approachItems: ApproachItem[] = [
   {
-    title: 'Platform-Native Content',
-    description: 'Content that works on Instagram rarely works on LinkedIn. We create content that is native to each platform — in format, tone, length, and visual style. This is what drives real engagement rather than just publishing the same post everywhere.',
+    title: "Consistent Presence",
+    description:
+      "We focus on maintaining a consistent brand presence across platforms to ensure visibility and recall. Consistency builds familiarity over time, making it easier for audiences to connect with and trust your brand.",
   },
   {
-    title: 'Community-Led Growth',
-    description: 'Follower counts without community are vanity. We focus on building genuine audiences — people who engage, share, and convert. This means active community management, response strategies, and content that invites participation rather than just broadcasting.',
+    title: "Audience Focus",
+    description:
+      "We create and distribute content based on audience behavior, preferences, and engagement patterns. This ensures that content is relevant, meaningful, and aligned with what your audience expects, improving engagement quality.",
   },
   {
-    title: 'Data-Driven Optimisation',
-    description: 'We track what matters, not what is easy to measure. Every content decision is informed by performance data — with regular reporting and strategic adjustments to ensure the approach keeps improving month over month.',
+    title: "Performance Driven",
+    description:
+      "We track engagement, reach, and content performance to continuously improve results. This ensures that strategies evolve based on insights and deliver better outcomes, identifying what works best to optimize for stronger impact.",
   },
+];
+
+const whyUsItems: any[] = [
+  "We create and distribute content that is designed to engage your audience and build real connections. This ensures that your brand does not just reach people but also interacts with them effectively — building trust and long-term relationships that go beyond visibility.",
+
+  "Consistency is key to building a strong brand presence. We maintain a structured approach to content planning and publishing across platforms, ensuring that your brand communication remains aligned, reliable, and recognizable, reinforcing your positioning over time.",
+
+  "Creating content is only part of the process. We ensure that content is effectively distributed across the right channels to reach the right audience. This helps maximize visibility and ensures that your content performs as intended, connecting strategy with execution.",
 ];
 
 const faqs: FAQItem[] = [
   {
-    q: 'Which social media platforms do you manage?',
-    a: 'We manage Instagram, LinkedIn, Facebook, X (Twitter), TikTok, and YouTube. Platform selection is always driven by where your target audience is most active and where your brand has the most to gain.',
+    q: "What does social media and content marketing include?",
+    a: "It includes planning, creating, and distributing content across social media platforms to improve visibility and engagement. This ensures consistent communication and helps build a strong brand presence.",
   },
   {
-    q: 'Do you create the content or do we need to provide it?',
-    a: 'We handle content creation end-to-end — copywriting, graphic design direction, and video content concepts. We work with your brand guidelines and input from your team to ensure content is on-brand and accurate.',
+    q: "How can social media marketing help my business?",
+    a: "It helps you reach and engage your target audience, build brand awareness, and maintain ongoing communication. It also supports lead generation and long-term customer relationships.",
   },
   {
-    q: 'How often do you post on our behalf?',
-    a: 'Posting frequency is agreed as part of your engagement. We typically recommend 3–5 posts per week per platform depending on the channel and audience behaviour, with daily stories or short-form content where relevant.',
+    q: "Do you manage social media accounts?",
+    a: "Yes, we manage social media platforms including content planning, posting, and engagement. This ensures consistency and effective communication across channels.",
   },
   {
-    q: 'Can you run paid social campaigns alongside organic management?',
-    a: 'Yes. We manage both organic social strategy and paid social advertising. Combining both is typically the most effective approach — using organic content to build community and paid campaigns to drive reach and conversions.',
+    q: "How do you measure performance?",
+    a: "We track metrics such as engagement, reach, and content performance to evaluate results. This helps improve strategy and optimize future content efforts.",
   },
   {
-    q: 'How do you measure success on social media?',
-    a: 'We align metrics to your specific business goals. This might include follower growth, engagement rate, reach, website clicks, lead form completions, or ad-driven conversions — not just likes and impressions.',
+    q: "Do you create content as well as distribute it?",
+    a: "Yes, we handle both content creation and distribution to ensure alignment and effectiveness. This ensures that content is not only well-created but also reaches the right audience.",
   },
 ];
 
 export function SocialMediaClient() {
   return (
     <div className="font-hanken bg-white text-[#111112]">
-      <ServicePageHero
-        breadcrumb="IBV Services / Content & Growth"
-        title="Social Media & Content Marketing"
-        description="We manage, grow, and activate your social presence through platform-native content, community engagement, and data-driven optimisation."
+      <IndividualPageHeroSection
+        eyebrow="Content & Growth"
+        tagline1="Reach the Right Audience."
+        tagline2="Build Lasting Connections."
+        headlineTitle="Social Media"
+        description="We help businesses build visibility, engage audiences, and maintain consistent communication across platforms through structured content and social media strategies."
+        backgroundImage="https://res.cloudinary.com/dm8jtnzdi/image/upload/q_auto/f_auto/v1776713429/WEBDEV_BANNER_vuecwi.png"
       />
 
       <ServiceStatsSection
         stats={stats}
-        description="Social media is one of the most direct channels to your audience — but it requires consistency, platform expertise, and genuine community thinking. We manage your social presence with the discipline and creativity it takes to build a brand people actually follow."
+        description="Visibility today depends on consistent communication and effective distribution. We plan and execute content across social media platforms to help your brand stay relevant, engage the right audience, and build long-term connections that support growth."
       />
 
-      <ServiceFullWidthBand />
+      <ServiceFullWidthBand  imageSrc="https://res.cloudinary.com/dm8jtnzdi/image/upload/q_auto/f_auto/v1776361851/BANNER_IMAGE_CHOOSe_US_uevvac.png"/>
 
       <ServiceCardGrid services={services} />
 
       <ServiceApproachSection
-        sectionLabel="How We Work"
-        overview="Social media management is not just scheduling posts. We approach it as an active, evolving brand channel — with strategy, original content, community engagement, and continuous performance improvement built in from the start."
+        sectionLabel="How We Think"
+        overview="Effective social media and content marketing is not just about posting regularly, but about delivering the right message to the right audience at the right time. Our approach focuses on consistency, relevance, and performance to ensure that content drives real engagement and business outcomes."
         items={approachItems}
       />
 
       <ServiceWhyUsSection
-        heading="We build social presence with purpose"
-        paragraphs={[
-          'Many brands are on social media without a clear reason to be. We help you define what your social presence is for — whether that is brand awareness, lead generation, community building, or customer retention — and build everything around that purpose.',
-          'The result is a social media presence that works as a genuine business channel, not just a digital obligation.',
-        ]}
+        imageSrc="https://res.cloudinary.com/dm8jtnzdi/image/upload/q_auto/f_auto/v1776710664/BC_WHY_CHOOSE_fjwza5.png"
+        heading="We focus on meaningful engagement"
+        paragraphs={whyUsItems}
       />
 
-      <ServiceFAQSection faqs={faqs} />
+      <FAQSection faqs={faqs} />
 
-      <ServiceContactSection
-        heading={"Let's grow your\nsocial presence."}
-        services={['Social Media & Content Marketing', 'Content Strategy & Marketing', 'Business Consultation', 'Research & Analysis', 'Digital Solutions']}
-      />
+      <ContactSection />
     </div>
   );
 }
