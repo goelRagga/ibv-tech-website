@@ -1,21 +1,11 @@
 import type { Metadata } from 'next';
-import { PageShell } from '@/components/ui/PageShell';
-import { ContactSection } from '@/components/sections/ContactSection';
+import { RetailEcommerceClient } from './RetailEcommerceClient';
 
 export const metadata: Metadata = {
-  title: 'Retail & E-Commerce',
+  title: 'Retail & E-Commerce | IBV Technologies',
+  description: 'Sell Smarter. Grow Faster. Retain Longer. IBV Technologies helps retail and e-commerce businesses with data-driven insights, high-performance platforms, and strategies built to convert and retain.',
 };
 
 export default function Page() {
-  return (
-    <>
-      <PageShell
-        eyebrow="Industry"
-        title="Retail & E-Commerce"
-        subtitle="We help businesses build, launch, and grow through a combination of strategic thinking, digital execution, and data-driven decisions."
-        dark={false}
-      />
-      <ContactSection />
-    </>
-  );
+  return <RetailEcommerceClient />;
 }

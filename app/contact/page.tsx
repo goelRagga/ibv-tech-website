@@ -1,21 +1,11 @@
 import type { Metadata } from 'next';
-import { PageShell } from '@/components/ui/PageShell';
-import { ContactSection } from '@/components/sections/ContactSection';
+import { ContactPageClient } from './ContactPageClient';
 
 export const metadata: Metadata = {
-  title: `Let's Build Something Together`,
+  title: "Contact Us | IBV Technologies",
+  description: "Share your challenges with us. We'll help you find clarity, direction, and take a step forward with practical solutions and structured thinking.",
 };
 
 export default function Page() {
-  return (
-    <>
-      <PageShell
-        eyebrow="Contact"
-        title="Let's Build Something Together"
-        subtitle="We help businesses build, launch, and grow through a combination of strategic thinking, digital execution, and data-driven decisions."
-        dark={true}
-      />
-      <ContactSection />
-    </>
-  );
+  return <ContactPageClient />;
 }

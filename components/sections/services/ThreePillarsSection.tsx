@@ -16,6 +16,9 @@ export interface Pillar {
 export interface ThreePillarsSectionProps {
   labelPrefix?: string;
   labelHighlight?: string;
+  heading?: React.ReactNode;
+  ctaText?: string;
+  ctaHref?: string;
   paragraph?: React.ReactNode;
   pillars: [Pillar, Pillar, Pillar];
 }
@@ -37,6 +40,9 @@ function useInView(ref: React.RefObject<Element>, threshold = 0.2) {
 export function ThreePillarsSection({
   labelPrefix = 'Our',
   labelHighlight = 'Direction',
+  heading,
+  ctaText,
+  ctaHref,
   paragraph,
   pillars,
 }: ThreePillarsSectionProps) {
@@ -69,15 +75,33 @@ export function ThreePillarsSection({
             </span>
           </div>
 
-          {/* Right: paragraph */}
-          {paragraph && (
-            <div className="md:col-span-9">
-              <p
-                className="text-[#111112] font-semibold leading-snug"
-                style={{ fontSize: 'clamp(16px, 2vw, 22px)', maxWidth: '680px' }}
-              >
-                {paragraph}
-              </p>
+          {/* Right: heading + cta + paragraph */}
+          {(heading || paragraph) && (
+            <div className="md:col-span-9 flex flex-col gap-4">
+              {heading && (
+                <h2
+                  className="text-[#111112] font-bold leading-snug"
+                  style={{ fontSize: 'clamp(22px, 2.6vw, 36px)', maxWidth: '680px', fontFamily: 'var(--font-serif)' }}
+                >
+                  {heading}
+                </h2>
+              )}
+              {paragraph && (
+                <p
+                  className="text-[#111112] font-semibold leading-snug"
+                  style={{ fontSize: 'clamp(14px, 1.4vw, 18px)', maxWidth: '680px' }}
+                >
+                  {paragraph}
+                </p>
+              )}
+              {ctaText && ctaHref && (
+                <a
+                  href={ctaHref}
+                  className="inline-flex items-center gap-2 bg-[#E30A13] text-white text-[13px] font-semibold px-6 py-2.5 rounded-full hover:bg-[#c50910] transition-colors self-start"
+                >
+                  {ctaText}
+                </a>
+              )}
             </div>
           )}
         </motion.div>

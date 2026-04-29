@@ -1,21 +1,11 @@
 import type { Metadata } from 'next';
-import { PageShell } from '@/components/ui/PageShell';
-import { ContactSection } from '@/components/sections/ContactSection';
+import { ITSoftwareClient } from './ITSoftwareClient';
 
 export const metadata: Metadata = {
-  title: 'IT & Software',
+  title: 'IT & Software | IBV Technologies',
+  description: 'Built by Tech People. Delivered for Tech Businesses. IBV Technologies helps technology companies scale faster with strong architecture, performance, and strategy.',
 };
 
 export default function Page() {
-  return (
-    <>
-      <PageShell
-        eyebrow="Industry"
-        title="IT & Software"
-        subtitle="We help businesses build, launch, and grow through a combination of strategic thinking, digital execution, and data-driven decisions."
-        dark={false}
-      />
-      <ContactSection />
-    </>
-  );
+  return <ITSoftwareClient />;
 }

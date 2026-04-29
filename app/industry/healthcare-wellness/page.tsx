@@ -1,21 +1,11 @@
 import type { Metadata } from 'next';
-import { PageShell } from '@/components/ui/PageShell';
-import { ContactSection } from '@/components/sections/ContactSection';
+import { HealthcareWellnessClient } from './HealthcareWellnessClient';
 
 export const metadata: Metadata = {
-  title: 'Healthcare & Wellness',
+  title: 'Healthcare & Wellness | IBV Technologies',
+  description: 'Technology That Cares As Much As You Do. IBV Technologies helps healthcare organizations build secure, compliant, and user-friendly solutions that improve outcomes and patient engagement.',
 };
 
 export default function Page() {
-  return (
-    <>
-      <PageShell
-        eyebrow="Industry"
-        title="Healthcare & Wellness"
-        subtitle="We help businesses build, launch, and grow through a combination of strategic thinking, digital execution, and data-driven decisions."
-        dark={false}
-      />
-      <ContactSection />
-    </>
-  );
+  return <HealthcareWellnessClient />;
 }

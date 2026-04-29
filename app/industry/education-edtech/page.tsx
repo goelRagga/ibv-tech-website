@@ -1,21 +1,11 @@
 import type { Metadata } from 'next';
-import { PageShell } from '@/components/ui/PageShell';
-import { ContactSection } from '@/components/sections/ContactSection';
+import { EducationEdtechClient } from './EducationEdtechClient';
 
 export const metadata: Metadata = {
-  title: 'Education & EdTech',
+  title: 'Education & EdTech | IBV Technologies',
+  description: 'Shaping the Future Starts With Smarter Learning Solutions. IBV Technologies helps institutions and EdTech platforms build engaging, scalable, and performance-driven learning environments.',
 };
 
 export default function Page() {
-  return (
-    <>
-      <PageShell
-        eyebrow="Industry"
-        title="Education & EdTech"
-        subtitle="We help businesses build, launch, and grow through a combination of strategic thinking, digital execution, and data-driven decisions."
-        dark={false}
-      />
-      <ContactSection />
-    </>
-  );
+  return <EducationEdtechClient />;
 }

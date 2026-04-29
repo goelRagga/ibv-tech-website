@@ -1,21 +1,11 @@
 import type { Metadata } from 'next';
-import { PageShell } from '@/components/ui/PageShell';
-import { ContactSection } from '@/components/sections/ContactSection';
+import { MediaMarketingClient } from './MediaMarketingClient';
 
 export const metadata: Metadata = {
-  title: 'Media & Marketing',
+  title: 'Media & Marketing | IBV Technologies',
+  description: 'Creative Vision Backed by Strategic Intelligence. IBV Technologies combines creativity and data to build campaigns that deliver measurable impact.',
 };
 
 export default function Page() {
-  return (
-    <>
-      <PageShell
-        eyebrow="Industry"
-        title="Media & Marketing"
-        subtitle="We help businesses build, launch, and grow through a combination of strategic thinking, digital execution, and data-driven decisions."
-        dark={false}
-      />
-      <ContactSection />
-    </>
-  );
+  return <MediaMarketingClient />;
 }

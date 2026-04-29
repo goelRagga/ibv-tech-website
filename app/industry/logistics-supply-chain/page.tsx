@@ -1,21 +1,11 @@
 import type { Metadata } from 'next';
-import { PageShell } from '@/components/ui/PageShell';
-import { ContactSection } from '@/components/sections/ContactSection';
+import { LogisticsSupplyChainClient } from './LogisticsSupplyChainClient';
 
 export const metadata: Metadata = {
-  title: 'Logistics & Supply Chain',
+  title: 'Logistics & Supply Chain | IBV Technologies',
+  description: 'Efficiency Is Not an Option. We Make It Your Standard. IBV Technologies helps logistics businesses optimize operations and improve performance through data and technology.',
 };
 
 export default function Page() {
-  return (
-    <>
-      <PageShell
-        eyebrow="Industry"
-        title="Logistics & Supply Chain"
-        subtitle="We help businesses build, launch, and grow through a combination of strategic thinking, digital execution, and data-driven decisions."
-        dark={false}
-      />
-      <ContactSection />
-    </>
-  );
+  return <LogisticsSupplyChainClient />;
 }

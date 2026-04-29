@@ -1,21 +1,11 @@
 import type { Metadata } from 'next';
-import { PageShell } from '@/components/ui/PageShell';
-import { ContactSection } from '@/components/sections/ContactSection';
+import { RealEstateClient } from './RealEstateClient';
 
 export const metadata: Metadata = {
-  title: 'Real Estate',
+  title: 'Real Estate | IBV Technologies',
+  description: 'From Listings to Leads — We Build What Moves Property. IBV Technologies helps real estate businesses generate leads, improve visibility, and convert interest into transactions.',
 };
 
 export default function Page() {
-  return (
-    <>
-      <PageShell
-        eyebrow="Industry"
-        title="Real Estate"
-        subtitle="We help businesses build, launch, and grow through a combination of strategic thinking, digital execution, and data-driven decisions."
-        dark={false}
-      />
-      <ContactSection />
-    </>
-  );
+  return <RealEstateClient />;
 }

@@ -9,20 +9,13 @@ const footerLinks = {
   ],
   Industry: [
     { label: "Retail & E-Commerce", href: "/industry/retail-ecommerce" },
-    {
-      label: "Healthcare & Life Sciences",
-      href: "/industry/healthcare-wellness",
-    },
+    { label: "Healthcare & Wellness", href: "/industry/healthcare-wellness" },
     { label: "Education & EdTech", href: "/industry/education-edtech" },
-    { label: "Finance Services", href: "/industry/finance-banking" },
+    { label: "Finance & Banking", href: "/industry/finance-banking" },
     { label: "Real Estate", href: "/industry/real-estate" },
-    {
-      label: "Manufacturing & Supply Chain",
-      href: "/industry/logistics-supply-chain",
-    },
+    { label: "Logistics & Supply Chain", href: "/industry/logistics-supply-chain" },
     { label: "IT & Software", href: "/industry/it-software" },
     { label: "Media & Marketing", href: "/industry/media-marketing" },
-    { label: "Manufacturing", href: "/industry/manufacturing" },
   ],
   Insights: [
     { label: "Blogs", href: "/insights/blogs" },
