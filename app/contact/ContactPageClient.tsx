@@ -274,7 +274,7 @@ export function ContactPageClient() {
         tagline2="We'll help you find clarity and direction."
         headlineTitle="Contact Us"
         description="Take a step forward with practical solutions and structured thinking."
-        backgroundImage="/HOMEPAGEBANNER.png"
+        backgroundImage="https://res.cloudinary.com/dm8jtnzdi/image/upload/q_auto/f_auto/v1776710665/BUSINESS_CONSULTING_HERO_xc9tql.png"
       />
 
       <InfoStrip />
