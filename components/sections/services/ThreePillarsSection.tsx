@@ -20,7 +20,7 @@ export interface ThreePillarsSectionProps {
   ctaText?: string;
   ctaHref?: string;
   paragraph?: React.ReactNode;
-  pillars: [Pillar, Pillar, Pillar];
+  pillars?: [Pillar, Pillar, Pillar];
 }
 
 function useInView(ref: React.RefObject<Element>, threshold = 0.2) {
@@ -81,7 +81,7 @@ export function ThreePillarsSection({
               {heading && (
                 <h2
                   className="text-[#111112] font-bold leading-snug"
-                  style={{ fontSize: 'clamp(22px, 2.6vw, 36px)', maxWidth: '680px', fontFamily: 'var(--font-serif)' }}
+                  style={{ fontSize: 'clamp(22px, 2.6vw, 36px)', maxWidth: '880px', fontFamily: 'var(--font-inter)' }}
                 >
                   {heading}
                 </h2>
@@ -89,7 +89,7 @@ export function ThreePillarsSection({
               {paragraph && (
                 <p
                   className="text-[#111112] font-semibold leading-snug"
-                  style={{ fontSize: 'clamp(14px, 1.4vw, 18px)', maxWidth: '680px' }}
+                  style={{ fontSize: 'clamp(14px, 1.4vw, 18px)', maxWidth: '680px',  fontFamily: 'var(--font-inter)' }}
                 >
                   {paragraph}
                 </p>
@@ -107,8 +107,8 @@ export function ThreePillarsSection({
         </motion.div>
 
         {/* ── THREE CARDS ── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2" style={{ height: 'clamp(260px, 32vw, 380px)' }}>
-          {pillars.map((p, i) => {
+        {pillars &&<div className="grid grid-cols-1 md:grid-cols-3 gap-2" style={{ height: 'clamp(260px, 32vw, 380px)' }}>
+          {pillars && pillars.map((p, i) => {
             const bgStyle: React.CSSProperties =
               p.type === 'red'
                 ? { background: '#E30A13' }
@@ -179,7 +179,7 @@ export function ThreePillarsSection({
               </motion.div>
             );
           })}
-        </div>
+        </div>}
       </div>
     </section>
   );

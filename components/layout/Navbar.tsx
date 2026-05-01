@@ -55,7 +55,7 @@ const industryMenu = [
 
 const mainNav = [
   { label: "Insights", href: "/insights" },
-  { label: "About", href: "/#about" },
+  { label: "About", href: "/about" },
   { label: "Careers", href: "/careers" },
 ];
 

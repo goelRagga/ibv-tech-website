@@ -2,6 +2,7 @@
 
 import { ReactLenis } from "lenis/react";
 import "lenis/dist/lenis.css";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
   return (
@@ -14,6 +15,7 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
         touchMultiplier: 1.5,
       }}
     >
+      <ScrollToTop />
       {children}
     </ReactLenis>
   );

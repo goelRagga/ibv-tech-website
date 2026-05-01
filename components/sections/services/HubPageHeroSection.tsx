@@ -25,6 +25,7 @@ interface HubPageHeroSectionProps {
   headlineTitle: string;
   description: string;
   backgroundImage?: string;
+  maxHeight?: string;
 }
 
 // ─── HubPageHeroSection ───────────────────────────────────────────────────────
@@ -34,6 +35,7 @@ export function HubPageHeroSection({
   headlineTitle,
   description,
   backgroundImage = "/HOMEPAGEBANNER.png",
+  maxHeight="160px"
 }: HubPageHeroSectionProps) {
   return (
     <section
@@ -104,7 +106,7 @@ export function HubPageHeroSection({
           <motion.p
             {...fadeUp(0.42)}
             className="text-white leading-tight mb-10 max-w-[450px] ml-[60%] font-semibold"
-            style={{ fontSize: "clamp(15px, 1.05vw, 14px)" }}
+            style={{ fontSize: "clamp(15px, 1.05vw, 16px)" }}
           >
             {description}
           </motion.p>
@@ -113,7 +115,7 @@ export function HubPageHeroSection({
           <motion.h1
             {...fadeUp(0.32)}
             className="text-white font-bold leading-tight absolute left-0 right-0  w-[100%] tracking-tight  flex justify-center"
-            style={{ fontSize: "clamp(48px, 10vw, 140px)", letterSpacing: "-0.025em", fontFamily: "var(--font-serif)", alignSelf:"end", justifySelf:"end", bottom:"-25px" }}
+            style={{ fontSize: `clamp(48px, 12vw, ${maxHeight})`, letterSpacing: "-0.025em", fontFamily: "var(--font-serif)", alignSelf:"end", justifySelf:"end", bottom:"-40px" }}
           >
             {headlineTitle}
           </motion.h1>
