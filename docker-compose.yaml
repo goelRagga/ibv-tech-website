@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  bazm-web-admin:
+    image: ibv-technologies-website:latest
+    restart: always
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: ibv-technologies-website
+    ports:
+      - "3000:80"
+
+
+
+
+
+
+
+
+
