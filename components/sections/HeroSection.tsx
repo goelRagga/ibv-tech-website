@@ -8,6 +8,7 @@ import {
   useSpring,
   MotionValue,
 } from "framer-motion";
+import { useMediaQuery } from "react-responsive";
 import { Navbar } from "../layout/Navbar";
 import { MissionSection } from "./MissionSection";
 
@@ -64,7 +65,7 @@ function FlyingLetter({
     <motion.span
       className="font-serif"
       style={{
-        fontSize: "clamp(40px, 14vw, 220px)",
+        fontSize: "clamp(70px, 14vw, 220px)",
         fontWeight: 900,
         color: "white",
         letterSpacing: "-0.025em",
@@ -83,6 +84,7 @@ function FlyingLetter({
 // ─── HeroSection ──────────────────────────────────────────────────────────────
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -173,7 +175,7 @@ export function HeroSection() {
           {/* Tagline + headline */}
           <motion.div
             style={{ opacity: textOpacity }}
-            className="relative z-10 px-8 max-w-[95vw] mx-auto w-full pt-24 md:pt-[180px]"
+            className="relative z-10 px-4 md:px-8 max-w-[95vw] mx-auto w-full pt-24 md:pt-[180px]"
           >
             <div className="mb-5">
               <p
@@ -202,10 +204,10 @@ export function HeroSection() {
           {/* Big word */}
           <div
             className="absolute left-0 right-0 pointer-events-none"
-            style={{ bottom: "-4vh", overflow: "visible", zIndex: 20 }}
+            style={{ bottom: isMobile ? "10vh" : "-4vh", overflow: "visible", zIndex: 20 }}
             aria-hidden="true"
           >
-            <div className="max-w-[95vw] mx-auto px-8 flex items-end">
+            <div className="max-w-[95vw] mx-auto px-3 md:px-8 flex items-end">
               {LETTERS.map((letter, i) => (
                 <FlyingLetter
                   key={i}

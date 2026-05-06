@@ -51,7 +51,7 @@ export function ThreePillarsSection({
   const EASE = [0.22, 1, 0.36, 1] as const;
 
   return (
-    <section ref={sectionRef} className="bg-white overflow-hidden" style={{ paddingTop: '56px', paddingBottom: '0' }}>
+    <section ref={sectionRef} className="bg-white overflow-hidden" style={{ paddingTop: '40px', paddingBottom: '0' }}>
       <div className="container-ibv">
 
         {/* ── TOP ROW: label left + paragraph right ── */}
@@ -107,7 +107,7 @@ export function ThreePillarsSection({
         </motion.div>
 
         {/* ── THREE CARDS ── */}
-        {pillars &&<div className="grid grid-cols-1 md:grid-cols-3 gap-2" style={{ height: 'clamp(260px, 32vw, 380px)' }}>
+        {pillars &&<div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-2 auto-rows-[240px] md:auto-rows-[clamp(260px,32vw,380px)]">
           {pillars && pillars.map((p, i) => {
             const bgStyle: React.CSSProperties =
               p.type === 'red'
@@ -140,8 +140,7 @@ export function ThreePillarsSection({
                 className="relative overflow-hidden h-full"
                 style={{
                   ...bgStyle,
-                  borderRadius: '12px' ,
-                  marginLeft: i > 0 ? '2px' : 0,
+                  borderRadius: '12px',
                 }}
               >
                 {/* Dark overlay for image card */}

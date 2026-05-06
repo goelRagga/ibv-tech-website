@@ -49,19 +49,18 @@ export function ServiceStatsSection({
               {/* Divider before each stat (including first — acts as left edge visual) */}
               {i > 0 && (
                 <div
-                  className="self-stretch flex-shrink-0"
+                  className="self-stretch flex-shrink-0 hidden lg:block"
                   style={{ width: '1px', background: '#DCDCDC', margin: '0' }}
                 />
               )}
 
               {/* Stat content */}
               <div
-                className="flex flex-col justify-center py-8 lg:py-10"
-                style={{ padding: '32px 40px 32px 40px', minWidth: '250px' }}
+                className="flex flex-col justify-center py-4 md:py-8 lg:py-10 px-2 md:px-6 lg:px-10 lg:min-w-[250px]"
               >
                 <p
                   className="font-bold text-[#111112] leading-none"
-                  style={{ fontSize: 'clamp(48px, 5.5vw, 72px)', letterSpacing: '-0.03em', marginBottom: '14px' }}
+                  style={{ fontSize: 'clamp(40px, 5.5vw, 72px)', letterSpacing: '-0.03em', marginBottom: '10px' }}
                 >
                   {stat.value}
                 </p>
@@ -88,8 +87,7 @@ export function ServiceStatsSection({
             whileInView="visible"
             viewport={{ once: true, margin: '-60px' }}
             variants={fadeUp}
-            className="flex items-center flex-1 py-8 lg:py-0"
-            style={{ padding: '32px 40px' }}
+            className="flex items-center flex-1 py-4 md:py-8 lg:py-0 px-2 md:px-6 lg:px-10"
           >
             <p
               className="text-[#444]"
@@ -99,7 +97,7 @@ export function ServiceStatsSection({
             </p>
           </motion.div>
 
-     
+
           {/* ── CTA ── */}
           <motion.div
             custom={0.28}
@@ -107,8 +105,7 @@ export function ServiceStatsSection({
             whileInView="visible"
             viewport={{ once: true, margin: '-60px' }}
             variants={fadeUp}
-            className="flex items-center justify-center flex-shrink-0 py-8 lg:py-0"
-            style={{ padding: '32px 40px' }}
+            className="flex items-center justify-start lg:justify-center flex-shrink-0 py-4 md:py-8 lg:py-0 px-2 md:px-6 lg:px-10"
           >
             <Link
               href={ctaHref}

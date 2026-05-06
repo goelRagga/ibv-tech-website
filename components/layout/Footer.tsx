@@ -72,8 +72,8 @@ export function Footer() {
           </div>
 
           {/* ── NAV LINK COLUMNS ── */}
-          <div className=" px-8 lg:px-8 pt-2 pb-4">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-9 gap-y-10">
+          <div className="px-2 md:px-8 lg:px-8 pt-2 pb-6 md:pb-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-4 md:gap-x-9 gap-y-8 md:gap-y-10">
               {Object.entries(footerLinks).map(([category, links]) => (
                 <div key={category}>
                   <p className="font-inter text-[18px] font-medium tracking-[0.16em] uppercase text-white mb-2">
@@ -84,7 +84,7 @@ export function Footer() {
                       <li key={link.label}>
                         <Link
                           href={link.href}
-                          className="font-inter text-[14px] tracking-[0.06em] uppercase text-white/70 hover:text-white transition-colors duration-200 leading-snug"
+                          className="font-inter text-[10px] md: text-[14px] tracking-[0.06em] uppercase text-white/70 hover:text-white transition-colors duration-200 leading-snug"
                         >
                           {link.label}
                         </Link>
@@ -100,8 +100,8 @@ export function Footer() {
 
       {/* ── BOTTOM BAR — solid dark strip, no image ── */}
       <div className="bg-[#0d0d0e]">
-        <div className=" px-8 lg:px-12 py-[18px]">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div className="px-4 md:px-8 lg:px-12 py-[18px]">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
             <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-white/35">
               © 2026 IBV Technologies Pvt. Ltd. All Rights Reserved.
             </p>

@@ -32,7 +32,7 @@ export function IndividualPageHeroSection({
   backgroundImage = "/HOMEPAGEBANNER.png",
 }: IndividualPageHeroSectionProps) {
   return (
-    <section className="relative overflow-hidden bg-refresh-black h-[80vh]">
+    <section className="relative overflow-hidden bg-refresh-black min-h-[520px] h-[80vh]">
       {/* Background image */}
       <motion.div
         {...fadeIn(0)}
@@ -89,7 +89,7 @@ export function IndividualPageHeroSection({
             {...fadeUp(0.32)}
             className="text-white font-bold leading-tight  w-[100%] tracking-tight"
             style={{
-              fontSize: "clamp(48px, 6vw, 80px)",
+              fontSize: "clamp(34px, 6vw, 80px)",
               letterSpacing: "-0.025em",
               fontFamily: "var(--font-serif)",
               alignSelf: "end",
@@ -103,8 +103,8 @@ export function IndividualPageHeroSection({
           {/* Description */}
           <motion.p
             {...fadeUp(0.42)}
-            className="text-white leading-tight mb-10 max-w-[650px]  font-semibold"
-            style={{ fontSize: "clamp(15px, 1.05vw, 14px)", fontFamily: "var(--font-serif)", }}
+            className="text-white leading-tight mb-8 md:mb-10 max-w-[650px] font-semibold"
+            style={{ fontSize: "clamp(13px, 1.05vw, 15px)", fontFamily: "var(--font-serif)" }}
           >
             {description}
           </motion.p>

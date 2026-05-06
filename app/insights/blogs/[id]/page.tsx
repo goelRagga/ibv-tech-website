@@ -1,8 +1,10 @@
+
 import { Navbar } from "@/components/layout/Navbar";
 import { getBlogById, blogPosts } from "@/lib/blog-data";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
+
 
 export function generateStaticParams() {
   return blogPosts.map((b) => ({ id: b.id }));
@@ -19,6 +21,7 @@ export function generateMetadata({
 }
 
 export default function BlogDetailPage({ params }: { params: { id: string } }) {
+
   const blogRaw = getBlogById(params.id);
   if (!blogRaw) notFound();
 
@@ -36,6 +39,8 @@ export default function BlogDetailPage({ params }: { params: { id: string } }) {
 
   const related = blogPosts.filter((b) => b.id !== params.id).slice(0, 3);
 
+
+
   return (
     <div style={{ background: "white", color: "#111112", }}>
 
@@ -45,23 +50,25 @@ export default function BlogDetailPage({ params }: { params: { id: string } }) {
       {/* ── Breadcrumb ── */}
       <div style={{ borderBottom: "1px solid #EBEBEB" }}>
         <div
+          className="px-4 md:px-8"
           style={{
             maxWidth: "96vw",
             margin: "40px auto 0px auto",
-            padding: "12px 32px",
+            padding: "12px 16px",
             display: "flex",
             alignItems: "center",
             gap: "6px",
             fontSize: "13px",
             color: "#999",
+            minWidth: 0,
           }}
         >
-          <Link href="/insights/blogs" style={{ color: "#999", textDecoration: "none" }}
+          <Link href="/insights/blogs" style={{ color: "#999", textDecoration: "none", flexShrink: 0 }}
             className="hover:text-[#E30A13] transition-colors">
             Blog
           </Link>
-          <span style={{ color: "#CCC" }}>&gt;</span>
-          <span style={{ color: "#555", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth: "500px" }}>
+          <span style={{ color: "#CCC", flexShrink: 0 }}>&gt;</span>
+          <span style={{ color: "#555", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", minWidth: 0, flex: 1 }}>
             {blog.title}
           </span>
         </div>
@@ -69,15 +76,13 @@ export default function BlogDetailPage({ params }: { params: { id: string } }) {
 
       {/* ── 2-col header ── */}
       <div
+        className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 md:gap-14 px-4 md:px-4"
         style={{
           maxWidth: "96vw",
           margin: "0 auto",
-          padding: "16px",
-          display: "grid",
-          gridTemplateColumns: "200px 1fr",
-          gap: "56px",
+          paddingTop: "16px",
+          paddingBottom: "16px",
           alignItems: "start",
-
         }}
       >
         {/* Left: category, date, author */}
@@ -149,14 +154,14 @@ export default function BlogDetailPage({ params }: { params: { id: string } }) {
       </div>
 
       {/* ── Hero image ── */}
-      <div style={{ maxWidth: "96vw", margin: "0 auto", padding: "0 32px 36px" }}>
+      <div className="px-4 md:px-8 pb-9" style={{ maxWidth: "96vw", margin: "0 auto" }}>
         <div style={{ width: "100%", height: "clamp(220px, 36vw, 480px)", borderRadius: "12px", overflow: "hidden", background: "#DDD" }}>
           <img src={blog.image} alt={blog.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
         </div>
       </div>
 
       {/* ── Body ── */}
-      <div style={{ maxWidth: "96vw", margin: "0 auto", padding: "0 32px 56px" }}>
+      <div className="px-4 md:px-8 pb-14" style={{ maxWidth: "96vw", margin: "0 auto" }}>
 
         {/* Intro excerpt */}
         {blog.excerpt && (
@@ -279,10 +284,10 @@ export default function BlogDetailPage({ params }: { params: { id: string } }) {
       {/* ── Related Articles ── */}
       {related.length > 0 && (
         <div style={{ background: "#F7F7F7", padding: "40px 0 56px" }}>
-          <div style={{ maxWidth: "96vw", margin: "0 auto", padding: "0 32px" }}>
+          <div className="px-4 md:px-8" style={{ maxWidth: "96vw", margin: "0 auto" }}>
 
             {/* Header row */}
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "28px" }}>
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-7">
               <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                 <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
                   <path d="M1 7H17M11 1L17 7L11 13" stroke="#111112" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -305,7 +310,7 @@ export default function BlogDetailPage({ params }: { params: { id: string } }) {
             </div>
 
             {/* 3-col related grid */}
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px" }}>
+            <div className="grid grid-cols-1  lg:grid-cols-3 gap-5">
               {related.map((post) => (
                 <Link
                   key={post.id}
@@ -313,7 +318,7 @@ export default function BlogDetailPage({ params }: { params: { id: string } }) {
                   className="group block"
                   style={{ textDecoration: "none" }}
                 >
-                  <div style={{ width: "100%", height: "clamp(140px, 15vw, 200px)", borderRadius: "10px", overflow: "hidden", background: "#DDD", marginBottom: "12px" }}>
+                  <div className="h-[180px] sm:h-[clamp(140px,15vw,200px)]" style={{ width: "100%", borderRadius: "10px", overflow: "hidden", background: "#DDD", marginBottom: "12px" }}>
                     <img
                       src={post.image}
                       alt={post.title}
@@ -324,7 +329,7 @@ export default function BlogDetailPage({ params }: { params: { id: string } }) {
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "8px" }}>
                     <span
                       style={{
-                        fontSize: "9px", fontWeight: 700, letterSpacing: "0.1em",
+                        fontSize: "8px", fontWeight: 700, letterSpacing: "0.1em",
                         textTransform: "uppercase", color: "#E30A13",
                         border: "1px solid #E30A13", borderRadius: "999px", padding: "3px 10px",
                       }}
@@ -337,7 +342,7 @@ export default function BlogDetailPage({ params }: { params: { id: string } }) {
                   </div>
                   <h3
                     className="group-hover:text-[#E30A13] transition-colors duration-200"
-                    style={{ fontSize: "clamp(12px, 1.1vw, 15px)", fontWeight: 700, color: "#111112", lineHeight: 1.35, margin: 0 }}
+                    style={{ fontSize: "clamp(13px, 1.1vw, 15px)", fontWeight: 700, color: "#111112", lineHeight: 1.35, margin: 0 }}
                   >
                     {post.title}
                   </h3>

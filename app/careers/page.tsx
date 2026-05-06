@@ -99,15 +99,15 @@ function CareerBenefitsMarquee() {
         {doubled.map((benefit, i) => (
           <div
             key={i}
-            className="w-[280px] flex-shrink-0 border-r border-[#e5e5e5] px-4 py-6"
+            className="w-[240px] md:w-[280px] flex-shrink-0 border-r border-[#e5e5e5] px-4 py-5 md:py-6"
           >
-            <p className="mb-4 font-hanken text-[13px] font-semibold tracking-wide text-[#cc1f1f]">
+            <p className="mb-3 md:mb-4 font-hanken text-[13px] font-semibold tracking-wide text-[#cc1f1f]">
               {benefit.number}
             </p>
-            <h3 className="mb-5 font-hanken text-[20px] font-medium leading-snug text-[#111112]">
+            <h3 className="mb-3 md:mb-5 font-hanken text-[18px] md:text-[20px] font-medium leading-snug text-[#111112]">
               {benefit.title}
             </h3>
-            <p className="font-hanken text-[13.5px] leading-relaxed text-[#555555]">
+            <p className="font-hanken text-[13px] md:text-[13.5px] leading-relaxed text-[#555555]">
               {benefit.desc}
             </p>
           </div>
@@ -135,29 +135,29 @@ function JobRow({
       initial={{ opacity: 0, y: 24 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-      className="flex items-center gap-5 border-t border-[#d9d9d9] py-2"
+      className="flex flex-col md:flex-row md:items-center gap-3 md:gap-5 border-t border-[#d9d9d9] py-3 md:py-2"
     >
-      <p className="min-w-[260px] flex-shrink-0 font-hanken text-[17px] font-medium text-[#111112]">
+      <p className="md:min-w-[260px] md:flex-shrink-0 font-hanken text-[16px] md:text-[17px] font-medium text-[#111112]">
         {job.title}
       </p>
 
-      <div className="flex flex-1 flex-wrap gap-2.5">
-        <span className="flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 font-hanken text-[13px] text-[#333]">
-          <MapPin size={15} />
+      <div className="flex flex-1 flex-wrap gap-2 md:gap-2.5">
+        <span className="flex items-center gap-1.5 rounded-full bg-white px-3 md:px-3.5 py-1 md:py-1.5 font-hanken text-[12px] md:text-[13px] text-[#333]">
+          <MapPin size={14} />
           {job.location}
         </span>
-        <span className="flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 font-hanken text-[13px] text-[#333]">
-          <Briefcase size={15} />
+        <span className="flex items-center gap-1.5 rounded-full bg-white px-3 md:px-3.5 py-1 md:py-1.5 font-hanken text-[12px] md:text-[13px] text-[#333]">
+          <Briefcase size={14} />
           {job.type}
         </span>
-        <span className="flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 font-hanken text-[13px] text-[#333]">
-          <Clock size={15} />
+        <span className="flex items-center gap-1.5 rounded-full bg-white px-3 md:px-3.5 py-1 md:py-1.5 font-hanken text-[12px] md:text-[13px] text-[#333]">
+          <Clock size={14} />
           {job.employment}
         </span>
       </div>
 
       {/* Link passes job slug as the [id] param to the detail page */}
-      <Link href={`/careers/${job.slug}`} className="min-w-[150px]">
+      <Link href={`/careers/${job.slug}`} className="md:min-w-[150px]">
         <Button variant="black" className="w-full">
           Apply
         </Button>
@@ -173,27 +173,27 @@ function OpenPositionsSection() {
   const headerInView = useInView(headerRef, { once: true });
 
   return (
-    <section className="bg-[#f5f5f5] px-6 py-10">
+    <section className="bg-[#f5f5f5] px-4 md:px-6 py-8 md:py-10">
       <motion.div
         ref={headerRef}
         initial={{ opacity: 0, y: 20 }}
         animate={headerInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.55, ease: "easeOut" }}
-        className="mb-2 flex items-start gap-28"
+        className="mb-2 flex flex-col lg:flex-row items-start gap-6 lg:gap-28"
       >
-        <div className="mb-5 flex items-center gap-2.5">
+        <div className="mb-2 lg:mb-5 flex items-center gap-2.5">
           <span className="text-[#cc1f1f]">↳</span>
           <span className="font-hanken text-[12px] font-semibold tracking-[0.08em] text-[#111112]">
             OPEN <span className="text-[#cc1f1f]">POSITIONS</span>
           </span>
         </div>
-        <div>
-          <div className="flex gap-32 items-start mb-6">
-            <h2 className="max-w-[580px] font-hanken text-[56px] font-normal leading-[1.1] text-[#111112]">
+        <div className="w-full">
+          <div className="flex flex-col lg:flex-row lg:gap-32 lg:items-start mb-6 gap-4">
+            <h2 className="max-w-[580px] font-hanken text-[28px] md:text-[40px] lg:text-[56px] font-normal leading-[1.1] text-[#111112]">
               Join a team solving real business problems with clarity and
               structure
             </h2>
-            <button className="mt-2 rounded-full bg-[#cc1f1f] px-7 py-3.5 font-hanken text-[14px] font-medium text-white transition-opacity hover:opacity-85">
+            <button className="mt-0 lg:mt-2 self-start rounded-full bg-[#cc1f1f] px-6 md:px-7 py-3 md:py-3.5 font-hanken text-[14px] font-medium text-white transition-opacity hover:opacity-85">
               Reach Us
             </button>
           </div>

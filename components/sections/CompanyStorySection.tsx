@@ -21,17 +21,17 @@ export function CompanyStorySection() {
   });
 
   return (
-    <section className="bg-white px-4 py-8">
+    <section className="bg-white px-4 py-8 md:py-10">
       <motion.div {...fadeUp(0.32)} className="mx-auto max-w-[1200px]">
         {/* Row 1: breadcrumb left, headline right */}
-        <div className="flex flex-col lg:flex-row gap-8 lg:justify-between lg:items-start mb-6">
+        <div className="flex flex-col lg:flex-row gap-4 md:gap-8 lg:justify-between lg:items-start mb-6">
           <div className="flex items-center gap-1.5 pt-1 min-w-[180px]">
             <span className="text-[#cc1f1f] text-[16px]">↳</span>
-            <span className="font-hanken text-[16px] font-bold tracking-[0.12em] text-[#111112]">
+            <span className="font-hanken text-[14px] md:text-[16px] font-bold tracking-[0.12em] text-[#111112]">
               WHO <span className="text-[#cc1f1f]">WE ARE</span>
             </span>
           </div>
-          <h2 className="font-hanken text-[36px] lg:text-[32px] font-semibold leading-tight text-[#111112] max-w-[780px]">
+          <h2 className="font-hanken text-[24px] md:text-[36px] lg:text-[32px] font-semibold leading-tight text-[#111112] max-w-[780px]">
             Since 2021, we're an experienced team helping businesses solve
             complex challenges, improve performance, and build for long-term
             growth.
@@ -39,10 +39,10 @@ export function CompanyStorySection() {
         </div>
 
         {/* Row 2: 3 columns — text | image | card */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1.5fr_0.7fr] gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1.5fr_0.7fr] gap-6 md:gap-8 items-start">
           {/* Col 1: description + counter */}
-          <div className="flex flex-col justify-between h-full gap-16">
-            <p className="font-inter text-[15px] leading-relaxed text-[#444]">
+          <div className="flex flex-col justify-between h-full gap-8 md:gap-16">
+            <p className="font-inter text-[14px] md:text-[15px] leading-relaxed text-[#444]">
               At IBV Technologies, we bring together experienced consultants,
               developers, researchers, analysts, and creative strategists to
               deliver solutions that are effective today and sustainable for the
@@ -58,11 +58,11 @@ export function CompanyStorySection() {
               </div>
               <div className="flex items-end gap-1 border-l-2 border-[#e2e2e2] pl-4">
                 <SlotCounter target={1500} inView={inView} />
-                <span className="font-hanken text-[64px] font-black text-[#111112] leading-none mb-1">
+                <span className="font-hanken text-[44px] md:text-[64px] font-black text-[#111112] leading-none mb-1">
                   +
                 </span>
               </div>
-              <p className="font-hanken text-[14px] text-[#555] pl-4 mt-1">
+              <p className="font-hanken text-[13px] md:text-[14px] text-[#555] pl-4 mt-1">
                 Businesses supported
                 <br />
                 across various industries
@@ -80,7 +80,7 @@ export function CompanyStorySection() {
           </div>
 
           {/* Col 3: services card */}
-          <div className="rounded-2xl bg-[#f5f5f5] px-2 py-4 flex flex-col gap-2 mt-24">
+          <div className="rounded-2xl bg-[#f5f5f5] px-3 md:px-2 py-4 flex flex-col gap-2 mt-0 lg:mt-24">
             <Pin size={22} className="text-[#cc1f1f] rotate-45" />
             <div className="flex flex-col gap-2">
               {[

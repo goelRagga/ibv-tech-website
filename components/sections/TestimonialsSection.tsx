@@ -32,15 +32,36 @@ export function TestimonialsSection({
   ratingLabel = 'reviews',
   reviews = defaultReviews,
 }: TestimonialsSectionProps) {
-  const cols = reviews.length;
-  const gridCols = `1fr ${Array(cols).fill('1.5px 1fr').join(' ')}`;
-
   return (
     <section className="section-padding bg-[#000]">
       <div className="container-ibv">
+        {/* Mobile: stacked layout */}
+        <div className="flex flex-col gap-6 md:hidden">
+          <AnimateOnScroll className="flex flex-col">
+            <div className="text-[56px] font-bold text-white leading-none mb-3">
+              {rating}<span className="text-rainbow-red">*</span>
+            </div>
+            <p className="text-[14px] text-[#76767F] leading-relaxed">
+              Based on{' '}
+              <span className="text-rainbow-red font-medium">{ratingLabel}</span>
+              {' '}on Google
+            </p>
+          </AnimateOnScroll>
+          {reviews.map((review, i) => (
+            <AnimateOnScroll key={`m-rev-${i}`} delay={0.1 * (i + 1)} className="flex flex-col gap-3 border-t border-[#2a2a35] pt-4">
+              <p className="text-[14px] text-[#fff] leading-[1.7]">{review.text}</p>
+              <div>
+                <div className="font-serif text-[18px] font-normal text-white mb-1">{review.name}</div>
+                <div className="text-[13px] text-[#76767F] font-medium">{review.role}</div>
+              </div>
+            </AnimateOnScroll>
+          ))}
+        </div>
+
+        {/* Desktop: side-by-side grid (unchanged) */}
         <div
-          className="min-h-[320px]"
-          style={{ display: 'grid', gridTemplateColumns: gridCols }}
+          className="min-h-[320px] hidden md:grid"
+          style={{ gridTemplateColumns: `1fr ${Array(reviews.length).fill('1.5px 1fr').join(' ')}` }}
         >
           {/* Col 1 — Rating */}
           <AnimateOnScroll className="flex flex-col justify-end pr-10 pb-2">

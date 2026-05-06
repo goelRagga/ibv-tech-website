@@ -10,6 +10,7 @@ import { ChipsDropSection } from "@/components/sections/ChipsDropSection";
 import { CompanyStorySection } from "@/components/sections/CompanyStorySection";
 import { ProcessStepsSection } from "@/components/sections/ProcessStepsSection";
 import { ThinkAnalyzeSection } from "@/components/sections/ThinkAnalyzeSection";
+import { useMediaQuery } from "react-responsive";
 
 export const metadata: Metadata = {
   title: "About IBV Technologies",

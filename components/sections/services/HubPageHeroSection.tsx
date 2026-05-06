@@ -3,6 +3,7 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useMediaQuery } from "react-responsive";
 
 // ─── Animation variants ───────────────────────────────────────────────────────
 const fadeUp = (delay = 0) => ({
@@ -37,9 +38,11 @@ export function HubPageHeroSection({
   backgroundImage = "/HOMEPAGEBANNER.png",
   maxHeight="160px"
 }: HubPageHeroSectionProps) {
+
+    const isMobile = useMediaQuery({ maxWidth: 767 });
   return (
     <section
-      className="relative overflow-hidden bg-refresh-black h-[80vh]"
+      className="relative overflow-hidden bg-refresh-black min-h-[560px] h-[80vh]"
     >
       {/* ── Background image ── */}
       <motion.div
@@ -76,13 +79,13 @@ export function HubPageHeroSection({
         </motion.div>
 
         {/* Hero body */}
-        <div className="flex-1 flex flex-col justify-center px-8 max-w-[95vw] mx-auto w-full pt-10 pb-24 md:pb-32">
+        <div className="flex-1 flex flex-col justify-center px-4 md:px-8 max-w-[95vw] mx-auto w-full pt-10 pb-24 md:pb-32">
 
 
 
           {/* Taglines */}
           {(tagline1 || tagline2) && (
-            <motion.div {...fadeUp(0.22)} className="mb-5 ml-[60%]">
+            <motion.div {...fadeUp(0.22)} className="mb-5 ml-0 md:ml-[60%]">
               {tagline1 && (
                 <p
                   className="text-white font-bold uppercase leading-tight"
@@ -105,8 +108,8 @@ export function HubPageHeroSection({
               {/* Description */}
           <motion.p
             {...fadeUp(0.42)}
-            className="text-white leading-tight mb-10 max-w-[450px] ml-[60%] font-semibold"
-            style={{ fontSize: "clamp(15px, 1.05vw, 16px)" }}
+            className="text-white leading-tight mb-10 max-w-[450px] ml-0 md:ml-[60%] font-semibold"
+            style={{ fontSize: "clamp(14px, 1.05vw, 16px)" }}
           >
             {description}
           </motion.p>
@@ -114,13 +117,13 @@ export function HubPageHeroSection({
           {/* Main headline */}
           <motion.h1
             {...fadeUp(0.32)}
-            className="text-white font-bold leading-tight absolute left-0 right-0  w-[100%] tracking-tight  flex justify-center"
-            style={{ fontSize: `clamp(48px, 12vw, ${maxHeight})`, letterSpacing: "-0.025em", fontFamily: "var(--font-serif)", alignSelf:"end", justifySelf:"end", bottom:"-40px" }}
+            className="text-white font-bold leading-tight absolute left-0 right-0 w-[100%] tracking-tight flex justify-center px-4 md:px-0 text-center md:text-left"
+            style={{ fontSize: `clamp(35px, 9vw, ${maxHeight})`, letterSpacing: "-0.025em", fontFamily: "var(--font-serif)", alignSelf: "end", justifySelf: "end", bottom: isMobile ? "-5px":"-20px" }}
           >
             {headlineTitle}
           </motion.h1>
 
-      
+
 
         </div>
 

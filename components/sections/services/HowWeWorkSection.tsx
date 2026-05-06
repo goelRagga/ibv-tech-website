@@ -82,10 +82,10 @@ export function HowWeWorkSection({
       <section
         ref={sectionRef}
         className="bg-[#0E0E0F] relative overflow-hidden"
-        style={{ padding: 'clamp(40px, 6vw, 80px) 0' , paddingBottom:"0"}}
+        style={{ padding: 'clamp(32px, 6vw, 80px) 0', paddingBottom: "0" }}
       >
         <div className="container-ibv">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10 lg:gap-16 items-start">
 
             {/* ── LEFT COLUMN ── */}
             <motion.div

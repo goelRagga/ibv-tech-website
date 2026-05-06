@@ -32,25 +32,25 @@ const steps = [
 
 export function ProcessStepsSection() {
   return (
-    <section className="bg-white px-2 py-6">
-      <div className="mx-6 ">
+    <section className="bg-white px-2 py-6 md:py-8">
+      <div className="mx-4 md:mx-6">
 
         {/* Header row */}
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-10   ">
-          <div className="flex flex-col gap-4">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 md:gap-8 mb-8 md:mb-10">
+          <div className="flex flex-col gap-3 md:gap-4">
             <div className="flex items-center gap-1.5">
               <span className="text-[#cc1f1f] text-[13px]">↳</span>
               <span className="font-hanken text-[11px] font-bold tracking-[0.12em] text-[#111112]">
                 OUR <span className="text-[#cc1f1f]">APPROACH</span>
               </span>
             </div>
-            <h2 className="font-hanken text-[32px] font-bold leading-tight text-[#111112] max-w-[460px]">
+            <h2 className="font-hanken text-[24px] md:text-[32px] font-bold leading-tight text-[#111112] max-w-[460px]">
               A simple, transparent process focused on results.
             </h2>
           </div>
 
           {/* Image top right */}
-          <div className="rounded-2xl overflow-hidden w-full lg:w-[280px] h-[190px] flex-shrink-0">
+          <div className="rounded-2xl overflow-hidden w-full lg:w-[280px] h-[180px] md:h-[190px] flex-shrink-0">
             <img
               src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80"
               alt="Team working"
@@ -68,20 +68,20 @@ export function ProcessStepsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-              className="grid grid-cols-[64px_1fr_1fr] gap-8 py-4 border-t border-[#ddd] last:border-b"
+              className="grid grid-cols-[40px_1fr] md:grid-cols-[64px_1fr_1fr] gap-x-4 gap-y-2 md:gap-8 py-4 border-t border-[#ddd] last:border-b"
             >
               {/* Number */}
-              <span className="font-inter font-bold text-[20px] text-[#111112] pt-0.5">
+              <span className="font-inter font-bold text-[16px] md:text-[20px] text-[#111112] pt-0.5">
                 {step.number}
               </span>
 
               {/* Title */}
-              <h3 className="font-inter text-[26px] font-bold text-[#111112] leading-tight">
+              <h3 className="font-inter text-[18px] md:text-[26px] font-bold text-[#111112] leading-tight">
                 {step.title}
               </h3>
 
               {/* Description */}
-              <p className="font-inter text-[14px] leading-relaxed text-[#555]">
+              <p className="font-inter text-[13px] md:text-[14px] leading-relaxed text-[#555] col-start-2 md:col-start-auto">
                 {step.description}
               </p>
             </motion.div>

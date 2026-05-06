@@ -58,13 +58,13 @@ export function ServicePageHero({
       </div>
 
       {/* Content — pinned to bottom-left of viewport */}
-      <div className="relative z-10 flex-1 flex flex-col justify-end max-w-[1344px] mx-auto w-full px-6 lg:px-12 pb-20 lg:pb-28">
+      <div className="relative z-10 flex-1 flex flex-col justify-end max-w-[1344px] mx-auto w-full px-4 md:px-6 lg:px-12 pb-16 md:pb-20 lg:pb-28">
         {/* Breadcrumb */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="text-white/30 text-[11px] uppercase tracking-[0.18em] mb-5"
+          className="text-white/30 text-[11px] uppercase tracking-[0.18em] mb-4 md:mb-5"
         >
           {breadcrumb}
         </motion.p>
@@ -74,9 +74,9 @@ export function ServicePageHero({
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white font-bold leading-tight tracking-tight mb-6"
+          className="text-white font-bold leading-tight tracking-tight mb-4 md:mb-6"
           style={{
-            fontSize: 'clamp(40px, 6vw, 84px)',
+            fontSize: 'clamp(34px, 6vw, 84px)',
             fontFamily: "'Playfair Display', 'Georgia', serif",
           }}
         >
@@ -88,7 +88,7 @@ export function ServicePageHero({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.16 }}
-          className="text-white/55 text-[15px] leading-relaxed max-w-[520px] mb-10"
+          className="text-white/55 text-[14px] md:text-[15px] leading-relaxed max-w-[520px] mb-8 md:mb-10"
         >
           {description}
         </motion.p>

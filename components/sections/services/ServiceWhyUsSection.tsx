@@ -45,7 +45,7 @@ export function ServiceWhyUsSection({
       className="bg-[#F6F6F8]"
       style={{ padding: 'clamp(32px, 4vw, 56px) 0' }}
     >
-      <div className="max-w-[1344px] mx-auto ">
+      <div className="max-w-[1344px] mx-auto px-4 lg:px-0">
         <div
           className="grid grid-cols-1 lg:grid-cols-2"
           style={{ gap: '12px', alignItems: 'stretch' }}
@@ -57,14 +57,14 @@ export function ServiceWhyUsSection({
             whileInView="visible"
             viewport={{ once: true, margin: '-60px' }}
             variants={fadeUp}
+            className="min-h-[360px] md:min-h-[440px] lg:min-h-[clamp(440px,52vw,560px)]"
             style={{
               background: '#0E0E0F',
               borderRadius: '16px',
-              padding: 'clamp(28px, 4vw, 48px)',
+              padding: 'clamp(24px, 4vw, 48px)',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
-              minHeight: 'clamp(440px, 52vw, 560px)',
             }}
           >
             {/* Top: eyebrow + heading */}
@@ -93,7 +93,7 @@ export function ServiceWhyUsSection({
               <h2
                 className="text-white font-semibold leading-tight"
                 style={{
-                  fontSize: 'clamp(32px, 2vw, 44px)',
+                  fontSize: 'clamp(26px, 2.6vw, 44px)',
                   letterSpacing: '-0.025em',
                   maxWidth: '420px',
                   fontFamily: 'var(--font-serif)',
@@ -127,10 +127,10 @@ export function ServiceWhyUsSection({
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.75, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+            className="min-h-[280px] md:min-h-[440px] lg:min-h-[clamp(440px,52vw,560px)]"
             style={{
               borderRadius: '16px',
               overflow: 'hidden',
-              minHeight: 'clamp(440px, 52vw, 560px)',
               background: items ? '#F6F6F8' : '#1a1a1a',
             }}
           >

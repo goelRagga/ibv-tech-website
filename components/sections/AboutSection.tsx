@@ -63,6 +63,8 @@ export function AboutSection() {
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
+    // Disable wheel-based pinning on mobile/touch — relies on wheel events
+    if (window.matchMedia("(max-width: 720px)").matches) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -77,7 +79,8 @@ export function AboutSection() {
               // Coming from below (scrolling up into section) → start at max
               const fromBelow =
                 window.scrollY + window.innerHeight <
-                (sectionRef.current?.offsetTop ?? 0) + (sectionRef.current?.offsetHeight ?? 0);
+                (sectionRef.current?.offsetTop ?? 0) +
+                  (sectionRef.current?.offsetHeight ?? 0);
               scrollCount.current = fromBelow ? SCROLL_ABSORB : 0;
             }
           } else {
@@ -87,7 +90,7 @@ export function AboutSection() {
           }
         });
       },
-      { threshold: 0.95 }
+      { threshold: 0.95 },
     );
 
     observer.observe(section);
@@ -148,79 +151,71 @@ export function AboutSection() {
       className="flex items-center relative z-20 overflow-hidden min-h-screen"
       style={{ background: "#E3020A" }}
     >
-      <div
-        className="w-full max-w-[95vw] mx-auto py-10 px-4"
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_520px] gap-12 lg:gap-16 items-start">
-
+      <div className="w-full max-w-[95vw] mx-auto py-8 md:py-10 px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_520px] gap-8 md:gap-12 lg:gap-16 items-start">
           {/* ── LEFT: Text content ──────────────────────────────────────── */}
           <div>
             {/* Eyebrow */}
-            <div
-              className="flex items-center gap-1 mb-4"
-            >
+            <div className="flex items-center gap-1 mb-4">
               <span className="text-white/[0.55] text-[13px]">↳</span>
-              <span
-                className="text-[11px] font-medium tracking-[0.18em] uppercase text-white/[0.55]"
-              >
-                About{" "}
-                <span className="text-white font-bold">Us</span>
+              <span className="text-[11px] font-medium tracking-[0.18em] uppercase text-white/[0.55]">
+                About <span className="text-white font-bold">Us</span>
               </span>
             </div>
 
             {/* Headline */}
             <h2
-              className="font-serif font-bold text-white leading-tight tracking-tight mb-6"
-              style={{ fontSize: "clamp(30px, 3.8vw, 56px)" }}
+              className="font-serif font-bold text-white leading-tight tracking-tight mb-4 md:mb-6"
+              style={{ fontSize: "clamp(28px, 3.8vw, 56px)" }}
             >
               Where innovation meets intelligence.
             </h2>
 
             {/* Body paragraphs */}
             <div className="flex flex-col gap-[18px]">
-              <p
-                className="text-body-sm text-white/[0.72] leading-7 max-w-[500px] m-0"
-              >
-                At IBV Technologies, every engagement starts with a deep understanding of
-                your business, your market, and your goals. We focus on bringing clarity to
-                complex problems and building solutions that are grounded in real-world
-                application.
+              <p className="text-body-sm text-white/[0.72] leading-7 max-w-[500px] m-0">
+                At IBV Technologies, every engagement starts with a deep
+                understanding of your business, your market, and your goals. We
+                focus on bringing clarity to complex problems and building
+                solutions that are grounded in real-world application.
               </p>
-              <p
-                className="text-body-sm text-white/[0.72] leading-7 max-w-[500px] m-0"
-              >
-                Our work is shaped by insight, execution, and a strong focus on results. By
-                combining expertise across strategy, marketing, and technology, we ensure
-                every solution delivers lasting value.
+              <p className="text-body-sm text-white/[0.72] leading-7 max-w-[500px] m-0">
+                Our work is shaped by insight, execution, and a strong focus on
+                results. By combining expertise across strategy, marketing, and
+                technology, we ensure every solution delivers lasting value.
               </p>
             </div>
 
             {/* Progress dots */}
-            <div
-              className="flex items-center gap-1 mt-6"
-            >
-              {services.map((_, i) => (
-                <div
-                  key={i}
-                  style={{
-                    height: "6px",
-                    borderRadius: "999px",
-                    background: activeIndex === i ? "white" : "rgba(255,255,255,0.28)",
-                    width: activeIndex === i ? "24px" : "6px",
-                    transition: "all 0.45s cubic-bezier(0.4, 0, 0.2, 1)",
-                  }}
-                />
-              ))}
-            </div>
+            {!isMobile && (
+              <div className="flex items-center gap-1 mt-6">
+                {services.map((_, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      height: "6px",
+                      borderRadius: "999px",
+                      background:
+                        activeIndex === i ? "white" : "rgba(255,255,255,0.28)",
+                      width: activeIndex === i ? "24px" : "6px",
+                      transition: "all 0.45s cubic-bezier(0.4, 0, 0.2, 1)",
+                    }}
+                  />
+                ))}
+              </div>
+            )}
           </div>
 
           {/* ── RIGHT: Stacked card carousel ────────────────────────────── */}
-          <div className="relative mb-4 mt-4 lg:mt-12" style={{ height: isMobile ? "400px" : "500px" }}>
+          <div
+            className="relative mb-4 mt-4 lg:mt-12"
+            style={{ height: isMobile ? "400px" : "500px" }}
+          >
             <div
               style={{
                 position: "absolute",
                 top: "40px",
-                left: "20px",
+                left: isMobile ? "0px" : "20px",
               }}
             >
               {paintOrder.map((serviceIndex, paintIdx) => {
@@ -263,9 +258,7 @@ export function AboutSection() {
                   >
                     {/* Number — visible on all cards */}
                     <div style={{ padding: "20px 20px 6px 20px" }}>
-                      <span
-                        className="font-bold text-[16px] tracking-[-0.01em] text-[#0a0a0a]"
-                      >
+                      <span className="font-bold text-[16px] tracking-[-0.01em] text-[#0a0a0a]">
                         {service.number}
                       </span>
                     </div>
@@ -276,12 +269,14 @@ export function AboutSection() {
                         key={`content-${serviceIndex}`}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 0.4, delay: 0.18, ease: "easeOut" }}
+                        transition={{
+                          duration: 0.4,
+                          delay: 0.18,
+                          ease: "easeOut",
+                        }}
                       >
                         <div style={{ padding: "4px 20px 16px 20px" }}>
-                          <h3
-                            className="font-bold text-[23px] tracking-tight text-[#0a0a0a] m-0 leading-tight"
-                          >
+                          <h3 className="font-bold text-[23px] tracking-tight text-[#0a0a0a] m-0 leading-tight">
                             {service.title}
                           </h3>
                         </div>
@@ -315,7 +310,6 @@ export function AboutSection() {
               })}
             </div>
           </div>
-
         </div>
       </div>
     </section>

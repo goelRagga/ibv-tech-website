@@ -49,7 +49,7 @@ export function GrowthSection() {
   }, [circleRadius, vw, vh]);
 
   const wordStyle: React.CSSProperties = {
-    fontSize: "clamp(16px, 4vw, 52px)",
+    fontSize: "clamp(14px, 4vw, 52px)",
     fontStyle: "normal",
     letterSpacing: "-0.01em",
     lineHeight: 1,
@@ -94,7 +94,7 @@ export function GrowthSection() {
 
             {/* Spacer aligns Built/From over circle */}
             <div style={{
-              width: "clamp(120px, 28vw, 320px)",
+              width: "clamp(90px, 28vw, 320px)",
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",

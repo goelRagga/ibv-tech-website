@@ -63,12 +63,12 @@ function ServiceCard({
       className="bg-[#F6F6F8] rounded-2xl overflow-hidden"
       style={{ border: "1px solid #EBEBEB" }}
     >
-      <div className="flex flex-col lg:flex-row items-stretch lg:justify-between p-4 w-full" >
+      <div className="flex flex-col lg:flex-row items-stretch lg:justify-between p-4 w-full gap-4 lg:gap-0" >
         {/* Big number */}
         <div
           className="font-bold text-[#111112] leading-none flex-shrink-0 select-none"
           style={{
-            fontSize: "clamp(48px, 5vw, 72px)",
+            fontSize: "clamp(40px, 5vw, 72px)",
             letterSpacing: "-0.03em",
             lineHeight: 1,
             paddingTop: "2px",
@@ -78,7 +78,7 @@ function ServiceCard({
         </div>
 
         {/* Title, desc, tags, cta */}
-        <div className="flex flex-col flex-1 ml-8">
+        <div className="flex flex-col flex-1 ml-0 lg:ml-8">
           <h3
             className="font-bold text-[#111112] mb-2 leading-tight"
             style={{ fontSize: "clamp(17px, 1.6vw, 22px)" }}
@@ -87,14 +87,14 @@ function ServiceCard({
           </h3>
 
           <p
-            className="text-[#666] leading-relaxed mb-5"
+            className="text-[#666] leading-relaxed mb-4 md:mb-5"
             style={{ fontSize: "clamp(12px, 1vw, 14px)", maxWidth: "380px" }}
           >
             {service.desc}
           </p>
 
           {/* Tags */}
-          <div className="flex flex-wrap gap-2 mb-6">
+          <div className="flex flex-wrap gap-2 mb-4 md:mb-6">
             {service.tags.map((tag) => (
               <span
                 key={tag}
@@ -127,14 +127,11 @@ function ServiceCard({
         </div>
 
         {/* Right: image */}
-    
-          <img
-            src={service.image}
-            alt={service.title}
-            className="w-[340px] h-[300px] object-cover block rounded-xl"
-            
-          />
-        
+        <img
+          src={service.image}
+          alt={service.title}
+          className="w-full h-[220px] lg:w-[340px] lg:h-[300px] object-cover block rounded-xl"
+        />
       </div>
     </motion.div>
   );
@@ -164,12 +161,12 @@ export function ServiceOfferingsSection({
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.75, ease: EASE }}
-          className="text-center mb-12"
+          className="text-center mb-8 md:mb-12 px-4"
         >
           <h2
             className="font-semibold text-[#111112] leading-tight"
             style={{
-              fontSize: "clamp(22px, 3vw, 38px)",
+              fontSize: "clamp(20px, 3vw, 38px)",
               maxWidth: "800px",
               margin: "0 auto",
               fontFamily: "var(--font-serif)",

@@ -41,7 +41,7 @@ function useInView(ref: React.RefObject<Element>, threshold = 0.1) {
 export function ServiceFullWidthBand({
   imageSrc,
   imageAlt = '',
-  imageHeight = 'clamp(260px, 36vw, 460px)',
+  imageHeight = 'clamp(220px, 36vw, 460px)',
 }: ServiceFullWidthBandProps) {
   return (
     <div
@@ -49,7 +49,7 @@ export function ServiceFullWidthBand({
       style={{ background: '#181818', padding: '0 0 0 0' }}
     >
       <div
-        className="max-w-[1344px] mx-auto "
+        className="max-w-[1344px] mx-auto px-4 lg:px-0"
         style={{ paddingTop: '40px' }}
       >
         <div
@@ -93,16 +93,10 @@ export function ServiceCardGrid({ services }: ServiceCardGridProps) {
       ref={ref}
       style={{ background: '#181818', padding: 'clamp(32px, 4vw, 56px) 0' }}
     >
-      <div className="max-w-[1344px] mx-auto ">
+      <div className="max-w-[1344px] mx-auto px-4 lg:px-0">
         {/* Row 1: small | small | wide (col-span pattern: 1fr 1fr 2fr) */}
         {/* Row 2: small | wide | small (col-span pattern: 1fr 2fr 1fr) */}
-        <div
-          className="grid"
-          style={{
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '10px',
-          }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[10px]">
           {services.map((item, i) => {
             // Row 1: indices 0,1,2 → col-spans: 1, 1, 2
             // Row 2: indices 3,4,5 → col-spans: 1, 2, 1
@@ -117,12 +111,12 @@ export function ServiceCardGrid({ services }: ServiceCardGridProps) {
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, ease: EASE, delay: 0.05 + i * 0.07 }}
+              className={colSpan === 2 ? 'lg:col-span-2' : ''}
               style={{
-                gridColumn: `span ${colSpan}`,
                 background: '#242424',
                 borderRadius: '14px',
                 border: '1px solid rgba(255,255,255,0.06)',
-                padding: 'clamp(24px, 3vw, 36px)',
+                padding: 'clamp(20px, 3vw, 36px)',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '0',
@@ -130,9 +124,9 @@ export function ServiceCardGrid({ services }: ServiceCardGridProps) {
             >
               {/* Icon */}
               <div
+                className="mb-6 md:mb-10"
                 style={{
                   color: 'rgba(255,255,255,0.45)',
-                  marginBottom: '40px',
                   width: '36px',
                   height: '36px',
                   display: 'flex',

@@ -97,7 +97,7 @@ const topics = [
 /* ── Topics Section ──────────────────────────────────────────────────────────── */
 function TopicsSection() {
   return (
-    <section className="bg-[#f7f7f7] py-14 px-8">
+    <section className="bg-[#f7f7f7] py-10 md:py-14 px-4 md:px-8">
       <div className="max-w-[95vw] mx-auto">
         {/* Label */}
         <AnimateOnScroll>

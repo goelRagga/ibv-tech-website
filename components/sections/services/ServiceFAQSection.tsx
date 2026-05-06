@@ -72,8 +72,8 @@ export function ServiceFAQSection({
   faqs,
 }: ServiceFAQSectionProps) {
   return (
-    <section className="py-20 lg:py-28 bg-[#F6F6F8]">
-      <div className="max-w-[1344px] mx-auto px-6 lg:px-12">
+    <section className="py-12 md:py-20 lg:py-28 bg-[#F6F6F8]">
+      <div className="max-w-[1344px] mx-auto px-4 md:px-6 lg:px-12">
 
         {/* Header */}
         <motion.div
@@ -81,12 +81,12 @@ export function ServiceFAQSection({
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
           variants={fadeUp}
-          className="text-center mb-12"
+          className="text-center mb-8 md:mb-12"
         >
-          <span className="inline-flex items-center justify-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#E30A13] mb-4">
+          <span className="inline-flex items-center justify-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#E30A13] mb-3 md:mb-4">
             FAQs
           </span>
-          <h2 className="text-[28px] lg:text-[36px] font-bold text-[#111112] mt-2 tracking-tight">
+          <h2 className="text-[24px] md:text-[28px] lg:text-[36px] font-bold text-[#111112] mt-2 tracking-tight">
             {heading}
           </h2>
         </motion.div>

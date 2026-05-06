@@ -127,12 +127,12 @@ export function MissionSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-white pt-7 pb-0 relative h-screen z-20"
+      className="bg-white pt-6 md:pt-7 pb-0 relative h-screen z-20 overflow-hidden"
     >
       <div className="max-w-[95vw] mx-auto px-4">
 
         {/* ── Top row: eyebrow left, mission text right ── */}
-        <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6 md:gap-16 items-start mb-10 md:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-3 md:gap-16 items-start mb-6 md:mb-16">
           {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -172,14 +172,19 @@ export function MissionSection() {
             <div
               key={stat.label}
               className={[
-                "pt-8 pb-12",
+                "pt-4 pb-4 md:pt-8 md:pb-12",
                 i !== stats.length - 1 ? "border-b md:border-b-0 md:border-r border-black/[0.08]" : "",
                 i !== 0 ? "md:pl-10" : "",
                 i !== stats.length - 1 ? "md:pr-10" : "",
               ].join(" ")}
             >
               {/* Dot + dropping line */}
-              <DroppingLine started={isInView} delay={stat.lineDelay} />
+              <div className="hidden md:block">
+                <DroppingLine started={isInView} delay={stat.lineDelay} />
+              </div>
+              <div className="md:hidden mb-2">
+                <div className="w-[8px] h-[8px] rounded-full bg-rainbow-red" />
+              </div>
 
               {/* Content fades in after line drops */}
               <motion.div
@@ -189,9 +194,9 @@ export function MissionSection() {
               >
                 {/* Big number — slot machine */}
                 <div
-                  className="font-bold tracking-tight leading-none text-[#0a0a0a] mb-2 min-w-[120px]"
+                  className="font-bold tracking-tight leading-none text-[#0a0a0a] mb-1 md:mb-2 min-w-[120px]"
                   style={{
-                    fontSize: "clamp(40px, 5vw, 68px)",
+                    fontSize: "clamp(32px, 5vw, 68px)",
                   }}
                 >
                   <SlotNumber
@@ -204,9 +209,9 @@ export function MissionSection() {
 
                 {/* Label */}
                 <div
-                  className="font-bold text-[#0a0a0a] mb-[10px]"
+                  className="font-bold text-[#0a0a0a] mb-[6px] md:mb-[10px]"
                   style={{
-                    fontSize: "clamp(14px, 1.2vw, 18px)",
+                    fontSize: "clamp(13px, 1.2vw, 18px)",
                   }}
                 >
                   {stat.label}
@@ -214,7 +219,7 @@ export function MissionSection() {
 
                 {/* Desc */}
                 <p
-                  className="text-[13px] text-[#666] leading-[1.65] m-0 max-w-[220px]"
+                  className="text-[12px] md:text-[13px] text-[#666] leading-[1.55] md:leading-[1.65] m-0 max-w-[220px]"
                 >
                   {stat.desc}
                 </p>

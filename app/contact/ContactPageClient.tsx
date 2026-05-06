@@ -39,13 +39,13 @@ function InfoStrip() {
   ];
 
   return (
-    <section className="bg-[#f7f7f7] py-10 px-8">
+    <section className="bg-[#f7f7f7] py-8 md:py-10 px-4 md:px-8">
       <AnimateOnScroll>
-        <div className="max-w-[95vw] mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="max-w-[95vw] mx-auto grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
           {items.map((item) => (
             <div
               key={item.label}
-              className="bg-white rounded-xl p-6 border border-[#E8E8E8] flex flex-col gap-3"
+              className="bg-white rounded-xl p-4 md:p-6 border border-[#E8E8E8] flex flex-col gap-3"
             >
               <div className="flex items-center gap-2">
                 {item.icon}
@@ -89,20 +89,20 @@ function FormSection() {
   ];
 
   return (
-    <section className="bg-white py-16 px-8">
+    <section className="bg-white py-12 md:py-16 px-4 md:px-8">
       <div className="max-w-[95vw] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-start">
 
           {/* ── Left panel ── */}
           <AnimateOnScroll>
             <div>
               <h2
-                className="font-bold text-[#111112] leading-tight mb-5"
-                style={{ fontSize: "clamp(28px, 3.5vw, 48px)", fontFamily: "var(--font-serif)" }}
+                className="font-bold text-[#111112] leading-tight mb-4 md:mb-5"
+                style={{ fontSize: "clamp(26px, 3.5vw, 48px)", fontFamily: "var(--font-serif)" }}
               >
                 Let&apos;s build your next step forward
               </h2>
-              <p className="text-[#666] text-sm leading-relaxed mb-10 max-w-[420px]">
+              <p className="text-[#666] text-sm leading-relaxed mb-8 md:mb-10 max-w-[420px]">
                 Every business reaches a point where clarity matters more than speed. Whether you are solving a problem, planning growth, or exploring new opportunities, the right direction makes the difference.
               </p>
 
@@ -139,7 +139,7 @@ function FormSection() {
 
           {/* ── Right panel: form card ── */}
           <AnimateOnScroll delay={0.1}>
-            <div className="bg-white border border-[#E8E8E8] rounded-2xl p-8 shadow-sm">
+            <div className="bg-white border border-[#E8E8E8] rounded-2xl p-5 md:p-8 shadow-sm">
               {submitted ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center">
                   <div className="w-14 h-14 rounded-full bg-[#E30A13] flex items-center justify-center mb-5">
@@ -250,12 +250,13 @@ function FormSection() {
 /* ── Map Section ─────────────────────────────────────────────────────────────── */
 function MapSection() {
   return (
-    <section className="w-full" style={{ height: "460px" }}>
+    <section className="w-full h-[320px] md:h-[460px]">
       <iframe
         src="https://maps.google.com/maps?q=H-28+Siddhi+Colony+Raja+Park+Jaipur+Rajasthan+302016+India&output=embed&z=15"
         width="100%"
         height="100%"
-        style={{ border: 0, display: "block" }}
+        className="block w-full h-full"
+        style={{ border: 0 }}
         allowFullScreen
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"

@@ -1,12 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Link from "next/link";
-import {
-  AnimateOnScroll,
-  StaggerContainer,
-  staggerItem,
-} from "@/components/ui/AnimateOnScroll";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { BlogSection } from "@/components/sections/BlogSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";

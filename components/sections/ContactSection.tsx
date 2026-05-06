@@ -30,11 +30,11 @@ export function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <section id="contact" className="bg-refresh-black py-6 px-6 lg:px-12 relative overflow-hidden h-screen">
+    <section id="contact" className="bg-refresh-black py-6 px-4 md:px-6 lg:px-12 relative overflow-hidden lg:h-screen">
       <div className="relative z-10 max-w-container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 items-stretch">
           {/* ── Left Panel ── */}
-          <div className="rounded-2xl p-4 flex flex-col justify-between min-h-[350px]  max-h-[88vh] relative overflow-hidden bg-[#222224]">
+          <div className="rounded-2xl p-4 flex flex-col justify-between gap-6 lg:gap-0 min-h-[280px] md:min-h-[350px] lg:max-h-[88vh] relative overflow-hidden bg-[#222224]">
             {/* Subtle red glow bottom-left */}
             <div
               className="absolute bottom-0 left-0 w-full h-2/3 pointer-events-none"
@@ -54,7 +54,7 @@ export function ContactSection() {
 
             <div className="w-full">
               {/* Headline — pushed to bottom via flex */}
-              <h2 className="relative z-10 font-bold text-white leading-tight !font-serif tracking-tight text-h1 mb-6">
+              <h2 className="relative z-10 font-bold text-white leading-tight !font-serif tracking-tight text-[34px] md:text-h2 lg:text-h1 mb-6">
                 Let&apos;s start building
                 <br />
                 your next step.
@@ -66,7 +66,7 @@ export function ContactSection() {
           </div>
 
           {/* ── Right Panel ── */}
-          <div className="rounded-2xl p-4 flex flex-col bg-[#222224] max-h-[88vh] relative overflow-hidden">
+          <div className="rounded-2xl p-4 flex flex-col bg-[#222224] lg:max-h-[88vh] relative overflow-hidden">
             {submitted ? (
               <div className="flex-1 flex flex-col items-center justify-center text-center">
                 <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 bg-rainbow-red">
@@ -93,7 +93,7 @@ export function ContactSection() {
               </div>
             ) : (
               <>
-                <p className="text-white font-bold mb-4 text-h3">
+                <p className="text-white font-bold mb-4 text-[24px] md:text-h4 lg:text-h3">
                   Fill this form below
                 </p>
 

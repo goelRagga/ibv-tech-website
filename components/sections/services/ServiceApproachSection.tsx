@@ -35,9 +35,9 @@ export function ServiceApproachSection({
   return (
     <section
       className="bg-white"
-      style={{ padding: "clamp(56px, 7vw, 100px) 0" }}
+      style={{ padding: "clamp(40px, 7vw, 100px) 0" }}
     >
-      <div className="max-w-[1344px] mx-auto px-6 lg:px-12">
+      <div className="max-w-[1344px] mx-auto px-4 md:px-6 lg:px-12">
         {/* ── TOP: label left | large overview right ── */}
         <motion.div
           initial="hidden"
@@ -94,9 +94,9 @@ export function ServiceApproachSection({
                   whileInView="visible"
                   viewport={{ once: true, margin: "-40px" }}
                   variants={fadeUp}
-                  className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6"
+                  className="grid grid-cols-1 lg:grid-cols-12 gap-2 lg:gap-6"
                   style={{
-                    padding: "clamp(24px, 3.5vw, 40px) 0",
+                    padding: "clamp(20px, 3.5vw, 40px) 0",
                     borderBottom: "1px solid #E8E8E8",
                   }}
                 >
@@ -111,7 +111,7 @@ export function ServiceApproachSection({
                   </div>
 
                   {/* Description */}
-                  <div className="lg:col-span-6 lg:col-start-6 ">
+                  <div className="lg:col-span-6 lg:col-start-6">
                     <p
                       className="text-[#76767F]"
                       style={{

@@ -93,8 +93,8 @@ function VerticalBlogCard({ blog }: { blog: BlogPost }) {
   return (
     <motion.div variants={staggerItem}>
       <Link href={blog.href} className="group block">
-        <div className="grid grid-cols-[1fr_300px] items-center gap-10 py-4 border-b border-[#D8D8D8]">
-          <div className="flex flex-col">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_300px] items-center gap-4 md:gap-10 py-4 border-b border-[#D8D8D8]">
+          <div className="flex flex-col order-2 md:order-1">
             <div className="flex items-center gap-3 mb-3">
               <span className="bg-white text-[#E30A13] text-[10px] font-bold tracking-[0.13em] uppercase px-3 py-1 rounded-full">
                 {blog.category}
@@ -103,7 +103,7 @@ function VerticalBlogCard({ blog }: { blog: BlogPost }) {
                 {blog.date}
               </span>
             </div>
-            <h3 className="font-serif text-[26px] font-semibold leading-[1.3] text-[#111112] mb-7 max-w-[460px] group-hover:text-[#E30A13] transition-colors">
+            <h3 className="font-serif text-[20px] md:text-[26px] font-semibold leading-[1.3] text-[#111112] mb-4 md:mb-7 max-w-[460px] group-hover:text-[#E30A13] transition-colors">
               {blog.title}
             </h3>
             <div>
@@ -112,7 +112,7 @@ function VerticalBlogCard({ blog }: { blog: BlogPost }) {
               </span>
             </div>
           </div>
-          <div className="w-[300px] h-[190px] rounded-2xl overflow-hidden bg-[#C8C8C8] flex-shrink-0">
+          <div className="w-full md:w-[300px] h-[200px] md:h-[190px] rounded-2xl overflow-hidden bg-[#C8C8C8] flex-shrink-0 order-1 md:order-2">
             {blog.image ? (
               <img src={blog.image} alt={blog.title} className="w-full h-full object-cover" />
             ) : (
@@ -268,9 +268,9 @@ export function BlogSection({
 
   // ── VERTICAL LAYOUT (default — unchanged) ───────────────────────────────────
   return (
-    <section className="bg-[#F5f5f5] pt-[60px]">
-      <div className="px-8">
-        <div className="flex justify-between items-start gap-10">
+    <section className="bg-[#F5f5f5] pt-10 md:pt-[60px]">
+      <div className="px-4 md:px-8">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-4 md:gap-10">
           {/* Label */}
           <div className="pt-2">
             <AnimateOnScroll>
@@ -303,11 +303,11 @@ export function BlogSection({
           </div>
 
           {/* Blog list */}
-          <div className="border-l border-[#D8D8D8] pl-4 mb-4">
-            <div className="flex justify-between">
+          <div className="md:border-l border-[#D8D8D8] md:pl-4 mb-4 w-full">
+            <div className="flex flex-col md:flex-row justify-between gap-4 md:gap-6">
               <div>
                 <AnimateOnScroll delay={0.1}>
-                  <h2 className="font-serif text-[44px] font-normal leading-[1.15] tracking-[-0.01em] text-[#111112]">
+                  <h2 className="font-serif text-[28px] md:text-[36px] lg:text-[44px] font-normal leading-[1.15] tracking-[-0.01em] text-[#111112]">
                     {heading}
                   </h2>
                 </AnimateOnScroll>
@@ -316,7 +316,7 @@ export function BlogSection({
                 <AnimateOnScroll delay={0.2} direction="right">
                   <Link
                     href={ctaHref}
-                    className="inline-block bg-[#E30A13] text-white text-[13px] font-semibold px-6 py-1 rounded-full hover:bg-[#c50910] transition-colors whitespace-nowrap"
+                    className="inline-block bg-[#E30A13] text-white text-[13px] font-semibold px-6 py-2 md:py-1 rounded-full hover:bg-[#c50910] transition-colors whitespace-nowrap"
                   >
                     {ctaText}
                   </Link>

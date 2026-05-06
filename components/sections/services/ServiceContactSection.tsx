@@ -21,18 +21,18 @@ export function ServiceContactSection({
 }: ServiceContactSectionProps) {
   return (
     <section className="bg-[#111112]">
-      <div className="max-w-[1344px] mx-auto px-6 lg:px-12">
+      <div className="max-w-[1344px] mx-auto px-4 md:px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[480px]">
 
           {/* ── Left — headline + CTA ── */}
-          <div className="py-16 lg:py-24 flex flex-col justify-between lg:border-r lg:border-white/10 lg:pr-16">
+          <div className="py-10 md:py-16 lg:py-24 flex flex-col justify-between gap-6 lg:gap-0 lg:border-r lg:border-white/10 lg:pr-16">
             <div>
-              <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/30 mb-6 block">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/30 mb-4 md:mb-6 block">
                 Get in touch
               </span>
               <h2
-                className="text-white font-bold leading-tight tracking-tight mb-8 whitespace-pre-line"
-                style={{ fontSize: 'clamp(28px, 3.5vw, 44px)' }}
+                className="text-white font-bold leading-tight tracking-tight mb-6 md:mb-8 whitespace-pre-line"
+                style={{ fontSize: 'clamp(26px, 3.5vw, 44px)' }}
               >
                 {heading}
               </h2>
@@ -46,8 +46,8 @@ export function ServiceContactSection({
           </div>
 
           {/* ── Right — form ── */}
-          <div className="py-16 lg:py-24 lg:pl-16 border-t border-white/10 lg:border-t-0">
-            <h3 className="text-white font-semibold text-[15px] mb-8">Fill this form below</h3>
+          <div className="py-10 md:py-16 lg:py-24 lg:pl-16 border-t border-white/10 lg:border-t-0">
+            <h3 className="text-white font-semibold text-[15px] mb-6 md:mb-8">Fill this form below</h3>
 
             <div className="space-y-6">
               {(['Your Name', 'Your Email'] as const).map((placeholder) => (

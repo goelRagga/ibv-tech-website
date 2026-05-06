@@ -185,8 +185,7 @@ export function WhyChooseUsSection() {
         <img
           src="https://res.cloudinary.com/dm8jtnzdi/image/upload/q_auto/f_auto/v1776361851/BANNER_IMAGE_CHOOSe_US_uevvac.png"
           alt="Business collaboration"
-          className="w-full object-cover block"
-          style={{ height: 340 }}
+          className="w-full object-cover block h-[200px] md:h-[340px]"
         />
       </motion.div>
 
@@ -196,16 +195,16 @@ export function WhyChooseUsSection() {
         initial={{ opacity: 0, y: 24 }}
         animate={statsInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, ease: EASE }}
-        className="grid grid-cols-2 border-t border-black/[0.08]"
+        className="grid grid-cols-1 md:grid-cols-2 border-t border-black/[0.08]"
       >
-        <div className="py-4 px-3 border-r border-black/[0.08]">
+        <div className="py-4 px-3 border-b md:border-b-0 md:border-r border-black/[0.08]">
           <div
             className="text-black font-extrabold leading-none"
-            style={{ fontSize: 'clamp(48px,6vw,80px)' }}
+            style={{ fontSize: 'clamp(40px,6vw,80px)' }}
           >
             90%
           </div>
-          <div className="text-[18px] text-[#444] font-semibold mt-[6px]">
+          <div className="text-[16px] md:text-[18px] text-[#444] font-semibold mt-[6px]">
             Projects Delivered
           </div>
           <div className="text-body-sm text-[#888] mt-[4px] leading-[1.55]">
@@ -218,7 +217,7 @@ export function WhyChooseUsSection() {
             redWordCount={Math.ceil(statWords / 2)}
             triggered={statsInView}
             style={{
-              fontSize: 'clamp(16px, 2vw, 22px)',
+              fontSize: 'clamp(15px, 2vw, 22px)',
               fontWeight: 700,
               lineHeight: 1.4,
               display: 'block',
@@ -233,12 +232,12 @@ export function WhyChooseUsSection() {
         initial={{ opacity: 0, y: 24 }}
         animate={cardsInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}
-        className="grid grid-cols-4"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
       >
         {whyChooseUs.map((item, i) => (
           <div
             key={item.title}
-            className={`border-t border-black/[0.09] p-3${i > 0 ? ' border-l' : ''}`}
+            className={`border-t border-black/[0.09] p-3 ${i > 0 ? 'sm:[&:nth-child(odd)]:border-l-0 sm:border-l lg:border-l' : ''}`}
           >
             <div className="text-rainbow-red text-[11px] font-bold tracking-[0.06em] mb-[10px]">
               {item.number}
@@ -249,7 +248,7 @@ export function WhyChooseUsSection() {
             <p className="text-body-sm text-[#666] leading-[1.7] m-0">
               {item.desc}
             </p>
-            <div className="rounded-lg overflow-hidden mt-2 h-[150px]">
+            <div className="rounded-lg overflow-hidden mt-2 h-[180px] md:h-[150px]">
               <img src={item.image} alt="" className="w-full h-full object-cover block" />
             </div>
           </div>

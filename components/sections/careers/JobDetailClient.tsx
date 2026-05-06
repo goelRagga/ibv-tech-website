@@ -160,11 +160,11 @@ function JobApplyForm() {
 
 function BulletList({ items }: { items: string[] }) {
   return (
-    <ul className="space-y-1">
+    <ul className="space-y-1.5 md:space-y-1">
       {items.map((item, i) => (
         <li
           key={i}
-          className="flex items-start gap-2 font-inter text-[18px]  leading-tight text-[#444]"
+          className="flex items-start gap-2 font-inter text-[14px] md:text-[18px] leading-snug md:leading-tight text-[#444]"
         >
           <span className="mt-[7px] h-[4px] w-[4px] flex-shrink-0 rounded-full bg-[#333]" />
           {item}
@@ -183,8 +183,8 @@ export function JobDetailClient({ job }: { job: JobListing }) {
   return (
     <section>
       <Navbar />
-      <div className="mx-8 max-w-[1100px] flex flex-col lg:flex-row gap-16 items-start pt-10 pb-16">
-        <div className="flex items-center gap-1.5">
+      <div className="mx-4 md:mx-6 lg:mx-8 max-w-[1100px] flex flex-col lg:flex-row gap-6 lg:gap-16 items-start pt-8 md:pt-10 pb-12 md:pb-16">
+        <div className="flex items-center gap-1.5 flex-shrink-0">
           <span className="text-[#cc1f1f] text-[13px]">↳</span>
           <Link
             href="/careers"
@@ -194,7 +194,7 @@ export function JobDetailClient({ job }: { job: JobListing }) {
           </Link>
         </div>
 
-        <div className="flex flex-col  gap-12 lg:gap-12  ">
+        <div className="flex flex-col gap-8 md:gap-12 lg:gap-12 w-full">
           {/* ── COL 2: Job detail content ── */}
           <motion.div
             ref={contentRef}
@@ -203,7 +203,7 @@ export function JobDetailClient({ job }: { job: JobListing }) {
             transition={{ duration: 0.45, ease: "easeOut" }}
           >
             {/* Title */}
-            <h1 className="mb-3 font-hanken text-[36px] font-semibold leading-tight text-[#111112]">
+            <h1 className="mb-3 font-hanken text-[26px] md:text-[36px] font-semibold leading-tight text-[#111112]">
               {job.title}
             </h1>
 
@@ -229,21 +229,21 @@ export function JobDetailClient({ job }: { job: JobListing }) {
             </div>
 
             {/* Summary */}
-            <p className="mb-7  font-inter text-[18px] leading-relaxed text-[#444]"> 
+            <p className="mb-6 md:mb-7 font-inter text-[15px] md:text-[18px] leading-relaxed text-[#444]">
               {job.summary}
             </p>
 
             {/* Responsibilities */}
-            <div className="mb-7">
-              <h2 className="mb-3  font-inter text-[22px]  font-semibold text-[#111112]">
+            <div className="mb-6 md:mb-7">
+              <h2 className="mb-3 font-inter text-[18px] md:text-[22px] font-semibold text-[#111112]">
                 Responsibilities
               </h2>
               <BulletList items={job.responsibilities} />
             </div>
 
             {/* Required Qualifications */}
-            <div className="mb-7">
-              <h2 className="mb-3 font-inter text-[22px]  font-semibold text-[#111112]">
+            <div className="mb-6 md:mb-7">
+              <h2 className="mb-3 font-inter text-[18px] md:text-[22px] font-semibold text-[#111112]">
                 Required Qualifications
               </h2>
               <BulletList items={job.requirements} />
@@ -251,7 +251,7 @@ export function JobDetailClient({ job }: { job: JobListing }) {
 
             {/* What We Offer */}
             <div className="mb-2">
-              <h2 className="mb-3 font-inter text-[22px]  font-semibold text-[#111112]">
+              <h2 className="mb-3 font-inter text-[18px] md:text-[22px] font-semibold text-[#111112]">
                 What We Offer
               </h2>
               <BulletList items={job.whatWeOffer} />
@@ -259,7 +259,7 @@ export function JobDetailClient({ job }: { job: JobListing }) {
           </motion.div>
 
           {/* ── COL 3: Apply form (sticky) ── */}
-          <div className="w-[45vw]">
+          <div className="w-full lg:w-[45vw]">
             <JobApplyForm />
           </div>
         </div>

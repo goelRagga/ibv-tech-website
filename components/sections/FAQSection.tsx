@@ -94,7 +94,7 @@ export function FAQSection({
 
   return (
     <section className="bg-white">
-      <div className="max-w-[60vw] mx-auto px-6 pt-4 text-center">
+      <div className="max-w-full md:max-w-[80vw] lg:max-w-[60vw] mx-auto px-4 md:px-6 pt-6 md:pt-4 pb-8 md:pb-0 text-center">
         {/* Header */}
         <AnimateOnScroll>
           <span className="inline-block text-[12px] font-semibold tracking-[0.08em] uppercase text-rainbow-red mb-2">

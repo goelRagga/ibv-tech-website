@@ -147,53 +147,109 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: "100%" }}
       transition={{ type: "tween", duration: 0.28 }}
-      className="fixed inset-0 bg-[#0f0f10] z-[200] overflow-y-auto"
+      className="fixed inset-0 bg-[#0f0f10] z-[200] overflow-y-auto flex flex-col"
     >
-      <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
-        <IBVLogo />
-        <button onClick={onClose} className="text-white p-2"><X size={22} /></button>
+      {/* Header */}
+      <div className="flex items-center justify-between px-5 py-3 border-b border-white/10 flex-shrink-0">
+        <Link href="/" onClick={onClose} className="flex items-center">
+          <img src="/IBVLOGO.png" alt="IBV Logo" className="w-12 h-12 object-contain" />
+        </Link>
+        <button
+          onClick={onClose}
+          aria-label="Close menu"
+          className="text-white p-2 -mr-2 rounded-full hover:bg-white/5 transition-colors"
+        >
+          <X size={22} />
+        </button>
       </div>
-      <nav className="px-6 py-8 space-y-1">
+
+      {/* Nav */}
+      <nav className="flex-1 px-5 pt-3 pb-6 flex flex-col">
         {["services", "industry"].map((key) => (
-          <div key={key}>
+          <div key={key} className="border-b border-white/10">
             <button
-              className="w-full flex items-center justify-between py-4 text-white text-sm font-semibold uppercase tracking-wider border-b border-white/10"
+              className="w-full flex items-center justify-between py-4 text-white text-[13px] font-semibold uppercase tracking-[0.12em]"
               onClick={() => setOpenSection(openSection === key ? null : key)}
             >
               {key.charAt(0).toUpperCase() + key.slice(1)}
-              <ChevronDown size={15} className={`transition-transform ${openSection === key ? "rotate-180" : ""}`} />
+              <ChevronDown
+                size={16}
+                className={`transition-transform duration-200 ${openSection === key ? "rotate-180 text-[#E30A13]" : "text-white/60"}`}
+              />
             </button>
-            <AnimatePresence>
+            <AnimatePresence initial={false}>
               {openSection === key && (
                 <motion.div
-                  initial={{ height: 0 }}
-                  animate={{ height: "auto" }}
-                  exit={{ height: 0 }}
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
                   className="overflow-hidden"
                 >
-                  {key === "services"
-                    ? servicesMenu.map((g) => (
-                        <div key={g.category} className="py-3 pl-4 border-b border-white/5">
-                          <Link href={g.href} onClick={onClose} className="block text-[10px] text-[#E30A13] uppercase tracking-widest font-bold mb-2">{g.category}</Link>
-                          {g.items.map((it) => (
-                            <Link key={it.label} href={it.href} onClick={onClose} className="block py-1.5 text-sm text-white/50 hover:text-white">{it.label}</Link>
+                  <div className="pb-3">
+                    {key === "services"
+                      ? servicesMenu.map((g) => (
+                          <div key={g.category} className="py-3">
+                            <Link
+                              href={g.href}
+                              onClick={onClose}
+                              className="block text-[10px] text-[#E30A13] uppercase tracking-[0.18em] font-bold mb-2"
+                            >
+                              {g.category}
+                            </Link>
+                            <div className="flex flex-col">
+                              {g.items.map((it) => (
+                                <Link
+                                  key={it.label}
+                                  href={it.href}
+                                  onClick={onClose}
+                                  className="block py-1.5 text-[13px] text-white/60 hover:text-white transition-colors"
+                                >
+                                  {it.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        ))
+                      : (
+                        <div className="grid grid-cols-1 py-1">
+                          {industryMenu.map((it) => (
+                            <Link
+                              key={it.label}
+                              href={it.href}
+                              onClick={onClose}
+                              className="block py-2 text-[13px] text-white/60 hover:text-white transition-colors"
+                            >
+                              {it.label}
+                            </Link>
                           ))}
                         </div>
-                      ))
-                    : industryMenu.map((it) => (
-                        <Link key={it.label} href={it.href} onClick={onClose} className="block py-2 pl-4 text-sm text-white/50 hover:text-white border-b border-white/5">{it.label}</Link>
-                      ))
-                  }
+                      )
+                    }
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
         ))}
+
         {mainNav.map((item) => (
-          <Link key={item.label} href={item.href} onClick={onClose} className="block py-4 text-white text-sm font-semibold uppercase tracking-wider border-b border-white/10">{item.label}</Link>
+          <Link
+            key={item.label}
+            href={item.href}
+            onClick={onClose}
+            className="block py-4 text-white text-[13px] font-semibold uppercase tracking-[0.12em] border-b border-white/10"
+          >
+            {item.label}
+          </Link>
         ))}
-        <div className="pt-8">
-          <Link href="/contact" onClick={onClose} className="block w-full text-center bg-[#E30A13] text-white font-bold py-3 rounded-full text-sm uppercase tracking-wider hover:bg-red-700 transition-colors">
+
+        <div className="mt-6">
+          <Link
+            href="/contact"
+            onClick={onClose}
+            className="block w-full text-center bg-[#E30A13] text-white font-bold py-3.5 rounded-full text-[13px] uppercase tracking-[0.12em] hover:bg-red-700 transition-colors"
+          >
             Contact Us
           </Link>
         </div>

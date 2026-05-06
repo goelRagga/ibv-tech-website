@@ -55,22 +55,20 @@ export function FeaturedBlogCard({
       initial={{ opacity: 0, y: 28 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.75, ease: EASE }}
+      className="p-4 md:p-10"
       style={{
-        padding:"40px",
         background:"#111"
       }}
     >
       <Link href={href} className="group block">
         <div
+          className="grid grid-cols-1 lg:grid-cols-[55%_45%]"
           style={{
             background: "#222222",
             borderRadius: "16px",
             overflow: "hidden",
-            display: "grid",
-            gridTemplateColumns: "55% 45%",
             minHeight: "clamp(280px, 32vw, 400px)",
             border: "1px solid rgba(255,255,255,0.07)",
-            padding:"10"
           }}
         >
           {/* ── LEFT: text content ── */}
@@ -158,7 +156,10 @@ export function FeaturedBlogCard({
           </div>
 
           {/* ── RIGHT: image with inset on top/right/bottom ── */}
-          <div style={{ overflow: "hidden", position: "relative", padding: "12px 12px 12px 0" }}>
+          <div
+            className="order-first lg:order-none p-3 lg:pl-0 lg:py-3 lg:pr-3 h-[200px] lg:h-auto"
+            style={{ overflow: "hidden", position: "relative" }}
+          >
             <img
               src={image}
               alt={imageAlt || title}
