@@ -2,7 +2,7 @@
 
 export DOCKER_API_VERSION=1.43
 
-cd /home/ubuntu/ibv-technologies-website || exit
+cd /home/ubuntu/ibv-technologies-website 
 
 git pull
 
