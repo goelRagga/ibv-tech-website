@@ -1,9 +1,13 @@
 #!/bin/bash
-cd /home/ubuntu/ibv-technologies-website
-# /home/ubuntu/ibv-technologies-website
+
+cd /home/ubuntu/ibv-technologies-website || exit
+
 git pull
-#docker rm -f  ibv-technologies-website
-#docker build -t ibv-technologies-website:latest .
-#docker run -itd -p 80:3000 --name ibv-technologies-website ibv-technologies-website:latest
-sudo docker-compose up -d --build
-docker system prune -f --all
+
+export DOCKER_API_VERSION=1.43
+
+docker-compose down
+
+docker system prune -af
+
+docker-compose up -d --build

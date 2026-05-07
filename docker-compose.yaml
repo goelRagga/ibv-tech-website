@@ -1,20 +1,15 @@
 version: "3.8"
+
 services:
   ibv-technologies-website:
     image: ibv-technologies-website:latest
     restart: always
+
     build:
       context: .
       dockerfile: ./Dockerfile
+
     container_name: ibv-technologies-website
+
     ports:
-      - "3001:80"
-
-
-
-
-
-
-
-
-
+      - "3001:3000"
