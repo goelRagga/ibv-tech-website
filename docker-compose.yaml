@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-  bazm-web-admin:
+  ibv-technologies-website:
     image: ibv-technologies-website:latest
     restart: always
     build:
