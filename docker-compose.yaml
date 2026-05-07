@@ -8,7 +8,7 @@ services:
       dockerfile: ./Dockerfile
     container_name: ibv-technologies-website
     ports:
-      - "3000:80"
+      - "3001:80"
 
 
 
