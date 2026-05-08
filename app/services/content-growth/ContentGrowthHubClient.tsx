@@ -123,8 +123,8 @@ export function ContentGrowthHubClient() {
         defaultOpenStep="02"
       />
 
-      <BlogSection />
-      <TestimonialsSection />
+      {/* <BlogSection />
+      <TestimonialsSection /> */}
       <FAQSection faqs={contentFaqs} />
     </>
   );

@@ -131,8 +131,8 @@ export function ResearchAnalysisHubClient() {
         defaultOpenStep="02"
       />
 
-      <BlogSection />
-      <TestimonialsSection />
+      {/* <BlogSection />
+      <TestimonialsSection /> */}
       <FAQSection faqs={researchFaqs} />
     </>
   );

@@ -143,8 +143,8 @@ export function ConsultingHubClient() {
         defaultOpenStep="02"
       />
 
-      <BlogSection />
-      <TestimonialsSection />
+      {/* <BlogSection />
+      <TestimonialsSection /> */}
 
       {/* FAQ */}
       <FAQSection  faqs={consultingFaqs}/>
