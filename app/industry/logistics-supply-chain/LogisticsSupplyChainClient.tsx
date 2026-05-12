@@ -60,7 +60,7 @@ export function LogisticsSupplyChainClient() {
         tagline1="INDUSTRIES WE SERVE"
         headlineTitle="Logistics & Supply Chain"
         description="Efficiency Is Not an Option. We Make It Your Standard. Logistics depends on speed, accuracy, and visibility. We help businesses optimize operations and improve performance through data and technology."
-        backgroundImage="/HOMEPAGEBANNER.png"
+        backgroundImage="https://res.cloudinary.com/dm8jtnzdi/image/upload/q_auto/f_auto/v1778604659/IBV_Logistics_Supply_Chain_Banner_wfzpns.webp"
       />
 
       <ThreePillarsSection

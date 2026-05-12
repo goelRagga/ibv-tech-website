@@ -60,7 +60,7 @@ export function ITSoftwareClient() {
         tagline1="INDUSTRIES WE SERVE"
         headlineTitle="IT & Software"
         description="Built by Tech People. Delivered for Tech Businesses. We help technology companies scale faster with strong architecture, performance, and strategy."
-        backgroundImage="/HOMEPAGEBANNER.png"
+        backgroundImage="https://res.cloudinary.com/dm8jtnzdi/image/upload/q_auto/f_auto/v1778604658/IBV_IT_Software_Banner_vvpw3u.webp"
       />
 
       <ThreePillarsSection

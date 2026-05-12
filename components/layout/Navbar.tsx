@@ -248,7 +248,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
           <Link
             href="/contact"
             onClick={onClose}
-            className="block w-full text-center bg-[#E30A13] text-white font-bold py-3.5 rounded-full text-[13px] uppercase tracking-[0.12em] hover:bg-red-700 transition-colors"
+            className="block !w-fit text-center bg-[#E30A13] text-white font-bold py-3.5 rounded-full text-[13px] uppercase tracking-[0.12em] hover:bg-red-700 transition-colors"
           >
             Contact Us
           </Link>
@@ -318,7 +318,7 @@ export function Navbar() {
           <div className="hidden md:flex">
             <Link
               href="/contact"
-              className="bg-[#E30A13] hover:bg-red-700 transition-colors text-white font-bold text-sm px-7 py-2.5 rounded-full uppercase tracking-wide"
+              className="bg-[#E30A13] hover:bg-red-700 transition-colors text-white font-bold text-sm px-3 py-2.5 rounded-full uppercase tracking-wide"
             >
               Contact Us
             </Link>

@@ -60,7 +60,7 @@ export function EducationEdtechClient() {
         tagline1="INDUSTRIES WE SERVE"
         headlineTitle="Education & EdTech"
         description="Shaping the Future Starts With Smarter Learning Solutions. Education is evolving rapidly, and strong digital infrastructure is essential. We help institutions and platforms build engaging, scalable, and performance-driven learning environments."
-        backgroundImage="/HOMEPAGEBANNER.png"
+        backgroundImage="https://res.cloudinary.com/dm8jtnzdi/image/upload/q_auto/f_auto/v1778604658/IBV_Education_EdTech_Banner_vh0nnv.webp"
       />
 
       <ThreePillarsSection

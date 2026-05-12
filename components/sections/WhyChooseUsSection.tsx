@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
 const whyChooseUs = [
   {
@@ -93,17 +93,29 @@ function SweepText({
 }
 
 export function WhyChooseUsSection() {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const imgRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<HTMLDivElement>(null);
+  const heroRef        = useRef<HTMLDivElement>(null);
+  const imgRef         = useRef<HTMLDivElement>(null);
+  const statsRef       = useRef<HTMLDivElement>(null);
+  const cardsScrollRef = useRef<HTMLDivElement>(null);
 
-  const heroInView = useInView(heroRef);
-  const imgInView = useInView(imgRef, 0.2);
+  const heroInView  = useInView(heroRef);
+  const imgInView   = useInView(imgRef, 0.2);
   const statsInView = useInView(statsRef);
-  const cardsInView = useInView(cardsRef);
 
-  const EASE = [0.22, 1, 0.36, 1] as const;
+  const EASE   = [0.22, 1, 0.36, 1] as const;
+  const PEEK_Y = 370;
+
+  // Scroll-driven reveals — start at 0.12 so there's a visible "peek" pause
+  // before the user scrolls far enough to trigger each card.
+  const { scrollYProgress } = useScroll({
+    target: cardsScrollRef,
+    offset: ['start start', 'end end'],
+  });
+  const SP = { stiffness: 55, damping: 18 };
+  const y2 = useSpring(useTransform(scrollYProgress, [0.12, 0.40], [PEEK_Y, 0]), SP);
+  const y3 = useSpring(useTransform(scrollYProgress, [0.45, 0.68], [PEEK_Y, 0]), SP);
+  const y4 = useSpring(useTransform(scrollYProgress, [0.73, 0.95], [PEEK_Y, 0]), SP);
+  const yValues = [0, y2, y3, y4] as const;
 
   const heroText =
     'We craft strategic and data-driven approaches that increase visibility, generate quality leads, and drive sustainable business growth.';
@@ -113,7 +125,7 @@ export function WhyChooseUsSection() {
   const statWords = statText.split(' ').length;
 
   return (
-    <section className="bg-white overflow-hidden">
+    <section className="bg-white" style={{ overflowX: 'clip' }}>
       {/* ── TOP HERO: centered text + clients ── */}
       <motion.div
         ref={heroRef}
@@ -226,34 +238,39 @@ export function WhyChooseUsSection() {
         </div>
       </motion.div>
 
-      {/* ── 4 CARDS ── */}
-      <motion.div
-        ref={cardsRef}
-        initial={{ opacity: 0, y: 24 }}
-        animate={cardsInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
-      >
-        {whyChooseUs.map((item, i) => (
-          <div
-            key={item.title}
-            className={`border-t border-black/[0.09] p-3 ${i > 0 ? 'sm:[&:nth-child(odd)]:border-l-0 sm:border-l lg:border-l' : ''}`}
-          >
-            <div className="text-rainbow-red text-[11px] font-bold tracking-[0.06em] mb-[10px]">
-              {item.number}
-            </div>
-            <div className="text-body-lg font-bold text-[#111] mb-[10px] leading-[1.35]">
-              {item.title}
-            </div>
-            <p className="text-body-sm text-[#666] leading-[1.7] m-0">
-              {item.desc}
-            </p>
-            <div className="rounded-lg overflow-hidden mt-2 h-[180px] md:h-[150px]">
-              <img src={item.image} alt="" className="w-full h-full object-cover block" />
-            </div>
+      {/* ── 4 CARDS: scroll-driven reveal inside each cell ──
+          300vh container gives ~200vh of active scroll (~65vh per card).
+          Cards 2-4 start at y=PEEK_Y so only their top ~44px peeks.
+          Animation starts at 12% scroll progress — user must scroll first. */}
+      <div ref={cardsScrollRef} style={{ height: '300vh', position: 'relative' }}>
+        <div style={{ position: 'sticky', top: 0 }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+            {whyChooseUs.map((item, i) => (
+              <div
+                key={item.title}
+                className={`border-t border-black/[0.09] overflow-hidden ${
+                  i > 0 ? 'sm:[&:nth-child(odd)]:border-l-0 sm:border-l lg:border-l' : ''
+                }`}
+              >
+                <motion.div className="p-3" style={{ y: yValues[i] }}>
+                  <div className="text-rainbow-red text-[11px] font-bold tracking-[0.06em] mb-[10px]">
+                    {item.number}
+                  </div>
+                  <div className="text-body-lg font-bold text-[#111] mb-[10px] leading-[1.35]">
+                    {item.title}
+                  </div>
+                  <p className="text-body-sm text-[#666] leading-[1.7] m-0">
+                    {item.desc}
+                  </p>
+                  <div className="rounded-lg overflow-hidden mt-2 h-[180px] md:h-[150px]">
+                    <img src={item.image} alt="" className="w-full h-full object-cover block" />
+                  </div>
+                </motion.div>
+              </div>
+            ))}
           </div>
-        ))}
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 }

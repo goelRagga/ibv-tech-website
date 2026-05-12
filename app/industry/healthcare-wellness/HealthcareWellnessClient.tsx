@@ -60,7 +60,7 @@ export function HealthcareWellnessClient() {
         tagline1="INDUSTRIES WE SERVE"
         headlineTitle="Healthcare & Wellness"
         description="Technology That Cares As Much As You Do. Healthcare demands precision, trust, and reliability. We help organizations build secure, compliant, and user-friendly solutions that improve outcomes and patient engagement."
-        backgroundImage="/HOMEPAGEBANNER.png"
+        backgroundImage="https://res.cloudinary.com/dm8jtnzdi/image/upload/q_auto/f_auto/v1778604658/IBV_Healthcare_Life_Wellness_Banner_miu2tp.webp"
       />
 
       <ThreePillarsSection

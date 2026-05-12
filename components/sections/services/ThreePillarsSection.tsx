@@ -1,7 +1,71 @@
 'use client';
 
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
+
+function ImageZoomCard({
+  image,
+  children,
+  style,
+  className,
+  motionProps,
+}: {
+  image: string;
+  children: React.ReactNode;
+  style?: React.CSSProperties;
+  className?: string;
+  motionProps?: React.ComponentProps<typeof motion.div>;
+}) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const imgRef = useRef<HTMLDivElement>(null);
+
+  const updateOrigin = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current || !imgRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    imgRef.current.style.transformOrigin = `${x}% ${y}%`;
+  }, []);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    updateOrigin(e);
+  }, [updateOrigin]);
+
+  const handleMouseEnter = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    updateOrigin(e);
+    if (imgRef.current) imgRef.current.style.transform = 'scale(1.15)';
+  }, [updateOrigin]);
+
+  const handleMouseLeave = useCallback(() => {
+    if (imgRef.current) imgRef.current.style.transform = 'scale(1)';
+  }, []);
+
+  return (
+    <motion.div
+      {...motionProps}
+      ref={cardRef}
+      className={className}
+      style={style}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div
+        ref={imgRef}
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `url("${image}")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          transition: 'transform 0.55s cubic-bezier(0.22,1,0.36,1)',
+          transform: 'scale(1)',
+          transformOrigin: '50% 50%',
+        }}
+      />
+      {children}
+    </motion.div>
+  );
+}
 
 export type PillarType = 'red' | 'image' | 'dark';
 
@@ -131,28 +195,10 @@ export function ThreePillarsSection({
             const descColor =
               p.type === 'red' ? 'rgba(255,255,255,0.82)' : 'rgba(255,255,255,0.72)';
 
-            return (
-              <motion.div
-                key={p.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, ease: EASE, delay: 0.1 + i * 0.1 }}
-                className="relative overflow-hidden h-full"
-                style={{
-                  ...bgStyle,
-                  borderRadius: '12px',
-                }}
-              >
-                {/* Dark overlay for image card */}
-                {p.type === 'image' && (
-                  <div
-                    className="absolute inset-0"
-                    style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.62) 100%)' }}
-                  />
-                )}
-
+            const cardContent = (
+              <>
                 {/* Card content */}
-                <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-7">
+                <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-7" style={{ zIndex: 1 }}>
                   <div
                     className="font-bold"
                     style={{ fontSize: '14px', color: numberColor, letterSpacing: '0.06em' }}
@@ -175,6 +221,42 @@ export function ThreePillarsSection({
                     </p>
                   </div>
                 </div>
+              </>
+            );
+
+            if (p.type === 'image' && p.image) {
+              return (
+                <ImageZoomCard
+                  key={p.title}
+                  image={p.image}
+                  className="relative overflow-hidden h-full"
+                  style={{ borderRadius: '12px' }}
+                  motionProps={{
+                    initial: { opacity: 0, y: 30 },
+                    animate: inView ? { opacity: 1, y: 0 } : {},
+                    transition: { duration: 0.8, ease: EASE, delay: 0.1 + i * 0.1 },
+                  }}
+                >
+                  {/* Dark overlay */}
+                  <div
+                    className="absolute inset-0"
+                    style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.62) 100%)', zIndex: 1 }}
+                  />
+                  {cardContent}
+                </ImageZoomCard>
+              );
+            }
+
+            return (
+              <motion.div
+                key={p.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, ease: EASE, delay: 0.1 + i * 0.1 }}
+                className="relative overflow-hidden h-full"
+                style={{ ...bgStyle, borderRadius: '12px' }}
+              >
+                {cardContent}
               </motion.div>
             );
           })}

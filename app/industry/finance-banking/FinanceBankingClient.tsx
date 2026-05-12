@@ -60,7 +60,7 @@ export function FinanceBankingClient() {
         tagline1="INDUSTRIES WE SERVE"
         headlineTitle="Finance & Banking"
         description="Precision, Security, and Intelligence — Built Into Every Solution. Finance demands accuracy, compliance, and trust. We help institutions build secure, data-driven systems that improve performance and customer experience."
-        backgroundImage="/HOMEPAGEBANNER.png"
+        backgroundImage="https://res.cloudinary.com/dm8jtnzdi/image/upload/q_auto/f_auto/v1778604658/IBV_Finance_Banking_Banner_lx08i4.webp"
       />
 
       <ThreePillarsSection

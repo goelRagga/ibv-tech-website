@@ -5,6 +5,63 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useMediaQuery } from "react-responsive";
 
+// ─── Vertical rain lines ──────────────────────────────────────────────────────
+const RAIN_LINES = [
+  { delay: 0.0, duration: 2.8 },
+  { delay: 1.4, duration: 3.2 },
+  { delay: 0.7, duration: 2.5 },
+  { delay: 2.1, duration: 3.0 },
+  { delay: 0.4, duration: 2.7 },
+];
+
+function VerticalRainLines() {
+  const count = RAIN_LINES.length;
+  return (
+    <div
+      className="absolute inset-0 pointer-events-none"
+      style={{ zIndex: 6 }}
+      aria-hidden="true"
+    >
+      {RAIN_LINES.map((cfg, i) => {
+        const pct = (i / (count - 1)) * 100;
+        return (
+          <div
+            key={i}
+            style={{
+              position: "absolute",
+              top: 0,
+              bottom: 0,
+              left: `${pct}%`,
+              width: 1,
+              background: "rgba(255,255,255,0.13)",
+              overflow: "hidden",
+            }}
+          >
+            <motion.div
+              style={{
+                position: "absolute",
+                left: 0,
+                width: "100%",
+                height: "18vh",
+                background:
+                  "linear-gradient(to bottom, transparent 0%, rgba(220,38,38,0.0) 10%, rgba(220,38,38,0.85) 50%, rgba(220,38,38,0.4) 80%, transparent 100%)",
+              }}
+              animate={{ y: ["-18vh", "100vh"] }}
+              transition={{
+                duration: cfg.duration,
+                delay: cfg.delay,
+                repeat: Infinity,
+                ease: "linear",
+                repeatDelay: 0.4,
+              }}
+            />
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 // ─── Animation variants ───────────────────────────────────────────────────────
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -70,6 +127,7 @@ export function HubPageHeroSection({
         }}
       />
 
+      <VerticalRainLines />
 
       {/* ── Content wrapper ── */}
       <div className="relative z-10 flex flex-col h-full">
@@ -118,7 +176,7 @@ export function HubPageHeroSection({
           <motion.h1
             {...fadeUp(0.32)}
             className="text-white font-bold leading-tight absolute left-0 right-0 w-[100%] tracking-tight flex justify-center px-4 md:px-0 text-center md:text-left"
-            style={{ fontSize: `clamp(35px, 9vw, ${maxHeight})`, letterSpacing: "-0.025em", fontFamily: "var(--font-serif)", alignSelf: "end", justifySelf: "end", bottom: isMobile ? "-5px":"-20px" }}
+            style={{ fontSize: `clamp(35px, 9vw, ${maxHeight})`, letterSpacing: "-0.025em", fontFamily: "var(--font-serif)", alignSelf: "end", justifySelf: "end", bottom: isMobile ? "-5px":"-34px" }}
           >
             {headlineTitle}
           </motion.h1>

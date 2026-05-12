@@ -7,57 +7,23 @@ import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 /* ── Info Strip ──────────────────────────────────────────────────────────────── */
 function InfoStrip() {
   const items = [
-    {
-      label: "Email",
-      value: "hr@ibv.in",
-      icon: (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E30A13" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="2" y="4" width="20" height="16" rx="2" />
-          <path d="M2 7l10 7 10-7" />
-        </svg>
-      ),
-    },
-    {
-      label: "Phone",
-      value: "+91 80558029655",
-      icon: (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E30A13" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.81 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z" />
-        </svg>
-      ),
-    },
-    {
-      label: "Location",
-      value: "H-28, Shanti Kishan Villa, 3rd Floor\nSiddhi Colony, Raja Park,\nJaipur, Rajasthan, India – 302016",
-      icon: (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E30A13" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-          <circle cx="12" cy="9" r="2.5" />
-        </svg>
-      ),
-    },
+    { label: "Email",    value: "hr@ibvt.in" },
+    { label: "Phone",    value: "+ 91 8058826666" },
+    { label: "Location", value: "H-28, Shanti Kishan Villa,\n3rd Floor Sindhi Colony, Raja Park,\nJaipur, Rajasthan, India - 302016" },
   ];
 
   return (
-    <section className="bg-[#f7f7f7] py-8 md:py-10 px-4 md:px-8">
+    <section className="bg-white py-8 md:py-10 px-4 md:px-8">
       <AnimateOnScroll>
-        <div className="max-w-[95vw] mx-auto grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
-          {items.map((item) => (
-            <div
-              key={item.label}
-              className="bg-white rounded-xl p-4 md:p-6 border border-[#E8E8E8] flex flex-col gap-3"
-            >
-              <div className="flex items-center gap-2">
-                {item.icon}
-                <span className="text-[11px] uppercase tracking-[0.14em] font-bold text-[#999]">
-                  {item.label}
-                </span>
+        <div className="max-w-[95vw] mx-auto">
+          <div className="border border-[#e8e8e8] bg-[#F6F6F8] rounded-2xl grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#e8e8e8] overflow-hidden">
+            {items.map((item) => (
+              <div key={item.label} className="flex flex-col items-center justify-center text-center py-4 px-4 gap-2">
+                <span className="font-bold text-[#111112] text-[15px]">{item.label}</span>
+                <p className="text-[#55555B] text-[13px] font-semibold leading-relaxed whitespace-pre-line">{item.value}</p>
               </div>
-              <p className="text-[#111112] font-medium text-sm leading-relaxed whitespace-pre-line">
-                {item.value}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </AnimateOnScroll>
     </section>
@@ -66,7 +32,7 @@ function InfoStrip() {
 
 /* ── Field styles (light theme) ─────────────────────────────────────────────── */
 const fieldCls =
-  "w-full bg-transparent pb-2 text-sm text-[#111] placeholder:text-[#bbb] border-b border-[#ddd] focus:outline-none focus:border-[#E30A13] transition-colors duration-200";
+  "w-full bg-white rounded-xl px-4 py-3.5 text-[14px] text-[#111] placeholder:text-[#aaa] border border-[#e0e0e0] focus:outline-none focus:border-[#E30A13] transition-colors duration-200";
 
 /* ── Form Section ────────────────────────────────────────────────────────────── */
 function FormSection() {
@@ -111,7 +77,7 @@ function FormSection() {
                   {
                     label: "Direct Communication",
                     icon: (
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E30A13" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#E30A13" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.81 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z" />
                       </svg>
                     ),
@@ -119,7 +85,7 @@ function FormSection() {
                   {
                     label: "Focused Problem Solving",
                     icon: (
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E30A13" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#E30A13" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M12 2a7 7 0 017 7c0 2.5-1.5 4.5-3 6l-1 3H9l-1-3C6.5 13.5 5 11.5 5 9a7 7 0 017-7z" />
                         <line x1="9" y1="21" x2="15" y2="21" />
                       </svg>
@@ -127,10 +93,10 @@ function FormSection() {
                   },
                 ].map(({ label, icon }) => (
                   <div key={label} className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full border-2 border-[#E30A13] flex items-center justify-center flex-shrink-0">
+                    <div className="w-9 h-9 rounded-full border-2 border-[#E30A13]  bg-[#E20A13]/10 flex items-center justify-center flex-shrink-0">
                       {icon}
                     </div>
-                    <span className="text-[#111] font-semibold text-sm">{label}</span>
+                    <span className="text-[#111] font-semibold text-2xl font-serif">{label}</span>
                   </div>
                 ))}
               </div>
@@ -139,9 +105,9 @@ function FormSection() {
 
           {/* ── Right panel: form card ── */}
           <AnimateOnScroll delay={0.1}>
-            <div className="bg-white border border-[#E8E8E8] rounded-2xl p-5 md:p-8 shadow-sm">
+            <div className="bg-[#f5f5f5] rounded-2xl border border-[#e8e8e8] p-6 md:p-8">
               {submitted ? (
-                <div className="flex flex-col items-center justify-center py-12 text-center">
+                <div className="flex flex-col items-center justify-center py-16 text-center">
                   <div className="w-14 h-14 rounded-full bg-[#E30A13] flex items-center justify-center mb-5">
                     <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -152,20 +118,23 @@ function FormSection() {
                 </div>
               ) : (
                 <>
-                  <h3 className="text-[18px] font-bold text-[#111112] mb-1">
+                  <h3
+                    className="font-bold text-[#111112] leading-tight mb-2"
+                    style={{ fontSize: "clamp(24px, 2.8vw, 34px)" }}
+                  >
                     Schedule a Consultation Now
                   </h3>
-                  <p className="text-[#999] text-[12px] mb-7 leading-relaxed">
+                  <p className="text-[#444] text-[14px] leading-relaxed mb-8 max-w-[480px]">
                     Tell us about your requirements or challenges. We&apos;ll review it and get back with the right next steps.
                   </p>
 
                   <form
                     onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
-                    className="flex flex-col gap-6"
+                    className="flex flex-col gap-4"
                   >
                     <input
                       type="text"
-                      placeholder="Full Name"
+                      placeholder="Full Name*"
                       required
                       className={fieldCls}
                       value={form.name}
@@ -174,7 +143,7 @@ function FormSection() {
 
                     <input
                       type="email"
-                      placeholder="Email Address"
+                      placeholder="Email Address*"
                       required
                       className={fieldCls}
                       value={form.email}
@@ -183,18 +152,19 @@ function FormSection() {
 
                     <input
                       type="tel"
-                      placeholder="Phone Number"
+                      placeholder="Phone Number*"
                       className={fieldCls}
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
                     />
 
                     <select
-                      className={`${fieldCls} cursor-pointer`}
+                      className={`${fieldCls} cursor-pointer appearance-none`}
                       value={form.service}
                       onChange={(e) => setForm({ ...form, service: e.target.value })}
+                      style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23aaa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 14px center' }}
                     >
-                      <option value="" disabled>How can we help you?</option>
+                      <option value="" disabled>How can we help you?*</option>
                       {helpOptions.map((o) => (
                         <option key={o} value={o}>{o}</option>
                       ))}
@@ -202,23 +172,23 @@ function FormSection() {
 
                     <textarea
                       placeholder="Message*"
-                      rows={3}
+                      rows={6}
                       className={`${fieldCls} resize-none`}
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
                     />
 
-                    <label className="flex items-start gap-2 cursor-pointer">
+                    <label className="flex items-center gap-2.5 cursor-pointer mt-1">
                       <input
                         type="checkbox"
                         required
                         checked={form.agreed}
                         onChange={(e) => setForm({ ...form, agreed: e.target.checked })}
-                        className="mt-0.5 accent-[#E30A13]"
+                        className="w-4 h-4 accent-[#E30A13] cursor-pointer"
                       />
-                      <span className="text-[11px] text-[#888] leading-snug">
+                      <span className="text-[13px] text-[#333] leading-snug">
                         I agree to the{" "}
-                        <a href="/terms" className="text-[#E30A13] underline">
+                        <a href="/terms" className="underline text-[#111]">
                           terms and conditions
                         </a>
                         .
@@ -227,13 +197,13 @@ function FormSection() {
 
                     <button
                       type="submit"
-                      className="w-full bg-[#E30A13] hover:bg-[#c50910] transition-colors text-white font-semibold text-sm py-3 rounded-full"
+                      className="self-start bg-[#E30A13] hover:bg-[#c50910] transition-colors text-white font-semibold text-[15px] px-10 py-3.5 rounded-full mt-2"
                     >
                       Send Message
                     </button>
 
-                    <p className="text-[#bbb] text-[10px] text-center">
-                      * We usually respond within 48–72 hours.
+                    <p className="text-[#E30A13] text-[12px] font-mono mt-2">
+                      * We usually respond within 48-72 hours.
                     </p>
                   </form>
                 </>

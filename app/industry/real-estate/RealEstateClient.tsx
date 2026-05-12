@@ -60,7 +60,7 @@ export function RealEstateClient() {
         tagline1="INDUSTRIES WE SERVE"
         headlineTitle="Real Estate"
         description="From Listings to Leads — We Build What Moves Property. Real estate is evolving with digital tools. We help businesses generate leads, improve visibility, and convert interest into transactions."
-        backgroundImage="/HOMEPAGEBANNER.png"
+        backgroundImage="https://res.cloudinary.com/dm8jtnzdi/image/upload/q_auto/f_auto/v1778604660/IBV_Real_Estate_Banner_c6ab0c.webp"
       />
 
       <ThreePillarsSection

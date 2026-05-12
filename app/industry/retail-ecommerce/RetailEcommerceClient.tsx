@@ -60,7 +60,7 @@ export function RetailEcommerceClient() {
         tagline1="INDUSTRIES WE SERVE"
         headlineTitle="Retail & E-commerce"
         description="Sell Smarter. Grow Faster. Retain Longer. Retail and e-commerce move fast, and customer expectations evolve even faster. We help businesses adapt with data-driven insights, high-performance platforms, and strategies built to convert and retain."
-        backgroundImage="/HOMEPAGEBANNER.png"
+        backgroundImage="https://res.cloudinary.com/dm8jtnzdi/image/upload/q_auto/f_auto/v1778604659/IBV_Retail_E-commerce_Banner_qi79ip.webp"
       />
 
       <ThreePillarsSection

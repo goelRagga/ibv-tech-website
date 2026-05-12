@@ -60,7 +60,7 @@ export function MediaMarketingClient() {
         tagline1="INDUSTRIES WE SERVE"
         headlineTitle="Media & Marketing"
         description="Creative Vision Backed by Strategic Intelligence. We combine creativity and data to build campaigns that deliver measurable impact."
-        backgroundImage="/HOMEPAGEBANNER.png"
+        backgroundImage="https://res.cloudinary.com/dm8jtnzdi/image/upload/q_auto/f_auto/v1778604659/IBV_Media_Marketing_Banner_erc54s.webp"
       />
 
       <ThreePillarsSection

@@ -16,6 +16,6 @@ export default function Page() {
         dark={false}
       />
       <ContactSection />
-    </>
+    </> 
   );
 }
