@@ -214,7 +214,7 @@ export function WhyChooseUsSection() {
             className="text-black font-extrabold leading-none"
             style={{ fontSize: 'clamp(40px,6vw,80px)' }}
           >
-            90%
+            98%
           </div>
           <div className="text-[16px] md:text-[18px] text-[#444] font-semibold mt-[6px]">
             Projects Delivered

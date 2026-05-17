@@ -5,7 +5,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-/* IBV Technologies — H-28, Siddhi Colony, Raja Park, Jaipur */
+/* IBV Technologies — H-228, Siddhi Colony, Raja Park, Jaipur */
 const LAT = 26.9015;
 const LNG = 75.7873;
 
@@ -60,7 +60,7 @@ export default function MapComponent() {
         <Popup>
           <strong>IBV Technologies Pvt. Ltd.</strong>
           <br />
-          H-28, Shanti Kishan Villa, 3rd Floor
+          H-228, Shanti Kishan Villa, 3rd Floor
           <br />
           Siddhi Colony, Raja Park
           <br />

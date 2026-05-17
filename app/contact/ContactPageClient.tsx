@@ -9,7 +9,7 @@ function InfoStrip() {
   const items = [
     { label: "Email",    value: "hr@ibvt.in" },
     { label: "Phone",    value: "+ 91 8058826666" },
-    { label: "Location", value: "H-28, Shanti Kishan Villa,\n3rd Floor Sindhi Colony, Raja Park,\nJaipur, Rajasthan, India - 302016" },
+    { label: "Location", value: "H-228, Shanti Kishan Villa,\n3rd Floor Sindhi Colony, Raja Park,\nJaipur, Rajasthan, India - 302016" },
   ];
 
   return (
@@ -222,7 +222,7 @@ function MapSection() {
   return (
     <section className="w-full h-[320px] md:h-[460px]">
       <iframe
-        src="https://maps.google.com/maps?q=H-28+Siddhi+Colony+Raja+Park+Jaipur+Rajasthan+302016+India&output=embed&z=15"
+        src="https://maps.google.com/maps?q=H-228+Siddhi+Colony+Raja+Park+Jaipur+Rajasthan+302016+India&output=embed&z=15"
         width="100%"
         height="100%"
         className="block w-full h-full"
